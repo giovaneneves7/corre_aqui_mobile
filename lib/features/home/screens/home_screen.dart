@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 _buildCategoryCard(Icons.restaurant, 'Alimentos'),
                 _buildCategoryCard(Icons.devices_other, 'Equipamentos'),
-                _buildCategoryCard(Icons.shirt, 'Roupas'),
+                _buildCategoryCard(Icons.checkroom, 'Roupas'),
                 _buildCategoryCard(Icons.chair, 'Móveis'),
               ],
             ),
