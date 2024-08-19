@@ -51,7 +51,7 @@ class _PostSplashScreenState extends State<PostSplashScreen> {
                   Get.to(HomeScreen());
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange, // fundo
+                  backgroundColor: Color(0xFFff0000), // fundo
                   foregroundColor: Colors.white, // texto
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
