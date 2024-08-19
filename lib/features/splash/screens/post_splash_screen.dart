@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:corre_aqui/util/images.dart';
 import 'package:corre_aqui/features/home/screens/home_screen.dart';
-
+import 'package:corre_aqui/features/auth/screens/login_screen.dart';
+s
 class PostSplashScreen extends StatefulWidget {
   @override
   _PostSplashScreenState createState() => _PostSplashScreenState();
@@ -66,7 +67,7 @@ class _PostSplashScreenState extends State<PostSplashScreen> {
               SizedBox(height: 10),
               TextButton(
                 onPressed: () {
-                  // Adicione a ação do botão aqui
+                  Get.to(LoginScreen());
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
