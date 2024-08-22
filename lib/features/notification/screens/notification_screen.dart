@@ -9,7 +9,7 @@ class NotificationScreen extends StatefulWidget {
 }
 
 class _NotificationScreenState extends State<NotificationScreen> {
-  int _currentIndex = 8; // Index for the current screen in the bottom navigation
+  int _currentIndex = 0; // Index for the current screen in the bottom navigation
 
   void _onTabTapped(int index) {
     setState(() {

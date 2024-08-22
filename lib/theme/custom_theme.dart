@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class CustomTheme {
   static const Color primaryColor = Color(0xFFFF0000); // Vermelho
   static const Color secondaryColor = Color(0xFFff5e00); // Laranja
-  static const Color backgroundColor = Color(0xFFFF0000); // Vermelho
-  static const Color textColor = Color(0xFFffffff); // Branco
+  static const Color backgroundColor = Color(0xFFffffff); // Vermelho
+  static const Color textColor = Color(0xFF000000); // Preto
 
   // Tema claro
   static ThemeData get lightTheme {
