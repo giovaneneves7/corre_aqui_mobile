@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:corre_aqui/common/widgets/custom_bottom_navigation_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -6,6 +7,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,30 +90,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Theme.of(context).iconTheme.color),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart, color: Theme.of(context).iconTheme.color),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.location_pin, color: Theme.of(context).colorScheme.primary),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite, color: Theme.of(context).iconTheme.color),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: Theme.of(context).iconTheme.color),
-            label: '',
-          ),
-        ],
+      bottomNavigationBar: CustomBottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
       ),
     );
   }
