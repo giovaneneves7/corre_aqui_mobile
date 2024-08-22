@@ -3,12 +3,12 @@ import 'package:corre_aqui/features/notification/widgets/section_title.dart';
 import 'package:corre_aqui/features/notification/widgets/notification_tile.dart';
 import 'package:corre_aqui/common/widgets/custom_bottom_navigation_bar.dart';
 
-class NotificationsScreen extends StatefulWidget {
+class NotificationScreen extends StatefulWidget {
   @override
-  _NotificationsScreenState createState() => _NotificationsScreenState();
+  _NotificationScreenState createState() => _NotificationScreenState();
 }
 
-class _NotificationsScreenState extends State<NotificationsScreen> {
+class _NotificationScreenState extends State<NotificationScreen> {
   int _currentIndex = 8; // Index for the current screen in the bottom navigation
 
   void _onTabTapped(int index) {
