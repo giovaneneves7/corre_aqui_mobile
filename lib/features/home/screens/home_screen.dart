@@ -9,21 +9,21 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         elevation: 0,
-        leading: Icon(Icons.location_on, color: Colors.orange),
+        leading: Icon(Icons.location_on, color: Theme.of(context).colorScheme.secondary),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("CorreAqui", style: TextStyle(color: Colors.blue)),
-            Text("Av. Raimundo Bonfim, N° 520", style: TextStyle(color: Colors.grey, fontSize: 12)),
+            Text("CorreAqui", style: Theme.of(context).textTheme.bodyText1),
+            Text("Av. Raimundo Bonfim, N° 520", style: Theme.of(context).textTheme.bodyText2),
           ],
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications, color: Colors.grey),
+            icon: Icon(Icons.notifications, color: Theme.of(context).iconTheme.color),
             onPressed: () {},
           ),
         ],
@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             TextField(
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search, color: Colors.grey),
+                prefixIcon: Icon(Icons.search, color: Theme.of(context).iconTheme.color),
                 hintText: 'Pesquise Qualquer Coisa...',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
-                  image: AssetImage('assets/images/promo.jpg'), // Substitua pelo seu caminho de imagem
+                  image: AssetImage('assets/images/promo.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -56,15 +56,11 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text(
                 'Bom fim de semana\n25% OFF\n*para Todos os Itens*',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: Theme.of(context).textTheme.headline6?.copyWith(color: Colors.white),
               ),
             ),
             SizedBox(height: 20),
-            Text("Categorias", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            Text("Categorias", style: Theme.of(context).textTheme.headline6),
             SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -76,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             SizedBox(height: 20),
-            Text("Popular", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            Text("Popular", style: Theme.of(context).textTheme.headline6),
             SizedBox(height: 10),
             _buildPopularItem(),
             SizedBox(height: 10),
@@ -88,23 +84,23 @@ class _HomeScreenState extends State<HomeScreen> {
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.grey),
+            icon: Icon(Icons.home, color: Theme.of(context).iconTheme.color),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart, color: Colors.grey),
+            icon: Icon(Icons.shopping_cart, color: Theme.of(context).iconTheme.color),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.location_pin, color: Colors.red),
+            icon: Icon(Icons.location_pin, color: Theme.of(context).colorScheme.primary),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite, color: Colors.grey),
+            icon: Icon(Icons.favorite, color: Theme.of(context).iconTheme.color),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: Colors.grey),
+            icon: Icon(Icons.person, color: Theme.of(context).iconTheme.color),
             label: '',
           ),
         ],
@@ -119,13 +115,13 @@ class _HomeScreenState extends State<HomeScreen> {
           width: 60,
           height: 60,
           decoration: BoxDecoration(
-            color: Colors.grey[200],
+            color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Icon(icon, size: 30, color: Colors.blue),
+          child: Icon(icon, size: 30, color: Theme.of(context).colorScheme.primary),
         ),
         SizedBox(height: 5),
-        Text(title, style: TextStyle(fontSize: 14)),
+        Text(title, style: Theme.of(context).textTheme.bodyText1),
       ],
     );
   }
@@ -134,21 +130,17 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       height: 100,
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(8),
         image: DecorationImage(
-          image: AssetImage('assets/images/promo.jpg'), // Substitua pelo seu caminho de imagem
+          image: AssetImage('assets/images/promo.jpg'),
           fit: BoxFit.cover,
         ),
       ),
       alignment: Alignment.center,
       child: Text(
         'Popular Item',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-        ),
+        style: Theme.of(context).textTheme.bodyText1?.copyWith(color: Colors.white),
       ),
     );
   }
