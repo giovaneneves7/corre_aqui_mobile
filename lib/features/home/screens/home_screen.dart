@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:corre_aqui/common/widgets/custom_bottom_navigation_bar.dart';
+import 'package:corre_aqui/helper/route_helper.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -34,7 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             icon: Icon(Icons.notifications, color: Theme.of(context).iconTheme.color),
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(RouteHelper.getNotificationScreen());
+            },
           ),
         ],
       ),
