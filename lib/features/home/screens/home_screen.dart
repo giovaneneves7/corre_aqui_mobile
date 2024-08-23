@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:corre_aqui/common/widgets/custom_bottom_navigation_bar.dart';
 import 'package:corre_aqui/helper/route_helper.dart';
+import 'package:corre_aqui/features/offer-map/screens/offer_map_screen.dart';
+import 'package:corre_aqui/features/profile/screens/profile_screen.dart';
+import 'package:corre_aqui/features/favorite/screens/favorite_screen.dart';
+import 'package:corre_aqui/features/notification/screens/notification_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -93,6 +97,16 @@ class _HomeScreenState extends State<HomeScreen> {
             _buildPopularItem(),
           ],
         ),
+      ),
+      IndexedStack(
+        index: _selectedIndex,
+        children: [
+          HomeScreen(), // Tela principal
+          NotificationScreen(), // Tela que será substituida futuramente
+          OfferMapScreen(), // Tela do Mapa
+          FavoriteScreen(), // Tela de Favoritos
+          ProfileScreen(), // Tela de Perfil
+        ],
       ),
       bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: _selectedIndex,
