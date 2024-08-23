@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:corre_aqui/features/notification/screens/notification_screen.dart';
-import 'package:corre_aqui/features/offer-map/screens/offer_map.dart';
+import 'package:corre_aqui/features/offer-map/screens/offer_map_screen.dart';
 
 class RouteHelper{
 
