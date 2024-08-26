@@ -28,7 +28,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             icon: Icon(
               Icons.flash_on,
               color: currentIndex == 1
-                  ? Theme.of(context).primaryColor :
+                  ? Theme.of(context).primaryColor 
                   : Theme.of(context).iconTheme.color,
             ),
             onPressed: () => onTap(1),
