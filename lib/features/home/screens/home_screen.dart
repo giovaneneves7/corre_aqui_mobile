@@ -30,17 +30,23 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         elevation: 0,
-        leading: Icon(Icons.location_on, color: Theme.of(context).colorScheme.secondary),
+        leading: Icon(
+                  Icons.location_on, 
+                  color: Theme.of(context).appBarTheme.backgroundColor
+                ),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("CorreAqui", style: Theme.of(context).textTheme.bodyText1),
+            Text("Corre Aqui!", style: Theme.of(context).textTheme.bodyText1),
             Text("Av. Raimundo Bonfim, N° 520", style: Theme.of(context).textTheme.bodyText2),
           ],
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications, color: Theme.of(context).colorScheme.onPrimary),
+            icon: Icon(
+                    Icons.notifications, 
+                    color: Theme.of(context).appBarTheme.backgroundColor
+                  ),
             onPressed: () {
               Get.toNamed(RouteHelper.getNotificationScreen());
             },

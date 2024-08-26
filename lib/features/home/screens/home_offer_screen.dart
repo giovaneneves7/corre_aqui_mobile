@@ -13,9 +13,6 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
   @override
   Widget build(BuildContext context) {
      return Scaffold(
-      appBar: AppBar(
-        title: Text('Stateful Screen'),
-      ),
       body:SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
         child: Column(
@@ -23,7 +20,10 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
           children: [
             TextField(
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search, color: Theme.of(context).iconTheme.color),
+                prefixIcon: Icon(
+                              Icons.search, 
+                              color: Theme.of(context).appBarTheme.backgroundColor
+                            ),
                 hintText: 'Pesquise Qualquer Coisa...',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -100,13 +100,13 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
         color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(8),
         image: DecorationImage(
-          image: AssetImage('assets/images/promo.jpg'),
+          image: AssetImage('assets/images/chips.jpg'),
           fit: BoxFit.cover,
         ),
       ),
       alignment: Alignment.center,
       child: Text(
-        'Popular Item',
+        'Salgadinhos',
         style: Theme.of(context).textTheme.bodyText1?.copyWith(color: Colors.white),
       ),
     );

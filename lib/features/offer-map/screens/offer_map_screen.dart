@@ -9,7 +9,7 @@ class OfferMapScreen extends StatefulWidget {
 }
 
 class _OfferMapScreenState extends State<OfferMapScreen> {
-  
+
   late GoogleMapController mapController;
 
   final LatLng _center = const LatLng(45.521563, -122.677433);
@@ -20,19 +20,32 @@ class _OfferMapScreenState extends State<OfferMapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Maps Sample App'),
-          backgroundColor: Colors.green[700],
-        ),
-        body: GoogleMap(
-          onMapCreated: _onMapCreated,
-          initialCameraPosition: CameraPosition(
-            target: _center,
-            zoom: 11.0,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Mapa de Ofertas',
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.onPrimary, // Texto branco
           ),
         ),
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        elevation: 0,
+        toolbarHeight: 50, // Reduz a altura da AppBar
+      ),
+      body: GoogleMap(
+        onMapCreated: _onMapCreated,
+        initialCameraPosition: CameraPosition(
+          target: _center,
+          zoom: 11.0,
+        ),
+        markers: {
+          Marker(
+            markerId: MarkerId('defaultMarker'),
+            position: _center,
+          ),
+        },
+        myLocationEnabled: true,
+        zoomControlsEnabled: true,
       ),
     );
   }
