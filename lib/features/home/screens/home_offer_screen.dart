@@ -22,12 +22,21 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
               decoration: InputDecoration(
                 prefixIcon: Icon(
                   Icons.search,
-                  color: Theme.of(context).appBarTheme.backgroundColor,
+                  color: Theme.of(context).primaryColor,
                 ),
                 hintText: 'Pesquise Qualquer Coisa...',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide(
+                    color: Theme.of(context).primaryColor, 
+                    width: 2.0,
+                  ),
+                ),
+                contentPadding: EdgeInsets.symmetric(vertical: 10.0), 
+                isDense: true, 
               ),
             ),
             SizedBox(height: 20),
