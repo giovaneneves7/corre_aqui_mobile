@@ -28,7 +28,7 @@ class _OfferMapScreenState extends State<OfferMapScreen> {
             color: Theme.of(context).colorScheme.onPrimary, // Texto branco
           ),
         ),
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
         toolbarHeight: 50, // Reduz a altura da AppBar
       ),
