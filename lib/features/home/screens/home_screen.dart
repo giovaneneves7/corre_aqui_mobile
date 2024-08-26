@@ -64,11 +64,19 @@ class _HomeScreenState extends State<HomeScreen> {
           ProfileScreen(), // Tela de Perfil
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => _onItemTapped(2),
+        backgroundColor: Theme.of(context).primaryColor,
+        child: Icon(
+                Icons.location_pin, 
+                color: Colors.white, 
+                size: 30
+              ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-      ),
-    );
   }
 
 }
