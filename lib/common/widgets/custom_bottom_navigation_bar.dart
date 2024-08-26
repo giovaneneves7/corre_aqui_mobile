@@ -1,10 +1,3 @@
-import 'package:flutter/material.dart';
-
-/**
-* Menu de navegação inferior.
-*
-* @author Giovane Neves
-*/
 class CustomBottomNavigationBar extends StatelessWidget {
 
   final int currentIndex;
@@ -24,16 +17,16 @@ class CustomBottomNavigationBar extends StatelessWidget {
             icon: Icon(
               Icons.home,
               color: currentIndex == 0
-                  ? Theme.of(context).colorScheme.primary
+                  ? Theme.of(context).primaryColor
                   : Theme.of(context).iconTheme.color,
             ),
             onPressed: () => onTap(0),
           ),
           IconButton(
             icon: Icon(
-              Icons.shopping_cart,
+              Icons.flash_on,
               color: currentIndex == 1
-                  ? Theme.of(context).colorScheme.primary
+                  ? Theme.of(context).primaryColor
                   : Theme.of(context).iconTheme.color,
             ),
             onPressed: () => onTap(1),
@@ -43,7 +36,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             icon: Icon(
               Icons.favorite,
               color: currentIndex == 3
-                  ? Theme.of(context).colorScheme.primary
+                  ? Theme.of(context).primaryColor
                   : Theme.of(context).iconTheme.color,
             ),
             onPressed: () => onTap(3),
@@ -52,7 +45,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             icon: Icon(
               Icons.person,
               color: currentIndex == 4
-                  ? Theme.of(context).colorScheme.primary
+                  ? Theme.of(context).primaryColor
                   : Theme.of(context).iconTheme.color,
             ),
             onPressed: () => onTap(4),
@@ -62,4 +55,3 @@ class CustomBottomNavigationBar extends StatelessWidget {
     );
   }
 }
-

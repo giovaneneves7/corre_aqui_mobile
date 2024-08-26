@@ -66,8 +66,12 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _onItemTapped(2), // Ação para o botão de localização
-        backgroundColor: Colors.red,
-        child: Icon(Icons.location_pin, color: Colors.white, size: 30),
+        backgroundColor: Theme.of(context).primaryColor,
+        child: Icon(
+                Icons.location_pin,  
+                color: Colors.white, 
+                size: 50
+              ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: CustomBottomNavigationBar(

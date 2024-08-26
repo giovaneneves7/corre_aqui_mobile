@@ -17,7 +17,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   
   final List<Store> favoriteStores = [
     Store('Atacadão', 'assets/images/atacadao.png'),
-    Store('Mineirão', 'assets/images/mineirao.png'),
+    Store('Mineirão', 'assets/images/mineirao.jpeg'),
     Store('Geocomercial', 'assets/images/geocomercial.png'),
   ];
 
