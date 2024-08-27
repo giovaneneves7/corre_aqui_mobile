@@ -10,12 +10,67 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Stateful Screen'),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage('assets/images/avatar.jpeg'), // substitua pelo caminho da sua imagem
+            ),
+            SizedBox(height: 16),
+            Text(
+              'Caio Alves',
+              style: Theme.of(context).textTheme.headline6?.copyWith(
+                    color: Theme.of(context).primaryColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+            SizedBox(height: 4),
+            SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text('Editar'),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+              ),
+            ),
+            SizedBox(height: 32),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _buildStatItem('1k', 'Seguidores'),
+                _buildStatItem('13k', 'Promoções'),
+                _buildStatItem('5k', 'Seguindo'),
+              ],
+            ),
+          ],
+        ),
       ),
-      body: Center(
-        child: Text('This is a StatefulWidget screen.'),
-      ),
+    );
+  }
+
+  Widget _buildStatItem(String count, String label) {
+    return Column(
+      children: [
+        Text(
+          count,
+          style: TextStyle(
+            color: CustomTheme.primaryColor,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        SizedBox(height: 4),
+        Text(
+          label,
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 16,
+          ),
+        ),
+      ],
     );
   }
   
