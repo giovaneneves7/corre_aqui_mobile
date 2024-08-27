@@ -22,6 +22,7 @@ class _OfferMapScreenState extends State<OfferMapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(
           'Mapa de Ofertas',
           style: TextStyle(

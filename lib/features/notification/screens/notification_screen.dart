@@ -72,10 +72,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: _onTabTapped,
-      ),
+      
     );
   }
 }
