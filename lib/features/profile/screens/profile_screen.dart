@@ -57,7 +57,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         Text(
           count,
           style: TextStyle(
-            color: CustomTheme.primaryColor,
+            color: Theme.of(context).primaryColor,
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
