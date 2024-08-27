@@ -8,12 +8,10 @@ class HomeOfferScreen extends StatefulWidget {
 }
 
 class _HomeOfferScreenState extends State<HomeOfferScreen> {
-  
-
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
-      body: Padding(
+    return Scaffold(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,12 +29,12 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide(
-                    color: Theme.of(context).primaryColor, 
+                    color: Theme.of(context).primaryColor,
                     width: 2.0,
                   ),
                 ),
-                contentPadding: EdgeInsets.symmetric(vertical: 10.0), 
-                isDense: true, 
+                contentPadding: EdgeInsets.symmetric(vertical: 10.0),
+                isDense: true,
               ),
             ),
             SizedBox(height: 20),
@@ -109,10 +107,10 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
             borderRadius: BorderRadius.circular(8),
           ),
           child: Icon(
-                  icon, 
-                  size: 30, 
-                  color: Theme.of(context).colorScheme.onPrimary,
-                ),
+            icon,
+            size: 30,
+            color: Theme.of(context).colorScheme.onPrimary,
+          ),
         ),
         SizedBox(height: 5),
         //Text(title, style: Theme.of(context).textTheme.bodyText1),
@@ -134,7 +132,10 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
       alignment: Alignment.center,
       child: Text(
         'Salgadinhos',
-        style: Theme.of(context).textTheme.bodyText1?.copyWith(color: Colors.white),
+        style: Theme.of(context)
+            .textTheme
+            .bodyText1
+            ?.copyWith(color: Colors.white),
       ),
     );
   }
