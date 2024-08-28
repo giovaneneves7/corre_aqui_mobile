@@ -7,6 +7,7 @@ import 'package:corre_aqui/features/profile/screens/profile_screen.dart';
 import 'package:corre_aqui/features/favorite/screens/favorite_screen.dart';
 import 'package:corre_aqui/features/notification/screens/notification_screen.dart';
 import 'package:corre_aqui/features/home/screens/home_offer_screen.dart';
+import 'package:corre_aqui/features/event/screens/event_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -58,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
         index: _selectedIndex,
         children: [
           HomeOfferScreen(), // Tela principal
-          NotificationScreen(), // Tela que será substituida futuramente
+          EventScreen(), // Tela que será substituida futuramente
           OfferMapScreen(), // Tela do Mapa
           FavoriteScreen(), // Tela de Favoritos
           ProfileScreen(), // Tela de Perfil

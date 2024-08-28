@@ -26,7 +26,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(
-              Icons.flash_on,
+              Icons.event_note,
               color: currentIndex == 1
                   ? Theme.of(context).primaryColor 
                   : Theme.of(context).iconTheme.color,
