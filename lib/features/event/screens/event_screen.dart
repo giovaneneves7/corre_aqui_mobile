@@ -10,16 +10,6 @@ class _EventScreenState extends State<EventScreen> {
   @override
   Widget build(BuildContext context) {
      return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Eventos em Destaque',
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.onPrimary,
-          ),
-        ),
-        backgroundColor: Theme.of(context).primaryColor,
-        elevation: 0,
-      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -31,13 +21,13 @@ class _EventScreenState extends State<EventScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   image: DecorationImage(
-                    image: AssetImage('assets/images/event_highlight.jpg'),
+                    image: AssetImage('assets/images/event_highlight.png'),
                     fit: BoxFit.cover,
                   ),
                 ),
                 alignment: Alignment.center,
                 child: Text(
-                  'Evento em Destaque',
+                  'Outros Eventos',
                   textAlign: TextAlign.center,
                   style: Theme.of(context)
                       .textTheme
@@ -66,7 +56,7 @@ class _EventScreenState extends State<EventScreen> {
               SizedBox(height: 10),
               _buildEventCard(
                 context,
-                'assets/images/cervejaria_premium.jpg',
+                'assets/images/cervejaria_premium.png',
                 'Aniversário do Dono',
                 '20:00',
                 'Endereço',
@@ -112,7 +102,7 @@ class _EventScreenState extends State<EventScreen> {
                     SizedBox(width: 5),
                     Text(time),
                     SizedBox(width: 10),
-                    Icon(Icons.calendar_today, size: 16),
+                    Icon(Icons.location_pin, size: 16),
                     SizedBox(width: 5),
                     Text(date),
                   ],
