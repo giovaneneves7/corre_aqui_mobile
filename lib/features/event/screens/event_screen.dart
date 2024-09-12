@@ -26,14 +26,6 @@ class _EventScreenState extends State<EventScreen> {
                   ),
                 ),
                 alignment: Alignment.center,
-                child: Text(
-                  'Outros Eventos',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline6
-                      ?.copyWith(color: Colors.white),
-                ),
               ),
               SizedBox(height: 20),
               Text("Próximos Eventos", style: Theme.of(context).textTheme.headline6),

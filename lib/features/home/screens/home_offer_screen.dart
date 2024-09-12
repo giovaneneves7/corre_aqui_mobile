@@ -43,19 +43,11 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
-                  image: AssetImage('assets/images/event_highlight.jpg'),
+                  image: AssetImage('assets/images/promo.jpeg'),
                   fit: BoxFit.cover,
                 ),
               ),
               alignment: Alignment.center,
-              child: Text(
-                'Bom fim de semana\n25% OFF\n*para Todos os Itens*',
-                textAlign: TextAlign.center,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline6
-                    ?.copyWith(color: Colors.white),
-              ),
             ),
             SizedBox(height: 20),
             Text("Categorias", style: Theme.of(context).textTheme.headline6),
