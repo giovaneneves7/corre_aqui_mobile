@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:corre_aqui/helper/route_helper.dart';
 
 class LoginScreen extends StatefulWidget {
 
