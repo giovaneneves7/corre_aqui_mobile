@@ -83,7 +83,10 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
-                // Ação de login
+                
+                if(_emailController.text.trim() == 'admin' && _passwordController.text.trim() == 'admin')
+                  Get.toNamed(RouteHelper.getHomeScreen());
+
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(double.infinity, 50),
@@ -92,13 +95,20 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: 24),
             Center(
-              child: TextButton(
-                onPressed: () {
-                  // Ação de cadastro
-                },
-                child: Text(
-                  'Não tem uma conta? Cadastre-se',
-                  style: TextStyle(color: Theme.of(context).primaryColor),
+              child: RichText(
+                text: TextSpan(
+                  text: 'Não tem uma conta? ',
+                  style: TextStyle(color: Theme.of(context).textTheme.bodyText1?.color), // Texto normal (preto)
+                  children: [
+                    TextSpan(
+                      text: 'Cadastre-se',
+                      style: TextStyle(color: Theme.of(context).primaryColor), // Texto do botão (vermelho)
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          // Fazer o redirecionamento para tela de cadastro
+                        },
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -114,4 +124,5 @@ class _LoginScreenState extends State<LoginScreen> {
     _passwordController.dispose();
     super.dispose();
   }
+
 }
