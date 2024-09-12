@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:corre_aqui/util/images.dart';
 import 'package:corre_aqui/features/home/screens/home_screen.dart';
 import 'package:corre_aqui/features/auth/screens/login_screen.dart';
+import 'package:corre_aqui/helper/route_helper.dart';
+import 'package:corre_aqui/util/images.dart';
 
+/*
+* Tela de inicío da aplicação após a SplashScreen.
+*
+* @author Giovane Neves
+*/
 class PostSplashScreen extends StatefulWidget {
   @override
   _PostSplashScreenState createState() => _PostSplashScreenState();
@@ -49,7 +55,7 @@ class _PostSplashScreenState extends State<PostSplashScreen> {
               SizedBox(height: 40),
               ElevatedButton(
                 onPressed: () {
-                  Get.to(HomeScreen());
+                  Get.toNamed(RouteHelper.getLoginScreen());
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFFff0000), // fundo
