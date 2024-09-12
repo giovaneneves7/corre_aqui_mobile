@@ -17,7 +17,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           children: [
             CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage('assets/images/avatar.jpeg'), // substitua pelo caminho da sua imagem
+              backgroundImage: AssetImage('assets/images/logo.png'), // substitua pelo caminho da sua imagem
             ),
             SizedBox(height: 16),
             Text(

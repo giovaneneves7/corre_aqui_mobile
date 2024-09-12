@@ -21,7 +21,7 @@ class _EventScreenState extends State<EventScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   image: DecorationImage(
-                    image: AssetImage('assets/images/event_highlight.png'),
+                    image: AssetImage('assets/images/event_highlight.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),

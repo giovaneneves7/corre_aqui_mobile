@@ -43,7 +43,7 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
-                  image: AssetImage('assets/images/promo.jpg'),
+                  image: AssetImage('assets/images/event_highlight.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),

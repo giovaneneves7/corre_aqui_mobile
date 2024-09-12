@@ -16,9 +16,11 @@ class FavoriteScreen extends StatefulWidget {
 class _FavoriteScreenState extends State<FavoriteScreen> {
   
   final List<Store> favoriteStores = [
-    Store('Atacadão', 'assets/images/atacadao.png'),
-    Store('Mineirão', 'assets/images/mineirao.jpeg'),
+    Store('AGES', 'assets/images/ages.jpg'),
+    Store('EnoveSolar', 'assets/images/enove_solar.jpeg'),
     Store('Geocomercial', 'assets/images/geocomercial.png'),
+    Store('Quy Sorwetto', 'assets/images/quy_sorvetto.png'),
+    Store('Tropical Motos', 'assets/images/tropical_motos.png'),
   ];
 
   @override
