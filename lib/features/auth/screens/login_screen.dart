@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:corre_aqui/helper/route_helper.dart';
+import 'package:corre_aqui/util/images.dart';
 
 class LoginScreen extends StatefulWidget {
 
@@ -27,6 +28,13 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
+          Center(
+            child: Image.asset(
+              Images.logoRetangulo, 
+              height: 200, 
+            ),
+          ),
             Text(
               'Faça login na sua conta',
               style: Theme.of(context).textTheme.headline6?.copyWith(
@@ -71,15 +79,22 @@ class _LoginScreenState extends State<LoginScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextButton(
-                  onPressed: () {
-                    // Ação para redefinir senha
-                  },
-                  child: Text(
-                    'Esqueceu sua senha?',
-                    style: TextStyle(color: Theme.of(context).primaryColor),
+                  RichText(
+                    text: TextSpan(
+                      text: 'Esqueceu a senha? ',
+                      style: TextStyle(color: Theme.of(context).textTheme.bodyText1?.color), // Texto normal (preto)
+                      children: [
+                        TextSpan(
+                          text: 'Redefina sua senha',
+                          style: TextStyle(color: Theme.of(context).primaryColor), // Texto do botão (vermelho)
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              // Fazer o redirecionamento para tela de redefinir senha
+                            },
+                        ),
+                      ],
+                    ),
                   ),
-                ),
               ],
             ),
             SizedBox(height: 24),
