@@ -4,18 +4,25 @@ import 'package:get/get.dart';
 import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:corre_aqui/util/images.dart';
 
-class LoginScreen extends StatefulWidget {
+/**
+* Tela de registro de usuários
+*
+* @author Giovane Neves
+*/
+class RegisterScreen extends StatefulWidget {
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _RegisterScreenState createState() => _RegisterScreenState();
   
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
 
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  
+
   bool _obscurePassword = true;
 
   @override
@@ -29,29 +36,45 @@ class _LoginScreenState extends State<LoginScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-          Center(
-            child: Image.asset(
-              Images.logoRetangulo, 
-              height: 200, 
+            Center(
+              child: Image.asset(
+                Images.logoRetangulo,
+                height: 200,
+              ),
             ),
-          ),
             Text(
-              'Faça login na sua conta',
+              'Crie uma conta',
               style: Theme.of(context).textTheme.headline6?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 8),
             Text(
-              'É ótimo ver você novamente.',
+              'Vamos criar sua conta.',
               style: Theme.of(context).textTheme.bodyText2,
             ),
             SizedBox(height: 24),
+            TextField(
+              controller: _nameController,
+              decoration: InputDecoration(
+                labelText: 'Nome completo',
+                hintText: 'Digite seu nome completo',
+              ),
+            ),
+            SizedBox(height: 16),
             TextField(
               controller: _emailController,
               decoration: InputDecoration(
                 labelText: 'Email',
                 hintText: 'Digite seu endereço de e-mail',
+              ),
+            ),
+            SizedBox(height: 16),
+            TextField(
+              controller: _phoneController,
+              decoration: InputDecoration(
+                labelText: 'Telefone',
+                hintText: 'Digite seu número de telefone',
               ),
             ),
             SizedBox(height: 16),
@@ -76,53 +99,33 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             SizedBox(height: 8),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                  RichText(
-                    text: TextSpan(
-                      text: 'Esqueceu a senha? ',
-                      style: TextStyle(color: Theme.of(context).textTheme.bodyText1?.color), // Texto normal (preto)
-                      children: [
-                        TextSpan(
-                          text: 'Redefina sua senha',
-                          style: TextStyle(color: Theme.of(context).primaryColor), // Texto do botão (vermelho)
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              // Fazer o redirecionamento para tela de redefinir senha
-                            },
-                        ),
-                      ],
-                    ),
-                  ),
-              ],
+            Text(
+              'Ao se inscrever, você concorda com nossos Termos e Política de Privacidade.',
+              style: Theme.of(context).textTheme.bodyText2,
             ),
             SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
-                
-                if(_emailController.text.trim() == 'admin' && _passwordController.text.trim() == 'admin')
-                  Get.toNamed(RouteHelper.getHomeScreen());
-
+                // TODO: Adicionar lógica para registrar o usuário
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(double.infinity, 50),
               ),
-              child: Text('Login'),
+              child: Text('Crie uma Conta'),
             ),
             SizedBox(height: 24),
             Center(
               child: RichText(
                 text: TextSpan(
-                  text: 'Não tem uma conta? ',
-                  style: TextStyle(color: Theme.of(context).textTheme.bodyText1?.color), // Texto normal (preto)
+                  text: 'Já tem uma conta? ',
+                  style: TextStyle(color: Theme.of(context).textTheme.bodyText1?.color),
                   children: [
                     TextSpan(
-                      text: 'Cadastre-se',
-                      style: TextStyle(color: Theme.of(context).primaryColor), // Texto do botão (vermelho)
+                      text: 'Log In',
+                      style: TextStyle(color: Theme.of(context).primaryColor),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          Get.toNamed(RouteHelper.getRegisterScreen());
+                          // TODO: Fazer o redirecionamento para tela de login
                         },
                     ),
                   ],
@@ -137,9 +140,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void dispose() {
+    _nameController.dispose();
     _emailController.dispose();
+    _phoneController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
-
 }
