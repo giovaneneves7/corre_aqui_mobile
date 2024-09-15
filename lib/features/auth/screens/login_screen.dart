@@ -28,13 +28,6 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
-          Center(
-            child: Image.asset(
-              Images.logoRetangulo, 
-              height: 200, 
-            ),
-          ),
             Text(
               'Faça login na sua conta',
               style: Theme.of(context).textTheme.headline6?.copyWith(

@@ -35,13 +35,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
-            Center(
-              child: Image.asset(
-                Images.logoRetangulo,
-                height: 200,
-              ),
-            ),
             Text(
               'Crie uma conta',
               style: Theme.of(context).textTheme.headline6?.copyWith(
@@ -125,7 +118,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       style: TextStyle(color: Theme.of(context).primaryColor),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          // TODO: Fazer o redirecionamento para tela de login
+                          Get.toNamed(RouteHelper.getLoginScreen());
                         },
                     ),
                   ],
