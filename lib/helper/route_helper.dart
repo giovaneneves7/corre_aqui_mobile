@@ -1,11 +1,12 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:corre_aqui/features/auth/screens/forgot_password_screen.dart';
 import 'package:corre_aqui/features/auth/screens/login_screen.dart';
 import 'package:corre_aqui/features/auth/screens/register_screen.dart';
 import 'package:corre_aqui/features/home/screens/home_screen.dart';
 import 'package:corre_aqui/features/notification/screens/notification_screen.dart';
 import 'package:corre_aqui/features/offer-map/screens/offer_map_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 /**
 * Helper com todas as rotas para telas da aplicação.
@@ -15,12 +16,14 @@ import 'package:corre_aqui/features/offer-map/screens/offer_map_screen.dart';
 */
 class RouteHelper{
 
+  static const String forgotPassword = '/forgot-password';
   static const String login = '/login';
   static const String home = '/home';
   static const String notification = '/notification';
   static const String offerMap = '/offer-map';
   static const String register = '/register';
 
+  static String getForgotPasswordScreen() => forgotPassword;
   static String getLoginScreen() => login;
   static String getHomeScreen() => home;
   static String getNotificationScreen() => notification;
@@ -30,6 +33,7 @@ class RouteHelper{
   // Registro de rotas [ Adicionar todas as rotas do app aqui ] 
   static List<GetPage> routes = [
 
+    GetPage(name: forgotPassword, page: () => ForgotPasswordScreen()),
     GetPage(name: login, page: () => LoginScreen()),
     GetPage(name: home, page: () => HomeScreen()),
   	GetPage(name: notification, page: () => NotificationScreen()),

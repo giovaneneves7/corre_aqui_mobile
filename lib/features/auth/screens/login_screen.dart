@@ -1,9 +1,14 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:corre_aqui/util/images.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+import 'package:get/get.dart';
 
+/**
+* Tela de Login do usuário.
+*
+* @author Giovane Neves
+*/
 class LoginScreen extends StatefulWidget {
 
   @override
@@ -75,14 +80,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   RichText(
                     text: TextSpan(
                       text: 'Esqueceu a senha? ',
-                      style: TextStyle(color: Theme.of(context).textTheme.bodyText1?.color), // Texto normal (preto)
+                      style: TextStyle(color: Theme.of(context).textTheme.bodyText1?.color), 
                       children: [
                         TextSpan(
                           text: 'Redefina sua senha',
-                          style: TextStyle(color: Theme.of(context).primaryColor), // Texto do botão (vermelho)
+                          style: TextStyle(color: Theme.of(context).primaryColor), 
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              // Fazer o redirecionamento para tela de redefinir senha
+                              Get.toNamed(RouteHelper.getForgotPasswordScreen());
                             },
                         ),
                       ],
