@@ -60,7 +60,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(double.infinity, 50),
-                primary: Theme.of(context).primaryColor, 
+                backgroundColor: Theme.of(context).primaryColor, 
               ),
               child: Text('Enviar código'),
             ),
