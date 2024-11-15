@@ -1,3 +1,4 @@
+import 'package:corre_aqui/features/store/screens/store_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:corre_aqui/common/widgets/custom_bottom_navigation_bar.dart';
@@ -61,7 +62,8 @@ class _HomeScreenState extends State<HomeScreen> {
           HomeOfferScreen(), // Tela principal
           EventScreen(), // Tela que será substituida futuramente
           OfferMapScreen(), // Tela do Mapa
-          FavoriteScreen(), // Tela de Favoritos
+          //FavoriteScreen(), // Tela de Favoritos
+          StoreListScreen(),
           ProfileScreen(), // Tela de Perfil
         ],
       ),

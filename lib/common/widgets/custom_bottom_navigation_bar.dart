@@ -36,7 +36,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
           SizedBox(width: 48), 
           IconButton(
             icon: Icon(
-              Icons.favorite,
+              Icons.store,
               color: currentIndex == 3
                   ? Theme.of(context).primaryColor
                   : Theme.of(context).iconTheme.color,
