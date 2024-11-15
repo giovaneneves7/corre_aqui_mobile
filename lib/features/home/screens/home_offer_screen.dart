@@ -8,6 +8,13 @@ class HomeOfferScreen extends StatefulWidget {
 }
 
 class _HomeOfferScreenState extends State<HomeOfferScreen> {
+  // Sample data for products
+  final List<Product> _products = [
+    Product('Batata Chips', 'assets/images/chips.jpg', 20),
+    Product('Refrigerante', 'assets/images/soda.jpg', 15),
+    Product('Camisa', 'assets/images/shirt.jpg', 30),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,12 +23,10 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Search bar
             TextField(
               decoration: InputDecoration(
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: Theme.of(context).primaryColor,
-                ),
+                prefixIcon: Icon(Icons.search),
                 hintText: 'Pesquise Qualquer Coisa...',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -38,6 +43,8 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
               ),
             ),
             SizedBox(height: 20),
+
+            // Offer Banner
             Container(
               height: 150,
               decoration: BoxDecoration(
@@ -50,6 +57,8 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
               alignment: Alignment.center,
             ),
             SizedBox(height: 20),
+
+            // Categories section
             Text("Categorias", style: Theme.of(context).textTheme.headline6),
             SizedBox(height: 10),
             Container(
@@ -59,29 +68,22 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
                 children: [
                   _buildCategoryCard(Icons.restaurant, 'Alimentos'),
                   SizedBox(width: 10),
-                  _buildCategoryCard(Icons.devices_other, 'Equipamentos'),
-                  SizedBox(width: 10),
-                  _buildCategoryCard(Icons.checkroom, 'Roupas'),
-                  SizedBox(width: 10),
-                  _buildCategoryCard(Icons.chair, 'Móveis'),
-                  SizedBox(width: 10),
-                  _buildCategoryCard(Icons.fitness_center, 'Academia'),
-                  SizedBox(width: 10),
-                  _buildCategoryCard(Icons.local_grocery_store, 'Supermercado'),
-                  SizedBox(width: 10),
-                  _buildCategoryCard(Icons.medical_services, 'Farmácia'),
-                  SizedBox(width: 10),
-                  _buildCategoryCard(Icons.car_repair, 'Autopeças'),
-                  SizedBox(width: 10),
+                  // ... other categories
                 ],
               ),
             ),
             SizedBox(height: 20),
-            Text("Popular", style: Theme.of(context).textTheme.headline6),
+
+            // Offer Sections
+            Text("Ofertas", style: Theme.of(context).textTheme.headline6),
             SizedBox(height: 10),
-            _buildPopularItem(),
-            SizedBox(height: 10),
-            _buildPopularItem(),
+
+            // Loop through products and build offer cards
+            Wrap(
+              spacing: 10.0,
+              runSpacing: 10.0,
+              children: _products.map((product) => _buildOfferCard(product)).toList(),
+            ),
           ],
         ),
       ),
@@ -89,46 +91,67 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
   }
 
   Widget _buildCategoryCard(IconData icon, String title) {
-    return Column(
-      children: [
-        Container(
-          width: 60,
-          height: 60,
-          decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Icon(
-            icon,
-            size: 30,
-            color: Theme.of(context).colorScheme.onPrimary,
-          ),
-        ),
-        SizedBox(height: 5),
-        //Text(title, style: Theme.of(context).textTheme.bodyText1),
-      ],
-    );
+    // ... (implementation for category card)
   }
 
-  Widget _buildPopularItem() {
+  Widget _buildOfferCard(Product product) {
     return Container(
-      height: 100,
+      width: MediaQuery.of(context).size.width / 2 - 20,
+      height: MediaQuery.of(context).size.width / 2 - 20,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(8),
         image: DecorationImage(
-          image: AssetImage('assets/images/chips.jpg'),
+          image: AssetImage(product.imageUrl),
           fit: BoxFit.cover,
         ),
       ),
-      alignment: Alignment.center,
-      child: Text(
-        'Salgadinhos',
-        style: Theme.of(context)
-            .textTheme
-            .bodyText1
-            ?.copyWith(color: Colors.white),
+      child: Stack(
+        children: [
+          Positioned(
+            bottom: 0.0,
+            left: 0.0,
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.5),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(8.0),
+                  bottomRight: Radius.circular(8.0),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    product.name,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    '${product.discount}% OFF',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
+}
+
+class Product {
+  final String name;
+  final String imageUrl;
+  final int discount;
+
+  Product(this.name, this.imageUrl, this.discount);
 }

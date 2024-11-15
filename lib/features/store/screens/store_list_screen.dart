@@ -50,6 +50,7 @@ class _StoreListScreenState extends State<StoreListScreen> {
           onChanged: _filterStores,
           decoration: InputDecoration(
             hintText: 'Buscar Estabelecimento',
+            prefixIcon: Icon(Icons.search),
             border: InputBorder.none,
           ),
         ),
