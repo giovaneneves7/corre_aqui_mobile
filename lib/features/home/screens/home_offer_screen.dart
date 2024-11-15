@@ -90,8 +90,26 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
     );
   }
 
-  Widget _buildCategoryCard(IconData icon, String title) {
-    // ... (implementation for category card)
+Widget _buildCategoryCard(IconData icon, String title) {
+    return Column(
+      children: [
+        Container(
+          width: 60,
+          height: 60,
+          decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Icon(
+            icon,
+            size: 30,
+            color: Theme.of(context).colorScheme.onPrimary,
+          ),
+        ),
+        SizedBox(height: 5),
+        //Text(title, style: Theme.of(context).textTheme.bodyText1),
+      ],
+    );
   }
 
   Widget _buildOfferCard(Product product) {
