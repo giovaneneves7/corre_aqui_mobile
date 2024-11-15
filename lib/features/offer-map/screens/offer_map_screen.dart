@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+//import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class OfferMapScreen extends StatefulWidget {
   const OfferMapScreen({Key? key}) : super(key: key);
@@ -10,7 +10,14 @@ class OfferMapScreen extends StatefulWidget {
 
 class _OfferMapScreenState extends State<OfferMapScreen> {
 
+  @override
+  Widget build(BuildContext context) {
 
+    return const Placeholder(); 
+
+  }
+
+/*
   late GoogleMapController mapController;
   final LatLng _center = const LatLng(-11.2999, -41.8568);
 
@@ -38,4 +45,5 @@ class _OfferMapScreenState extends State<OfferMapScreen> {
       ),
     );
   }
+  */
 }
