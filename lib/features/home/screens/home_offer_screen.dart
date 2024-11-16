@@ -11,8 +11,16 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
   // Sample data for products
   final List<Product> _products = [
     Product('Batata Chips', 'assets/images/chips.jpg', 20),
-    Product('Refrigerante', 'assets/images/soda.jpg', 15),
-    Product('Camisa', 'assets/images/shirt.jpg', 30),
+    Product('Batata Chips', 'assets/images/chips.jpg', 20),
+    Product('Batata Chips', 'assets/images/chips.jpg', 20),
+    Product('Batata Chips', 'assets/images/chips.jpg', 20),
+  ];
+
+    final List<Product> _popularProducts = [
+    Product('Batata Chips', 'assets/images/chips.jpg', 20),
+    Product('Batata Chips', 'assets/images/chips.jpg', 20),
+    Product('Batata Chips', 'assets/images/chips.jpg', 20),
+    Product('Batata Chips', 'assets/images/chips.jpg', 20),
   ];
 
   @override
@@ -42,7 +50,7 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
                 isDense: true,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             // Offer Banner
             Container(
@@ -68,6 +76,15 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
                 children: [
                   _buildCategoryCard(Icons.restaurant, 'Alimentos'),
                   SizedBox(width: 10),
+                  _buildCategoryCard(Icons.devices_other, 'Equipamentos'),
+                  SizedBox(width: 10),
+                  _buildCategoryCard(Icons.checkroom, 'Roupas'),
+                  SizedBox(width: 10),
+                  _buildCategoryCard(Icons.chair, 'Móveis'),
+                  SizedBox(width: 10),
+                  _buildCategoryCard(Icons.fitness_center, 'Academia'),
+
+                  SizedBox(width: 10),
                   // ... other categories
                 ],
               ),
@@ -84,13 +101,24 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
               runSpacing: 10.0,
               children: _products.map((product) => _buildOfferCard(product)).toList(),
             ),
+            SizedBox(height: 10),
+
+            Text("Produtos Populares", style: Theme.of(context).textTheme.headline6),
+            SizedBox(height: 10),
+
+            // Loop through popular products and build offer cards
+            Wrap(
+              spacing: 10.0,
+              runSpacing: 10.0,
+              children: _popularProducts.map((product) => _buildOfferCard(product)).toList(),
+            ),
           ],
         ),
       ),
     );
   }
 
-Widget _buildCategoryCard(IconData icon, String title) {
+  Widget _buildCategoryCard(IconData icon, String title) {
     return Column(
       children: [
         Container(
@@ -149,12 +177,27 @@ Widget _buildCategoryCard(IconData icon, String title) {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
-                    '${product.discount}% OFF',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(  
+
+                        '${product.discount}%',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0, // Increased font size for emphasis
+                          fontWeight: FontWeight.bold, // Bold text for highlight
+                        ),
+                      ),
+                      Text(
+                        'Preço original', // Placeholder for original price (replace with actual price logic)
+                        style: TextStyle(
+                          color: Colors.white70, // Faded text for less emphasis
+                          fontSize: 10.0,
+                          decoration: TextDecoration.lineThrough, // Strikethrough for original price
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -164,6 +207,7 @@ Widget _buildCategoryCard(IconData icon, String title) {
       ),
     );
   }
+
 }
 
 class Product {
