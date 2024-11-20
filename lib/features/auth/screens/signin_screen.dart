@@ -9,14 +9,14 @@ import 'package:corre_aqui/util/images.dart';
 *
 * @author Giovane Neves
 */
-class RegisterScreen extends StatefulWidget {
+class SigninScreen extends StatefulWidget {
 
   @override
-  _RegisterScreenState createState() => _RegisterScreenState();
+  _SigninScreenState createState() => _SigninScreenState();
   
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _SigninScreenState extends State<SigninScreen> {
 
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
