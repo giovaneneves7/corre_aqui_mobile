@@ -23,6 +23,7 @@ class RouteHelper{
   static const String notification = '/notification';
   static const String offerMap = '/offer-map';
   static const String register = '/register';
+  static const String signIn = '/sign-in';
   static const String storeList = '/store-list';
 
   static String getForgotPasswordScreen() => forgotPassword;
@@ -31,6 +32,7 @@ class RouteHelper{
   static String getNotificationScreen() => notification;
   static String getOfferMapScreen() => offerMap;
   static String getRegisterScreen() => register;
+  static String getSignInScreen() => signIn;
   static String getStoreList() => storeList;
 
   // Registro de rotas [ Adicionar todas as rotas do app aqui ] 
@@ -42,6 +44,7 @@ class RouteHelper{
   	GetPage(name: notification, page: () => NotificationScreen()),
     GetPage(name: offerMap, page: () => OfferMapScreen()),
     GetPage(name: register, page: () => SigninScreen()),
+    GetPage(name: signIn, page: () => SigninScreen()),
     GetPage(name: storeList, page: () => StoreListScreen()),
   ];
 

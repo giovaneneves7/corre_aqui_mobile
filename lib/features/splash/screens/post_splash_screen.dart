@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:corre_aqui/features/home/screens/home_screen.dart';
-import 'package:corre_aqui/features/auth/screens/login_screen.dart';
 import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:corre_aqui/util/images.dart';
 
@@ -34,8 +32,8 @@ class _PostSplashScreenState extends State<PostSplashScreen> {
                   height: 60,
                 ),
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'Corre aqui!',
                 style: TextStyle(
                   fontSize: 32,
@@ -43,7 +41,7 @@ class _PostSplashScreenState extends State<PostSplashScreen> {
                   color: Colors.black,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 'Seja Rápido, Economize Mais.\nNão Perca Tempo, Nem Dinheiro!',
                 textAlign: TextAlign.center,
@@ -52,7 +50,7 @@ class _PostSplashScreenState extends State<PostSplashScreen> {
                   color: Colors.grey[600],
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: () {
                   Get.toNamed(RouteHelper.getLoginScreen());
@@ -70,12 +68,12 @@ class _PostSplashScreenState extends State<PostSplashScreen> {
                   style: TextStyle(fontSize: 18),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               TextButton(
                 onPressed: () {
-                  Get.to(LoginScreen());
+                  Get.toNamed(RouteHelper.getSignInScreen());
                 },
-                child: Row(
+                child: const Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
