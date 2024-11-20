@@ -39,8 +39,8 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Corre Aqui!", style: Theme.of(context).textTheme.bodyText1),
-            Text("Av. Raimundo Bonfim, N° 520", style: Theme.of(context).textTheme.bodyText2),
+            Text("Corre Aqui!", style: Theme.of(context).textTheme.bodyLarge),
+            Text("Av. Raimundo Bonfim, N° 520", style: Theme.of(context).textTheme.bodyLarge),
           ],
         ),
         actions: [
