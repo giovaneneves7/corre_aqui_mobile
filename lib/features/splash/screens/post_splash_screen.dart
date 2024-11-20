@@ -71,7 +71,7 @@ class _PostSplashScreenState extends State<PostSplashScreen> {
               const SizedBox(height: 10),
               TextButton(
                 onPressed: () {
-                  Get.toNamed(RouteHelper.getSignInScreen());
+                  Get.toNamed(RouteHelper.getAuthGateScreen());
                 },
                 child: const Row(
                   mainAxisSize: MainAxisSize.min,
