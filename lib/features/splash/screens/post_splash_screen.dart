@@ -53,7 +53,7 @@ class _PostSplashScreenState extends State<PostSplashScreen> {
               const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: () {
-                  Get.toNamed(RouteHelper.getLoginScreen());
+                  Get.toNamed(RouteHelper.getAuthGateScreen());
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFFff0000), // fundo
