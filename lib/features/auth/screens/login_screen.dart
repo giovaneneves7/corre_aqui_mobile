@@ -35,14 +35,14 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             Text(
               'Faça login na sua conta',
-              style: Theme.of(context).textTheme.headline6?.copyWith(
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 8),
             Text(
               'É ótimo ver você novamente.',
-              style: Theme.of(context).textTheme.bodyText2,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
             SizedBox(height: 24),
             TextField(
@@ -80,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   RichText(
                     text: TextSpan(
                       text: 'Esqueceu a senha? ',
-                      style: TextStyle(color: Theme.of(context).textTheme.bodyText1?.color), 
+                      style: TextStyle(color: Theme.of(context).textTheme.bodyLarge!.color), 
                       children: [
                         TextSpan(
                           text: 'Redefina sua senha',
@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
               ],
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
                 
@@ -108,12 +108,12 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               child: Text('Login'),
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             Center(
               child: RichText(
                 text: TextSpan(
                   text: 'Não tem uma conta? ',
-                  style: TextStyle(color: Theme.of(context).textTheme.bodyText1?.color), // Texto normal (preto)
+                  style: TextStyle(color: Theme.of(context).textTheme.bodyLarge!.color), // Texto normal (preto)
                   children: [
                     TextSpan(
                       text: 'Cadastre-se',
