@@ -22,7 +22,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             SizedBox(height: 16),
             Text(
               'Caio Alves',
-              style: Theme.of(context).textTheme.headline6?.copyWith(
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.bold,
                   ),

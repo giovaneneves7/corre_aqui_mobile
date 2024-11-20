@@ -36,14 +36,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           children: [
             Text(
               'Esqueceu a senha',
-              style: Theme.of(context).textTheme.headline6?.copyWith(
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 8),
             Text(
               'Digite seu e-mail para o processo de verificação. Enviaremos um código de 4 dígitos para o seu e-mail.',
-              style: Theme.of(context).textTheme.bodyText2,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             SizedBox(height: 24),
             TextField(
