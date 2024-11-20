@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "717225300393",
+    "project_id": "corre-aqui-app",
+    "storage_bucket": "corre-aqui-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717225300393:android:4cbd9a879ee0714dcaf4b8",
+        "android_client_info": {
+          "package_name": "com.example.corre_aqui_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtLfMquqx2bkIiLI0DjRo1mXqv_Kzvf8M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
