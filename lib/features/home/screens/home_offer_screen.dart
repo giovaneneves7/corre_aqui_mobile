@@ -34,7 +34,7 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
             // Search bar
             TextField(
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search),
+                prefixIcon: const Icon(Icons.search),
                 hintText: 'Pesquise Qualquer Coisa...',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -46,7 +46,7 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
                     width: 2.0,
                   ),
                 ),
-                contentPadding: EdgeInsets.symmetric(vertical: 10.0),
+                contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
                 isDense: true,
               ),
             ),
@@ -67,7 +67,7 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
             SizedBox(height: 20),
 
             // Categories section
-            Text("Categorias", style: Theme.of(context).textTheme.headline6),
+            Text("Categorias", style: Theme.of(context).textTheme.titleLarge),
             SizedBox(height: 10),
             Container(
               height: 80,
@@ -92,7 +92,7 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
             SizedBox(height: 20),
 
             // Offer Sections
-            Text("Ofertas", style: Theme.of(context).textTheme.headline6),
+            Text("Ofertas", style: Theme.of(context).textTheme.titleLarge),
             SizedBox(height: 10),
 
             // Loop through products and build offer cards
@@ -103,7 +103,7 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
             ),
             SizedBox(height: 10),
 
-            Text("Produtos Populares", style: Theme.of(context).textTheme.headline6),
+            Text("Produtos Populares", style: Theme.of(context).textTheme.titleLarge),
             SizedBox(height: 10),
 
             // Loop through popular products and build offer cards

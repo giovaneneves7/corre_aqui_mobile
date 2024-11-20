@@ -37,14 +37,14 @@ class _SigninScreenState extends State<SigninScreen> {
           children: [
             Text(
               'Crie uma conta',
-              style: Theme.of(context).textTheme.headline6?.copyWith(
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 8),
             Text(
               'Vamos criar sua conta.',
-              style: Theme.of(context).textTheme.bodyText2,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
             SizedBox(height: 24),
             TextField(
@@ -94,7 +94,7 @@ class _SigninScreenState extends State<SigninScreen> {
             SizedBox(height: 8),
             Text(
               'Ao se inscrever, você concorda com nossos Termos e Política de Privacidade.',
-              style: Theme.of(context).textTheme.bodyText2,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
             SizedBox(height: 24),
             ElevatedButton(
@@ -111,7 +111,7 @@ class _SigninScreenState extends State<SigninScreen> {
               child: RichText(
                 text: TextSpan(
                   text: 'Já tem uma conta? ',
-                  style: TextStyle(color: Theme.of(context).textTheme.bodyText1?.color),
+                  style: TextStyle(color: Theme.of(context).textTheme.bodyLarge?.color),
                   children: [
                     TextSpan(
                       text: 'Log In',

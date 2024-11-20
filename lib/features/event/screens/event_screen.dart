@@ -27,8 +27,8 @@ class _EventScreenState extends State<EventScreen> {
                 ),
                 alignment: Alignment.center,
               ),
-              SizedBox(height: 20),
-              Text("Próximos Eventos", style: Theme.of(context).textTheme.headline6),
+              const SizedBox(height: 20),
+              Text("Próximos Eventos", style: Theme.of(context).textTheme.titleLarge),
               SizedBox(height: 10),
               _buildEventCard(
                 context,
@@ -37,7 +37,7 @@ class _EventScreenState extends State<EventScreen> {
                 '20/08 às 19:00',
                 'Sede da Loja',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               _buildEventCard(
                 context,
                 'assets/images/caatingueiros.jpeg',
@@ -85,7 +85,7 @@ class _EventScreenState extends State<EventScreen> {
               children: [
                 Text(
                   eventName,
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 SizedBox(height: 5),
                 Row(
