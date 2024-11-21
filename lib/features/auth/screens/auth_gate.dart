@@ -1,6 +1,5 @@
 import 'package:corre_aqui/features/home/screens/home_screen.dart';
 import 'package:corre_aqui/util/images.dart';
-import 'package:corre_aqui/theme/custom_theme.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +18,6 @@ class AuthGate extends StatelessWidget {
             providers: [
               EmailAuthProvider()
             ],
-            styles: const {
-              EmailSignInStyle.linkColor: CustomTheme.primaryColor,
-            },
             headerBuilder: (context, constraints, shrinkOffset) {
               return Padding(
                 padding: const EdgeInsets.all(20),
@@ -48,6 +44,7 @@ class AuthGate extends StatelessWidget {
                 ),
               );
             },
+          );
         }
 
        return HomeScreen();
