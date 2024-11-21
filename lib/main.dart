@@ -6,6 +6,8 @@ import 'src/settings/settings_service.dart';
 import 'package:corre_aqui/features/splash/screens/post_splash_screen.dart';
 import 'package:corre_aqui/theme/custom_theme.dart';
 import 'package:corre_aqui/helper/route_helper.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
       
