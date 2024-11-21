@@ -29,6 +29,8 @@ class MyApp extends StatelessWidget {
       theme: CustomTheme.lightTheme,
       darkTheme: CustomTheme.darkTheme,
       themeMode: ThemeMode.light,
+      locale: const Locale('pt', 'BR'), 
+      fallbackLocale: const Locale('en', 'US'),
       home: PostSplashScreen(), 
     );
   }
