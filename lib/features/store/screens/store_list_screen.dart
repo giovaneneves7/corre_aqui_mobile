@@ -36,13 +36,21 @@ class _StoreListScreenState extends State<StoreListScreen> {
 
   void _filterStores(String query) {
     setState(() {
-      _filteredStores = stores.where((store) =>
-          store.name.toLowerCase().contains(query.toLowerCase())).toList();
+      if (query.isEmpty) {
+        _filteredStores = stores;
+      } else {
+        _filteredStores = stores.where((store) =>
+            store.name.toLowerCase().contains(query.toLowerCase())).toList();
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    if (_searchController.text.isEmpty && _filteredStores.isEmpty) {
+      _filteredStores = stores;
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: TextField(
@@ -55,12 +63,57 @@ class _StoreListScreenState extends State<StoreListScreen> {
           ),
         ),
       ),
-      body: ListView.builder(
+      body: Padding(
         padding: const EdgeInsets.all(16.0),
-        itemCount: _filteredStores.length,
-        itemBuilder: (context, index) {
-          return FavoriteCard(store: _filteredStores[index]);
-        },
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3, 
+            crossAxisSpacing: 16.0,
+            mainAxisSpacing: 16.0,
+            childAspectRatio: 0.8, 
+          ),
+          itemCount: _filteredStores.length,
+          itemBuilder: (context, index) {
+            final store = _filteredStores[index];
+            return GestureDetector(
+              onTap: () {
+                print('Clicou em ${store.name}');
+              },
+              child: Card(
+                elevation: 4.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12.0),
+                        child: Image.asset(
+                          store.imagePath,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        store.name,
+                        style: const TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
