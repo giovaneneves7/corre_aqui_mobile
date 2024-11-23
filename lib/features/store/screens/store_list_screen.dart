@@ -91,7 +91,7 @@ class _StoreListScreenState extends State<StoreListScreen> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(12.0),
                         child: Image.asset(
-                          store.imagePath,
+                          store.imageUrl,
                           fit: BoxFit.cover,
                           width: double.infinity,
                         ),
