@@ -15,7 +15,6 @@ class AuthGate extends StatefulWidget {
 }
 
 class _AuthGateState extends State<AuthGate> {
-  
   bool _isLoading = false;
   bool _redirecting = false;
   final TextEditingController _emailController = TextEditingController();
@@ -26,22 +25,34 @@ class _AuthGateState extends State<AuthGate> {
       setState(() {
         _isLoading = true;
       });
-      await supabase.auth.signInWithOtp(
+      await Supabase.instance.client.auth.signInWithOtp(
         email: _emailController.text.trim(),
-        emailRedirectTo:
-            kIsWeb ? null : 'io.supabase.flutterquickstart://login-callback/',
+        emailRedirectTo: kIsWeb
+            ? null
+            : 'io.supabase.flutterquickstart://login-callback/',
       );
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Verifique o seu email para um link de login!')),
+          const SnackBar(
+            content: Text('Verifique o seu email para um link de login!'),
+          ),
         );
         _emailController.clear();
       }
     } on AuthException catch (error) {
-      if (mounted) context.showSnackBar(error.message, isError: true);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(error.message), backgroundColor: Colors.red),
+        );
+      }
     } catch (error) {
       if (mounted) {
-        context.showSnackBar('Ocorreu um erro inesperado!', isError: true);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Ocorreu um erro inesperado!'),
+            backgroundColor: Colors.red,
+          ),
+        );
       }
     } finally {
       if (mounted) {
@@ -54,7 +65,8 @@ class _AuthGateState extends State<AuthGate> {
 
   @override
   void initState() {
-    _authStateSubscription = supabase.auth.onAuthStateChange.listen(
+    super.initState();
+    _authStateSubscription = Supabase.instance.client.auth.onAuthStateChange.listen(
       (data) {
         if (_redirecting) return;
         final session = data.session;
@@ -67,13 +79,19 @@ class _AuthGateState extends State<AuthGate> {
       },
       onError: (error) {
         if (error is AuthException) {
-          context.showSnackBar(error.message, isError: true);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(error.message), backgroundColor: Colors.red),
+          );
         } else {
-          context.showSnackBar('Ocorreu um erro inesperado!', isError: true);
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Ocorreu um erro inesperado!'),
+              backgroundColor: Colors.red,
+            ),
+          );
         }
       },
     );
-    super.initState();
   }
 
   @override
@@ -105,5 +123,4 @@ class _AuthGateState extends State<AuthGate> {
       ),
     );
   }
-
 }
