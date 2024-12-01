@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'package:corre_aqui/features/home/screens/home_screen.dart';
 import 'package:corre_aqui/util/images.dart';
+import 'package:corre_aqui/main.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:supabase_quickstart/main.dart';
-import 'package:supabase_quickstart/pages/account_page.dart';
 
 class AuthGate extends StatelessWidget {
   
@@ -55,7 +54,7 @@ class AuthGate extends StatelessWidget {
         if (session != null) {
           _redirecting = true;
           Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => const AccountPage()),
+            MaterialPageRoute(builder: (context) => const HomeScreen()),
           );
         }
       },
