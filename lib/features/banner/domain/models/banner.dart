@@ -1,0 +1,39 @@
+/**
+* @author Giovane Neves
+* @since v0.0.1
+*/
+class Banner{
+
+	final String id;
+	final String imageUrl;
+	final String? description;
+	final String? name;
+
+	Banner({
+		required this.id, 
+		required this.name, 
+		required this.description, 
+		required this.imageUrl
+	});
+
+	factory BannerModel.fromJson(Map<String, dynamic> json) {
+	    
+		return BannerModel(
+	      id: json['id'] as String,
+	      imageUrl: json['image_url'] as String,
+	      title: json['title'] as String?,
+	      description: json['description'] as String?,
+	    );
+	}
+
+	Map<String, dynamic> toJson() {
+    	
+    	return {
+      		'id': id,
+      		'image_url': imageUrl,
+      		'title': title,
+      		'description': description,
+    	};
+  	}
+
+}
