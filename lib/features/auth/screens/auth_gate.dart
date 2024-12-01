@@ -6,13 +6,21 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-class AuthGate extends StatelessWidget {
+
+class AuthGate extends StatefulWidget {
+  const AuthGate({super.key});
+
+  @override
+  _AuthGateState createState() => _AuthGateState();
+}
+
+class _AuthGateState extends State<AuthGate> {
   
   const AuthGate({super.key});
 
   bool _isLoading = false;
   bool _redirecting = false;
-  late final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   late final StreamSubscription<AuthState> _authStateSubscription;
 
   Future<void> _signIn() async {
@@ -26,8 +34,9 @@ class AuthGate extends StatelessWidget {
             kIsWeb ? null : 'io.supabase.flutterquickstart://login-callback/',
       );
       if (mounted) {
-        context.showSnackBar('Verifique o seu email para um link de login!');
-
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Verifique o seu email para um link de login!')),
+        );
         _emailController.clear();
       }
     } on AuthException catch (error) {
