@@ -16,8 +16,6 @@ class AuthGate extends StatefulWidget {
 
 class _AuthGateState extends State<AuthGate> {
   
-  const AuthGate({super.key});
-
   bool _isLoading = false;
   bool _redirecting = false;
   final TextEditingController _emailController = TextEditingController();
