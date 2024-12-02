@@ -21,7 +21,7 @@ class Banner{
 		return Banner(
 	      id: json['id'] as String,
 	      imageUrl: json['image_url'] as String,
-	      title: json['title'] as String?,
+	      name: json['name'] as String?,
 	      description: json['description'] as String?,
 	    );
 	}
@@ -31,7 +31,7 @@ class Banner{
     	return {
       		'id': id,
       		'image_url': imageUrl,
-      		'title': title,
+      		'name': name,
       		'description': description,
     	};
   	}
