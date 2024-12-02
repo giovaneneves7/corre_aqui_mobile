@@ -11,6 +11,8 @@ class HomeOfferScreen extends StatefulWidget {
 
 class _HomeOfferScreenState extends State<HomeOfferScreen> {
   
+  late final BannerController bannerController;
+  
   // Sample data for products
   final List<Product> _products = [
     Product('Batata Chips', 'assets/images/chips.jpg', 20),

@@ -16,9 +16,9 @@ class Banner{
 		required this.imageUrl
 	});
 
-	factory BannerModel.fromJson(Map<String, dynamic> json) {
+	factory Banner.fromJson(Map<String, dynamic> json) {
 	    
-		return BannerModel(
+		return Banner(
 	      id: json['id'] as String,
 	      imageUrl: json['image_url'] as String,
 	      title: json['title'] as String?,
