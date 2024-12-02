@@ -1,9 +1,10 @@
 import 'dart:async';
-import 'package:corre_aqui/features/home/screens/home_screen.dart';
 import 'package:corre_aqui/util/images.dart';
+import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:corre_aqui/main.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 
@@ -72,9 +73,7 @@ class _AuthGateState extends State<AuthGate> {
         final session = data.session;
         if (session != null) {
           _redirecting = true;
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => HomeScreen()),
-          );
+          Get.toNamed(RouteHelper.getHomeScreen());
         }
       },
       onError: (error) {
@@ -104,11 +103,11 @@ class _AuthGateState extends State<AuthGate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
+      appBar: AppBar(title: const Text('Entrar')),
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
         children: [
-          const Text('Entrar com link mágico no email'),
+          const Text('Receber Código de Autorização no Email'),
           const SizedBox(height: 18),
           TextFormField(
             controller: _emailController,
@@ -117,7 +116,7 @@ class _AuthGateState extends State<AuthGate> {
           const SizedBox(height: 18),
           ElevatedButton(
             onPressed: _isLoading ? null : _signIn,
-            child: Text(_isLoading ? 'Enviando...' : 'Enviar link mágico'),
+            child: Text(_isLoading ? 'Enviando...' : 'Enviar Código de Autorização'),
           ),
         ],
       ),
