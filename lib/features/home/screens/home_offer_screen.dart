@@ -1,4 +1,6 @@
+import 'package:corre_aqui/features/controllers/banner_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeOfferScreen extends StatefulWidget {
   const HomeOfferScreen({Key? key}) : super(key: key);
@@ -8,6 +10,7 @@ class HomeOfferScreen extends StatefulWidget {
 }
 
 class _HomeOfferScreenState extends State<HomeOfferScreen> {
+  
   // Sample data for products
   final List<Product> _products = [
     Product('Batata Chips', 'assets/images/chips.jpg', 20),
@@ -24,6 +27,16 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
   ];
 
   @override
+  void initState() {
+
+    super.initState();
+    bannerController = Get.find<BannerController>(); 
+    bannerController.getBannerList(); 
+  
+  }
+
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
@@ -31,6 +44,7 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
             // Search bar
             TextField(
               decoration: InputDecoration(
@@ -53,18 +67,32 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
             const SizedBox(height: 20),
 
             // Offer Banner
-            Container(
-              height: 150,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: DecorationImage(
-                  image: AssetImage('assets/images/promo.jpeg'),
-                  fit: BoxFit.cover,
+            Obx(() {
+              final banners = bannerController.bannerList;
+              if (banners == null || banners.isEmpty) {
+                return const SizedBox(
+                  height: 150,
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+              }
+
+              final firstBanner = banners.first;
+              return Container(
+                height: 150,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  image: DecorationImage(
+                    image: NetworkImage(firstBanner.imageUrl),
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              alignment: Alignment.center,
-            ),
-            SizedBox(height: 20),
+                alignment: Alignment.center,
+              );
+            }),
+
+            const SizedBox(height: 20),
 
             // Categories section
             Text("Categorias", style: Theme.of(context).textTheme.titleLarge),
@@ -85,17 +113,14 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
                   _buildCategoryCard(Icons.fitness_center, 'Academia'),
 
                   SizedBox(width: 10),
-                  // ... other categories
                 ],
               ),
             ),
             SizedBox(height: 20),
-
             // Offer Sections
             Text("Ofertas", style: Theme.of(context).textTheme.titleLarge),
             SizedBox(height: 10),
 
-            // Loop through products and build offer cards
             Wrap(
               spacing: 10.0,
               runSpacing: 10.0,
