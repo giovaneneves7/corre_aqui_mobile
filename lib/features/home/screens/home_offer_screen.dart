@@ -12,7 +12,7 @@ class HomeOfferScreen extends StatefulWidget {
 class _HomeOfferScreenState extends State<HomeOfferScreen> {
   
   late final BannerController bannerController;
-  
+
   // Sample data for products
   final List<Product> _products = [
     Product('Batata Chips', 'assets/images/chips.jpg', 20),
@@ -86,7 +86,7 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   image: DecorationImage(
-                    image: NetworkImage(firstBanner.imageUrl),
+                    image: NetworkImage(firstBanner!.imageUrl),
                     fit: BoxFit.cover,
                   ),
                 ),
