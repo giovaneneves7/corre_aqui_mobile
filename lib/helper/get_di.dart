@@ -1,6 +1,8 @@
 import 'package:corre_aqui/api/supabase_api_client.dart';
 import 'package:corre_aqui/features/banner/domain/repositories/banner_repository_interface.dart';
 import 'package:corre_aqui/features/banner/domain/repositories/banner_repository.dart';
+import 'package:corre_aqui/features/banner/domain/services/banner_service.dart';
+import 'package:corre_aqui/features/banner/domain/services/banner_service_interface.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -18,4 +20,9 @@ Future<Map<String, Map<String, String>>> init() async {
 	// Repositories
 	BannerRepositoryInterface bannerRepositoryInterface = BannerRepository(apiClinet: Get.find());
 	Get.lazyPut(() => bannerRepositoryInterface);
+
+	// Services
+	BannerServiceInterface bannerServiceInterface = BannerService(bannerRepositoryInterface: Get.find());
+	Get.lazyPut(() => bannerServiceInterface);
+
 }

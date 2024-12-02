@@ -1,4 +1,4 @@
-imort 'package:corre_aqui/features/banner/domain/models/banner.dart';
+import 'package:corre_aqui/features/banner/domain/models/banner.dart';
 import 'package:get/get.dart';
 
 class BannerRepository implements BannerRepositoryInterface {
