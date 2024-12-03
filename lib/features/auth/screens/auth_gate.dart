@@ -73,7 +73,7 @@ class _AuthGateState extends State<AuthGate> {
         final session = data.session;
         if (session != null) {
           _redirecting = true;
-          Get.toNamed(RouteHelper.getHomeScreen());
+          Get.toNamed(RouteHelper.getOfferMapScreen());
         }
       },
       onError: (error) {
