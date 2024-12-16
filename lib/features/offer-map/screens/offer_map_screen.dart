@@ -17,7 +17,6 @@ class _OfferMapScreenState extends State<OfferMapScreen> {
 
   }
 
-/*
   late GoogleMapController mapController;
   final LatLng _center = const LatLng(-11.2999, -41.8568);
 
@@ -45,5 +44,5 @@ class _OfferMapScreenState extends State<OfferMapScreen> {
       ),
     );
   }
-  */
+  
 }
