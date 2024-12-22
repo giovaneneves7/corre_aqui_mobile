@@ -105,7 +105,7 @@ class HomeOfferScreen extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           title,
-          style: Theme.of(context).textTheme.bodyText2,
+          style: Theme.of(context).textTheme.bodyMedium, // Usando bodyMedium
         ),
       ],
     );
@@ -128,7 +128,7 @@ class HomeOfferScreen extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           name,
-          style: Theme.of(context).textTheme.bodyText2,
+          style: Theme.of(context).textTheme.bodyMedium, // Usando bodyMedium
         ),
       ],
     );
