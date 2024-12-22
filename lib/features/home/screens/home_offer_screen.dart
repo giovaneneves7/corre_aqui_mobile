@@ -86,7 +86,7 @@ class _HomeOfferScreenState extends State<HomeOfferScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   image: DecorationImage(
-                    image: NetworkImage(firstBanner.imageUrl),
+                    image: NetworkImage(firstBanner.imageUrl!),
                     fit: BoxFit.cover,
                   ),
                 ),
