@@ -59,7 +59,12 @@ class _OfferMapScreenState extends State<OfferMapScreen> {
     });
   }
 
-  void _onMapCreated(GoogleMapController controller) {
+  /**
+  * Executado quando o mapa é criado.
+  *
+  * @author Giovane Neves
+  */
+  void _onMapCreated(GoogleMapController controller) async {
 
     mapController = controller;
 
