@@ -10,7 +10,10 @@ class OfferMapScreen extends StatefulWidget {
 }
 
 class _OfferMapScreenState extends State<OfferMapScreen> {
+
   late GoogleMapController mapController;
+
+  // INFO: Centro do mapa
   final LatLng _center = const LatLng(-11.2999, -41.8568);
 
   final List<Marker> _markers = [];
@@ -57,7 +60,13 @@ class _OfferMapScreenState extends State<OfferMapScreen> {
   }
 
   void _onMapCreated(GoogleMapController controller) {
+
     mapController = controller;
+
+    // INFO: Seleciona o estilo do mapa
+    String style = await DefaultAssetBundle.of(context).loadString('assets/maps/map_style.json');
+    mapController.setMapStyle(style);
+
   }
 
   @override
