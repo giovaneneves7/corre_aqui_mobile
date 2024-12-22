@@ -1,3 +1,4 @@
+import 'package:corre_aqui/util/images.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -12,39 +13,47 @@ class _OfferMapScreenState extends State<OfferMapScreen> {
   late GoogleMapController mapController;
   final LatLng _center = const LatLng(-11.2999, -41.8568);
 
-  // Lista de markers
   final List<Marker> _markers = [];
   String? _selectedPlaceName;
 
   @override
   void initState() {
     super.initState();
-    _addMarkers();
+    _loadCustomMarker();
   }
 
-  void _addMarkers() {
-    _markers.addAll([
-      Marker(
-        markerId: const MarkerId('1'),
-        position: const LatLng(-11.3005, -41.8550),
-        infoWindow: const InfoWindow(title: "Marker 1"),
-        onTap: () {
-          setState(() {
-            _selectedPlaceName = "Marker 1";
-          });
-        },
-      ),
-      Marker(
-        markerId: const MarkerId('2'),
-        position: const LatLng(-11.3020, -41.8580),
-        infoWindow: const InfoWindow(title: "Marker 2"),
-        onTap: () {
-          setState(() {
-            _selectedPlaceName = "Marker 2";
-          });
-        },
-      ),
-    ]);
+  Future<void> _loadCustomMarker() async {
+    final BitmapDescriptor customIcon = await BitmapDescriptor.fromAssetImage(
+      const ImageConfiguration(size: Size(72, 95)),
+      Images.pinOffer,
+    );
+
+    setState(() {
+      _markers.addAll([
+        Marker(
+          markerId: const MarkerId('1'),
+          position: const LatLng(-11.3005, -41.8550),
+          icon: customIcon,
+          infoWindow: const InfoWindow(title: "Marker 1"),
+          onTap: () {
+            setState(() {
+              _selectedPlaceName = "Marker 1";
+            });
+          },
+        ),
+        Marker(
+          markerId: const MarkerId('2'),
+          position: const LatLng(-11.3020, -41.8580),
+          icon: customIcon,
+          infoWindow: const InfoWindow(title: "Marker 2"),
+          onTap: () {
+            setState(() {
+              _selectedPlaceName = "Marker 2";
+            });
+          },
+        ),
+      ]);
+    });
   }
 
   void _onMapCreated(GoogleMapController controller) {
