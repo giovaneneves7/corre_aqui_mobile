@@ -75,7 +75,7 @@ class PostSplashScreen extends StatelessWidget {
                   // Botão "Vamos começar"
                   ElevatedButton(
                     onPressed: () {
-                      Get.toNamed(RouteHelper.getOfferMapScreen());
+                      Get.toNamed(RouteHelper.getHomeOfferScreen());
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
