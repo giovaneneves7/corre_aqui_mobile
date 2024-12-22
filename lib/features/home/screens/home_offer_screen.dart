@@ -8,117 +8,156 @@ class HomeOfferScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Título e botão de configurações
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  "Corre Aqui!",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.settings),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Cabeçalho
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "Buscar no",
+                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                      ),
+                      Text(
+                        "Corre Aqui!",
+                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(Icons.location_on, color: Colors.red),
+                      const SizedBox(width: 4),
+                      const Text(
+                        "Irecê, BA",
+                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                      ),
+                      const SizedBox(width: 16),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.favorite_border),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
 
-            // Campo de busca
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'O que você procura?',
-                prefixIcon: const Icon(Icons.search),
-                border: OutlineInputBorder(
+              // Campo de busca
+              TextField(
+                decoration: InputDecoration(
+                  hintText: "O que você está buscando?",
+                  prefixIcon: const Icon(Icons.search),
+                  filled: true,
+                  fillColor: Colors.grey.shade200,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+
+              // Categorias
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _buildCategoryButton("Todos", isSelected: true),
+                  _buildCategoryButton("Academia"),
+                  _buildCategoryButton("Roupas"),
+                  _buildCategoryButton("Supermercado"),
+                ],
+              ),
+              const SizedBox(height: 16),
+
+              // Banner promocional
+              Container(
+                height: 120,
+                decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
+                  image: const DecorationImage(
+                    image: NetworkImage(
+                      'https://via.placeholder.com/400x150', // Coloque sua imagem aqui.
+                    ),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 24),
+              const SizedBox(height: 16),
 
-            // Seção de categorias
-            const Text(
-              "Categorias",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _buildCategoryCard(context, Icons.restaurant, "Academia"),
-                _buildCategoryCard(context, Icons.shopping_bag, "Roupas"),
-                _buildCategoryCard(context, Icons.local_grocery_store, "Supermercado"),
-                _buildCategoryCard(context, Icons.fitness_center, "Fitness"),
-              ],
-            ),
-            const SizedBox(height: 24),
-
-            // Banner promocional
-            Container(
-              height: 150,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: const DecorationImage(
-                  image: NetworkImage('https://via.placeholder.com/400x150'),
-                  fit: BoxFit.cover,
-                ),
+              // Parceiros
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Parceiros",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text("Ver Todos"),
+                  ),
+                ],
               ),
-            ),
-            const SizedBox(height: 24),
+              const SizedBox(height: 16),
 
-            // Seção de parceiros
-            const Text(
-              "Parceiros",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _buildPartnerCard(context, 'Atacadão', 'https://via.placeholder.com/100'),
-                _buildPartnerCard(context, 'Farmácia Super Popular', 'https://via.placeholder.com/100'),
-              ],
-            ),
-          ],
+              // Lista de parceiros
+              Row(
+                children: [
+                  _buildPartnerCard("Atacadão", "https://via.placeholder.com/100"),
+                  const SizedBox(width: 16),
+                  _buildPartnerCard("Farmácia Super Popular", "https://via.placeholder.com/100"),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
+        ],
+        currentIndex: 0,
+        onTap: (index) {},
+      ),
+    );
+  }
+
+  Widget _buildCategoryButton(String title, {bool isSelected = false}) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      decoration: BoxDecoration(
+        color: isSelected ? Colors.red : Colors.grey.shade200,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Text(
+        title,
+        style: TextStyle(
+          color: isSelected ? Colors.white : Colors.black,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );
   }
 
-  Widget _buildCategoryCard(BuildContext context, IconData icon, String title) {
+  Widget _buildPartnerCard(String name, String imageUrl) {
     return Column(
       children: [
         Container(
-          width: 60,
-          height: 60,
+          width: 100,
+          height: 100,
           decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
             borderRadius: BorderRadius.circular(8),
-          ),
-          child: Icon(icon, color: Colors.white),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          title,
-          style: Theme.of(context).textTheme.bodyMedium, // Usando bodyMedium
-        ),
-      ],
-    );
-  }
-
-  Widget _buildPartnerCard(BuildContext context, String name, String imageUrl) {
-    return Column(
-      children: [
-        Container(
-          width: 80,
-          height: 80,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
             image: DecorationImage(
               image: NetworkImage(imageUrl),
               fit: BoxFit.cover,
@@ -128,7 +167,7 @@ class HomeOfferScreen extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           name,
-          style: Theme.of(context).textTheme.bodyMedium, // Usando bodyMedium
+          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
         ),
       ],
     );
