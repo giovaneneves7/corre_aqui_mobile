@@ -10,6 +10,6 @@ class Store{
 	final String name;
 	final String imageUrl;
 
-	Store(this.cpnj, this.name, this.imageUrl);
+	Store(this.cnpj, this.name, this.imageUrl);
 
 }
