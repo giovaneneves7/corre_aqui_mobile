@@ -73,21 +73,23 @@ class PostSplashScreen extends StatelessWidget {
                   const SizedBox(height: 20),
 
                   // Botão "Vamos começar"
-                  ElevatedButton(
-                    onPressed: () {
-                      Get.toNamed(RouteHelper.getHomeOfferScreen());
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 15),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+                  SizedBox(
+                    width: double.infinity, // Faz o botão ocupar toda a largura disponível
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Get.toNamed(RouteHelper.getHomeOfferScreen());
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.red,
+                        padding: const EdgeInsets.symmetric(vertical: 15), // Mantém altura do botão
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                       ),
-                    ),
-                    child: const Text(
-                      'Vamos Começar',
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                      child: const Text(
+                        'Vamos Começar',
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
                     ),
                   ),
                 ],
