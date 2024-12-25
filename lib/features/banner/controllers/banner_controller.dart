@@ -14,8 +14,8 @@ class BannerController extends GetxController implements GetxService {
 	BannerController({required this.bannerServiceInterface});
 
 
-	List<Banner?> _bannerList = [];
-	List<Banner?> get bannerList => _bannerList;
+	List<Banner> _bannerList = [];
+	List<Banner> get bannerList => _bannerList;
 
 	Future<void> getBannerList() async{
 

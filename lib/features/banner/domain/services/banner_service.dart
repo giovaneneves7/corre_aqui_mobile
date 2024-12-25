@@ -12,7 +12,7 @@ BannerService implements BannerServiceInterface{
 	BannerService({required this.bannerRepositoryInterface});
 
 	@override
-  	Future<List<Banner?>> getBannerList() async {
+  	Future<List<Banner>> getBannerList() async {
     	return await bannerRepositoryInterface.getList();
   	}
 

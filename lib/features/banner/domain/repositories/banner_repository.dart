@@ -1,3 +1,4 @@
+import 'package:corre_aqui/api/supabase_api_client';
 import 'package:corre_aqui/features/banner/domain/models/banner.dart';
 import 'package:get/get.dart';
 
@@ -8,21 +9,25 @@ class BannerRepository implements BannerRepositoryInterface {
 	BannerRepository({required this.apiClient});
 	
 	@override
-  	Future<List<Banner> getList() async {
+  	Future<List<Banner>> getList() async {
 
 	    try {
 	      
-	    	final data = await apiClient.getData(
-	    		'banners', 
-	        	filters: {
-	          	'active': true, 
-	        	},
-	      	);
+	    	final data = await apiClient.getData('banners');
 
-	      	return data.map((json) => Banner.fromJson(json)).toList();
+	      	return data.map((banner){
 
+	      			return Banner(
+	      				id: banner['id'] as String,
+	      				imageUrl: banner['image_url'] as String,
+	      				name: banner['name'] as String?,
+	      				description: banner['description'] as String?
+	      			);
+
+	      	}).toList();
+	    
 	    } catch (e) {
-	      rethrow; 
+	      throw Exception('Erro ao buscar lista de banners: $e');
 	    }
   	}
 
