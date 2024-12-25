@@ -1,3 +1,4 @@
+import 'package:corre_aqui/api/supabase_api_client.dart';
 import 'package:corre_aqui/features/store/models/store.dart';
 import 'package:corre_aqui/features/store/domain/repositories/store_repository_interface.dart';
 import 'package:get/get.dart';
@@ -12,18 +13,26 @@ class StoreRepository implements StoreRepositoryInterface{
 	@Override
 	Future<List<Store>> getList() async {
 
-	    if (response.error != null) {
-	      throw Exception('Erro ao buscar dados: ${response.error!.message}');
-	    }
+		try{
+		
+			final data = await apiClient.getData('stores');
 
-	    final data = response.data as List<dynamic>;
-	    return data.map((store) {
-	      return Store(
-	        store['cnpj'] as String,
-	        store['name'] as String,
-	        store['image_url'] as String,
-	      );
-	    }).toList();
+			return data.map((store) {
+		        
+		    	return Store(
+		          store['cnpj'] as String,
+		          store['name'] as String,
+		          store['image_url'] as String,
+		        );
+
+		     }).toList();
+
+		} catch(e) {
+
+			throw Exception('Erro ao buscar lista de lojas: $e');
+
+		}
+
 	  }
 	  
 	}

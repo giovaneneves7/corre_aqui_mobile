@@ -5,7 +5,7 @@ class SupabaseApiClient {
 
   	final SupabaseClient client;
   	final String authToken;
-	final SharedPreferences sharedPreferences;
+	 final SharedPreferences sharedPreferences;
 
   	SupabaseApiClient({required this.client, required this.authToken, required this.sharedReferences});
 
