@@ -5,6 +5,7 @@ import 'package:corre_aqui/features/banner/domain/repositories/banner_repository
 import 'package:corre_aqui/features/banner/domain/services/banner_service.dart';
 import 'package:corre_aqui/features/banner/domain/services/banner_service_interface.dart';
 import 'package:corre_aqui/features/store/domain/repositories/store_repository';
+import 'package:corre_aqui/features/store/controllers/store_controller.dart';
 import 'package:corre_aqui/features/store/domain/repositories/store_repository_interface';
 import 'package:corre_aqui/features/store/domain/services/store_service.dart';
 import 'package:corre_aqui/features/store/domain/services/store_service_interface.dart';
@@ -37,6 +38,7 @@ Future<Map<String, Map<String, String>>> init() async {
 	Get.lazyPut(() => storeService);
 
 	// Controllers
+	Get.lazyPut(() => StoreController(storeService: Get.find()));
 	//Get.lazyPut(() => BannerController(bannerServiceInterface: bannerServiceInterface));
 	
 }
