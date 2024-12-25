@@ -79,18 +79,34 @@ class HomeOfferScreen extends StatelessWidget {
               const SizedBox(height: 16),
 
               // Banner promocional
-              Container(
-                height: 120,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  image: const DecorationImage(
-                    image: NetworkImage(
-                      'https://via.placeholder.com/400x150', // Coloque sua imagem aqui.
+              GetBuilder<BannerController>(
+                builder: (controller) {
+                  if (controller.bannerList.isEmpty) {
+                    return Container(
+                      height: 120,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Colors.grey.shade300, // Placeholder para quando não houver banners
+                      ),
+                      alignment: Alignment.center,
+                      child: const Text("Nenhum banner disponível", style: TextStyle(color: Colors.black)),
+                    );
+                  }
+
+                  final firstBanner = controller.bannerList.first;
+                  return Container(
+                    height: 120,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      image: DecorationImage(
+                        image: NetworkImage(firstBanner.imageUrl),
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                  );
+                },
               ),
+
               const SizedBox(height: 16),
 
               // Parceiros
