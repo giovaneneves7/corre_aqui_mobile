@@ -10,7 +10,8 @@ class HomeOfferScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
+          child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,6 +140,8 @@ class HomeOfferScreen extends StatelessWidget {
             ],
           ),
         ),
+        ),
+        
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
