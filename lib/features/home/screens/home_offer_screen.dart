@@ -86,10 +86,13 @@ class HomeOfferScreen extends StatelessWidget {
                       height: 120,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color: Colors.grey.shade300, // Placeholder para quando não houver banners
+                        color: Colors.grey.shade300,
                       ),
                       alignment: Alignment.center,
-                      child: const Text("Nenhum banner disponível", style: TextStyle(color: Colors.black)),
+                      child: const Text(
+                        "Carregando banners...",
+                        style: TextStyle(color: Colors.black),
+                      ),
                     );
                   }
 
