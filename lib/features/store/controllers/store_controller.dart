@@ -1,4 +1,4 @@
-import 'package:corre_aqui/features/store/domain/models/stores.dart';
+import 'package:corre_aqui/features/store/domain/models/store.dart';
 import 'package:corre_aqui/features/store/domain/services/store_service_interface.dart';
 import 'package:get/get.dart';
 

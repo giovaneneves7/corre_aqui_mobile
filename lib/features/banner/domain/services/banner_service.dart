@@ -5,7 +5,7 @@ import 'package:corre_aqui/features/banner/domain/models/banner.dart';
 * @author Giovane Neves
 * @since v0.0.1
 */
-BannerService implements BannerServiceInterface{
+class BannerService implements BannerServiceInterface{
 
 	final BannerRepositoryInterface bannerRepositoryInterface;
 
