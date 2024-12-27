@@ -80,7 +80,7 @@ class HomeOfferScreen extends StatelessWidget {
               const SizedBox(height: 16),
 
               // Banner promocional
-              /*GetBuilder<BannerController>(
+              GetBuilder<BannerController>(
                 builder: (controller) {
                   if (controller.bannerList.isEmpty) {
                     return Container(
@@ -109,7 +109,7 @@ class HomeOfferScreen extends StatelessWidget {
                     ),
                   );
                 },
-              ),*/
+              ),
 
               const SizedBox(height: 16),
 
