@@ -6,7 +6,7 @@ import 'package:corre_aqui/features/banner/domain/services/banner_service.dart';
 import 'package:corre_aqui/features/banner/domain/services/banner_service_interface.dart';
 import 'package:corre_aqui/features/store/domain/repositories/store_repository';
 import 'package:corre_aqui/features/store/controllers/store_controller.dart';
-import 'package:corre_aqui/features/store/domain/repositories/store_repository_interface';
+import 'package:corre_aqui/features/store/domain/repositories/store_repository_interface.dart';
 import 'package:corre_aqui/features/store/domain/services/store_service.dart';
 import 'package:corre_aqui/features/store/domain/services/store_service_interface.dart';
 import 'package:get/get.dart';
