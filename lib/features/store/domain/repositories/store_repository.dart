@@ -33,8 +33,7 @@ class StoreRepository implements StoreRepositoryInterface{
 
 		}
 
-	  }
-	  
 	}
-
+	  
 }
+
