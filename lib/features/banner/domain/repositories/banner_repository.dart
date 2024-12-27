@@ -1,4 +1,4 @@
-import 'package:corre_aqui/api/supabase_api_client';
+import 'package:corre_aqui/api/supabase_api_client.dart';
 import 'package:corre_aqui/features/banner/domain/models/banner.dart';
 import 'package:corre_aqui/features/banner/domain/repositories/banner_repository_interface.dart';
 import 'package:get/get.dart';

@@ -1,4 +1,3 @@
-import 'package:corre_aqui/api/api_client.dart';
 import 'package:corre_aqui/interfaces/repository_interface.dart';
 
 /**

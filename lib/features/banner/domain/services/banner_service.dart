@@ -1,4 +1,4 @@
-import 'package:corre_aqui/features/banner/domain/repositories/banner_repository_interface.dart';
+import 'package:corre_aqui/features/banner/domain/repositories/banner_service_interface.dart';
 import 'package:corre_aqui/features/banner/domain/models/banner.dart';
 
 /**

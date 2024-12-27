@@ -1,5 +1,5 @@
 import 'package:corre_aqui/api/supabase_api_client.dart';
-import 'package:corre_aqui/features/store/models/store.dart';
+import 'package:corre_aqui/features/store/domain/models/store.dart';
 import 'package:corre_aqui/features/store/domain/repositories/store_repository_interface.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
