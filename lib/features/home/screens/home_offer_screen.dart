@@ -1,5 +1,6 @@
 import 'package:corre_aqui/features/home/widgets/banner_carousel.dart';
 import 'package:corre_aqui/features/home/widgets/category_list.dart';
+import 'package:corre_aqui/features/home/widgets/components/offer_map_button.dart';
 import 'package:corre_aqui/features/home/widgets/searchbar.dart';
 import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:flutter/material.dart';
@@ -100,24 +101,21 @@ class HomeOfferScreen extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Get.toNamed(RouteHelper.getOfferMapScreen());
-        },
-        backgroundColor: Colors.red,
-        child: const Icon(Icons.location_pin, size: 32),
-      ),
+      floatingActionButton: OfferMapButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
-        notchMargin: 8.0,
-        child: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
-          ],
-          currentIndex: 0,
-          onTap: (index) {},
+        notchMargin: 8.0, 
+        child: SizedBox(
+          height: 60, 
+          child: BottomNavigationBar(
+            items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
+              BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
+            ],
+            currentIndex: 0,
+            onTap: (index) {},
+          ),
         ),
       ),
     );
