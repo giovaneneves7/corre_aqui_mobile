@@ -1,4 +1,4 @@
-import 'package:corre_aqui/features/banner/controllers/banner_controller.dart';
+import 'package:corre_aqui/features/home/widgets/banner_carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +16,7 @@ class HomeOfferScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Cabeçalho
+              // Header
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -52,7 +52,7 @@ class HomeOfferScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-              // Campo de busca
+              // Search bar
               TextField(
                 decoration: InputDecoration(
                   hintText: "O que você está buscando?",
@@ -67,7 +67,11 @@ class HomeOfferScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-              // Categorias
+              // Promotional Banner
+              const BannerCarousel(),
+              const SizedBox(height: 16),
+
+              // Categories
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -77,40 +81,6 @@ class HomeOfferScreen extends StatelessWidget {
                   _buildCategoryButton("Supermercado"),
                 ],
               ),
-              const SizedBox(height: 16),
-
-              // Banner promocional
-              GetBuilder<BannerController>(
-                builder: (controller) {
-                  if (controller.bannerList.isEmpty) {
-                    return Container(
-                      height: 120,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Colors.grey.shade300,
-                      ),
-                      alignment: Alignment.center,
-                      child: const Text(
-                        "Carregando banners...",
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    );
-                  }
-
-                  final firstBanner = controller.bannerList.first;
-                  return Container(
-                    height: 120,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      image: DecorationImage(
-                        image: NetworkImage(firstBanner.imageUrl),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  );
-                },
-              ),
-
               const SizedBox(height: 16),
 
               // Parceiros
