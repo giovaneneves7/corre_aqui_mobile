@@ -12,13 +12,6 @@ class SupabaseApiClient {
     required this.sharedPreferences,
   });
 
-  Map<String, String> _getHeaders() {
-    return {
-      'Authorization': 'Bearer $authToken',
-      'Content-Type': 'application/json',
-    };
-  }
-
   // Método genérico para buscar dados
   Future<List<Map<String, dynamic>>> getData(String table, {Map<String, dynamic>? filters}) async {
     try {
@@ -27,25 +20,22 @@ class SupabaseApiClient {
         query = query.eq(key, value);
       });
 
-      final response = await query; // Supabase retorna diretamente a resposta
-      if (response is PostgrestResponse && response.error != null) {
-        throw Exception('Erro: ${response.error!.message}');
-      }
-      return (response as List).cast<Map<String, dynamic>>();
+      final response = await query; // Agora retorna os dados diretamente
+      return List<Map<String, dynamic>>.from(response);
     } catch (e) {
-      rethrow;
+      throw Exception('Erro ao buscar dados: $e');
     }
   }
 
   // Método genérico para inserir dados
   Future<void> postData(String table, Map<String, dynamic> body) async {
     try {
-      final response = await client.from(table).insert(body);
-      if (response is PostgrestResponse && response.error != null) {
-        throw Exception('Erro: ${response.error!.message}');
+      final response = await client.from(table).insert(body).select();
+      if (response.isEmpty) {
+        throw Exception('Erro ao inserir dados. Resposta vazia.');
       }
     } catch (e) {
-      rethrow;
+      throw Exception('Erro ao inserir dados: $e');
     }
   }
 
@@ -58,11 +48,11 @@ class SupabaseApiClient {
       });
 
       final response = await query;
-      if (response is PostgrestResponse && response.error != null) {
-        throw Exception('Erro: ${response.error!.message}');
+      if (response.isEmpty) {
+        throw Exception('Erro ao atualizar dados. Resposta vazia.');
       }
     } catch (e) {
-      rethrow;
+      throw Exception('Erro ao atualizar dados: $e');
     }
   }
 
@@ -75,11 +65,11 @@ class SupabaseApiClient {
       });
 
       final response = await query;
-      if (response is PostgrestResponse && response.error != null) {
-        throw Exception('Erro: ${response.error!.message}');
+      if (response.isEmpty) {
+        throw Exception('Erro ao excluir dados. Resposta vazia.');
       }
     } catch (e) {
-      rethrow;
+      throw Exception('Erro ao excluir dados: $e');
     }
   }
 }
