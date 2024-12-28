@@ -1,8 +1,13 @@
 import 'package:corre_aqui/features/home/widgets/banner_carousel.dart';
 import 'package:corre_aqui/features/home/widgets/category_list.dart';
+import 'package:corre_aqui/features/home/widgets/searchbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+/**
+* @author Giovane Neves
+* @since v0.0.1
+*/
 class HomeOfferScreen extends StatelessWidget {
   const HomeOfferScreen({Key? key}) : super(key: key);
 
@@ -54,18 +59,7 @@ class HomeOfferScreen extends StatelessWidget {
               const SizedBox(height: 16),
 
               // Search bar
-              TextField(
-                decoration: InputDecoration(
-                  hintText: "O que você está buscando?",
-                  prefixIcon: const Icon(Icons.search),
-                  filled: true,
-                  fillColor: Colors.grey.shade200,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-              ),
+              Searchbar(),
               const SizedBox(height: 16),
 
               // Promotional Banner
@@ -109,7 +103,6 @@ class HomeOfferScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
         ],
         currentIndex: 0,
