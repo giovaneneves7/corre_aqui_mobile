@@ -1,5 +1,6 @@
 import 'package:corre_aqui/features/banner/controllers/banner_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 /**
 * Home's screen banner carousel.
