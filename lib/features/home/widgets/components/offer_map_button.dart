@@ -1,4 +1,6 @@
+import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class OfferMapButton extends StatelessWidget{
 
@@ -16,7 +18,7 @@ class OfferMapButton extends StatelessWidget{
           		size: 32,
           		color: Colors.white
           	),
-      	),
+      	);
 
 	}
 }

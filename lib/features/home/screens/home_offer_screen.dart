@@ -2,7 +2,6 @@ import 'package:corre_aqui/features/home/widgets/banner_carousel.dart';
 import 'package:corre_aqui/features/home/widgets/category_list.dart';
 import 'package:corre_aqui/features/home/widgets/components/offer_map_button.dart';
 import 'package:corre_aqui/features/home/widgets/searchbar.dart';
-import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
