@@ -22,16 +22,16 @@ class SupabaseApiClient {
   // Método genérico para buscar dados
   Future<List<Map<String, dynamic>>> getData(String table, {Map<String, dynamic>? filters}) async {
     try {
-      final query = client.from(table).select();
+      var query = client.from(table).select();
       filters?.forEach((key, value) {
-        query.eq(key, value);
+        query = query.eq(key, value);
       });
 
-      final response = await query.get();
-      if (response.error != null) {
+      final response = await query; // Supabase retorna diretamente a resposta
+      if (response is PostgrestResponse && response.error != null) {
         throw Exception('Erro: ${response.error!.message}');
       }
-      return response.data as List<Map<String, dynamic>>;
+      return (response as List).cast<Map<String, dynamic>>();
     } catch (e) {
       rethrow;
     }
@@ -40,8 +40,8 @@ class SupabaseApiClient {
   // Método genérico para inserir dados
   Future<void> postData(String table, Map<String, dynamic> body) async {
     try {
-      final response = await client.from(table).insert(body).post();
-      if (response.error != null) {
+      final response = await client.from(table).insert(body);
+      if (response is PostgrestResponse && response.error != null) {
         throw Exception('Erro: ${response.error!.message}');
       }
     } catch (e) {
@@ -52,13 +52,13 @@ class SupabaseApiClient {
   // Método genérico para atualizar dados
   Future<void> putData(String table, Map<String, dynamic> body, Map<String, dynamic> filters) async {
     try {
-      final query = client.from(table).update(body);
+      var query = client.from(table).update(body);
       filters.forEach((key, value) {
-        query.eq(key, value);
+        query = query.eq(key, value);
       });
 
-      final response = await query.patch();
-      if (response.error != null) {
+      final response = await query;
+      if (response is PostgrestResponse && response.error != null) {
         throw Exception('Erro: ${response.error!.message}');
       }
     } catch (e) {
@@ -69,13 +69,13 @@ class SupabaseApiClient {
   // Método genérico para excluir dados
   Future<void> deleteData(String table, Map<String, dynamic> filters) async {
     try {
-      final query = client.from(table).delete();
+      var query = client.from(table).delete();
       filters.forEach((key, value) {
-        query.eq(key, value);
+        query = query.eq(key, value);
       });
 
-      final response = await query.delete();
-      if (response.error != null) {
+      final response = await query;
+      if (response is PostgrestResponse && response.error != null) {
         throw Exception('Erro: ${response.error!.message}');
       }
     } catch (e) {

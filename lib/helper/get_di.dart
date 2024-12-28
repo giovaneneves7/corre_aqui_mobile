@@ -13,7 +13,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-Future<Map<String, Map<String, String>>> init() async {
+Future<void> init() async {
 
 	
 	final sharedPreferences = await SharedPreferences.getInstance();
