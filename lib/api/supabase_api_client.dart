@@ -2,29 +2,32 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseApiClient {
+  final SupabaseClient client;
+  final String authToken;
+  final SharedPreferences sharedPreferences;
 
-  	final SupabaseClient client;
-  	final String authToken;
-	 final SharedPreferences sharedPreferences;
+  SupabaseApiClient({
+    required this.client,
+    required this.authToken,
+    required this.sharedPreferences,
+  });
 
-  	SupabaseApiClient({required this.client, required this.authToken, required this.sharedReferences});
+  Map<String, String> _getHeaders() {
+    return {
+      'Authorization': 'Bearer $authToken',
+      'Content-Type': 'application/json',
+    };
+  }
 
-  	Map<String, String> _getHeaders() {
-    	return {
-      	'Authorization': 'Bearer $authToken',
-      	'Content-Type': 'application/json',
-    	};
-  	}
-
+  // Método genérico para buscar dados
   Future<List<Map<String, dynamic>>> getData(String table, {Map<String, dynamic>? filters}) async {
-    
     try {
       final query = client.from(table).select();
       filters?.forEach((key, value) {
         query.eq(key, value);
       });
 
-      final response = await query.execute();
+      final response = await query.get();
       if (response.error != null) {
         throw Exception('Erro: ${response.error!.message}');
       }
@@ -37,7 +40,7 @@ class SupabaseApiClient {
   // Método genérico para inserir dados
   Future<void> postData(String table, Map<String, dynamic> body) async {
     try {
-      final response = await client.from(table).insert(body).execute();
+      final response = await client.from(table).insert(body).post();
       if (response.error != null) {
         throw Exception('Erro: ${response.error!.message}');
       }
@@ -54,7 +57,7 @@ class SupabaseApiClient {
         query.eq(key, value);
       });
 
-      final response = await query.execute();
+      final response = await query.patch();
       if (response.error != null) {
         throw Exception('Erro: ${response.error!.message}');
       }
@@ -71,7 +74,7 @@ class SupabaseApiClient {
         query.eq(key, value);
       });
 
-      final response = await query.execute();
+      final response = await query.delete();
       if (response.error != null) {
         throw Exception('Erro: ${response.error!.message}');
       }

@@ -10,7 +10,7 @@ class StoreRepository implements StoreRepositoryInterface{
 
 	StoreRepository({required this.apiClient});
 
-	@Override
+	@override
 	Future<List<Store>> getList() async {
 
 		try{

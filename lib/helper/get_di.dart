@@ -11,6 +11,7 @@ import 'package:corre_aqui/features/store/domain/services/store_service.dart';
 import 'package:corre_aqui/features/store/domain/services/store_service_interface.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<Map<String, Map<String, String>>> init() async {
 
@@ -26,11 +27,11 @@ Future<Map<String, Map<String, String>>> init() async {
 	Get.lazyPut(() => supabaseClient);
 
 	// Repositories
-	BannerRepositoryInterface bannerRepository = BannerRepository(apiClinet: Get.find());
+	BannerRepositoryInterface bannerRepository = BannerRepository(apiClient: Get.find());
 	Get.lazyPut(() => bannerRepository);
 
 	StoreRepositoryInterface storeRepository = StoreRepository(apiClient: Get.find());
-	Get.lazyPut(() => storyRepository);
+	Get.lazyPut(() => storeRepository);
 
 
 	// Services
