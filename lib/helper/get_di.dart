@@ -4,13 +4,21 @@ import 'package:corre_aqui/features/banner/domain/repositories/banner_repository
 import 'package:corre_aqui/features/banner/domain/repositories/banner_repository.dart';
 import 'package:corre_aqui/features/banner/domain/services/banner_service.dart';
 import 'package:corre_aqui/features/banner/domain/services/banner_service_interface.dart';
+import 'package:corre_aqui/features/category/controllers/category_controller.dart';
+import 'package:corre_aqui/features/category/domain/repositories/category_repository.dart';
+import 'package:corre_aqui/features/category/domain/repositories/category_repository_interface.dart';
+import 'package:corre_aqui/features/category/domain/services/category_service.dart';
+import 'package:corre_aqui/features/category/domain/services/category_service_interface.dart';
 import 'package:corre_aqui/features/store/domain/repositories/store_repository.dart';
 import 'package:corre_aqui/features/store/controllers/store_controller.dart';
 import 'package:corre_aqui/features/store/domain/repositories/store_repository_interface.dart';
 import 'package:corre_aqui/features/store/domain/services/store_service.dart';
 import 'package:corre_aqui/features/store/domain/services/store_service_interface.dart';
+
 import 'package:get/get.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> init() async {
@@ -30,6 +38,9 @@ Future<void> init() async {
 	BannerRepositoryInterface bannerRepository = BannerRepository(apiClient: Get.find());
 	Get.lazyPut(() => bannerRepository);
 
+	CategoryRepositoryInterface categoryRepositoryInterface = CategoryRepository(apiClient: Get.find());
+	Get.lazyPut(() => categoryRepositoryInterface);
+
 	StoreRepositoryInterface storeRepository = StoreRepository(apiClient: Get.find());
 	Get.lazyPut(() => storeRepository);
 
@@ -38,11 +49,15 @@ Future<void> init() async {
 	BannerServiceInterface bannerServiceInterface = BannerService(bannerRepositoryInterface: Get.find());
 	Get.lazyPut(() => bannerServiceInterface);
 	
+	CategoryServiceInterface categoryServiceInterface = CategoryService(categoryRepositoryInterface: Get.find());
+	Get.lazyPut(() => categoryServiceInterface);
+
 	StoreServiceInterface storeService = StoreService(storeRepository: Get.find());
 	Get.lazyPut(() => storeService);
 
 	// Controllers
 	Get.lazyPut(() => BannerController(bannerServiceInterface: Get.find()));
+	Get.lazyPut(() => CategoryController(categoryServiceInterface: Get.find()));
 	Get.lazyPut(() => StoreController(storeService: Get.find()));
 	
 }
