@@ -9,7 +9,7 @@ class CategoryList extends StatelessWidget{
 
 
 	@override
-	Widget build(){
+	Widget build(BuildContext context){
 
 		return Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
