@@ -68,7 +68,7 @@ class HomeOfferScreen extends StatelessWidget {
               const SizedBox(height: 16),
 
               // Promotional Banner
-              const BannerCarousel(),
+              BannerCarousel(),
               const SizedBox(height: 16),
 
               // Categories
