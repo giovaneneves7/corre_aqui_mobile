@@ -27,6 +27,11 @@ class CategoryRepository implements CategoryRepositoryInterface{
   	}
 
   	@override
+  	Future getList() {
+    	throw UnimplementedError();
+  	}
+
+  	@override
   	Future update(Map<String, dynamic> body, int? id) {
     	throw UnimplementedError();
   	}
