@@ -10,7 +10,7 @@ abstract class RepositoryInterface<T> {
 
   Future<dynamic> delete(int? id);
 
-  Future<dynamic> getList({int? offset});
+  Future<dynamic> getList();
 
   Future<dynamic> get(String? id);
 
