@@ -104,19 +104,26 @@ class HomeOfferScreen extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
-        notchMargin: 8.0, 
+        notchMargin: 8.0,
         child: SizedBox(
-          height: 60, 
-          child: BottomNavigationBar(
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-              BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
+          height: 60, // Altura mínima
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                icon: const Icon(Icons.home),
+                onPressed: () {},
+              ),
+              const SizedBox(width: 32), 
+              IconButton(
+                icon: const Icon(Icons.favorite),
+                onPressed: () {},
+              ),
             ],
-            currentIndex: 0,
-            onTap: (index) {},
           ),
         ),
       ),
+
     );
   }
 
