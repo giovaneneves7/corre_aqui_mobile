@@ -2,6 +2,7 @@ import 'package:corre_aqui/features/home/widgets/banner_carousel.dart';
 import 'package:corre_aqui/features/home/widgets/category_list.dart';
 import 'package:corre_aqui/features/home/widgets/components/offer_map_button.dart';
 import 'package:corre_aqui/features/home/widgets/header.dart';
+import 'package:corre_aqui/features/home/widgets/new_stores_section.dart';
 import 'package:corre_aqui/features/home/widgets/searchbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -56,14 +57,8 @@ class HomeOfferScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // Lista de parceiros
-                Row(
-                  children: [
-                    _buildPartnerCard("Atacadão", "https://via.placeholder.com/100"),
-                    const SizedBox(width: 16),
-                    _buildPartnerCard("Farmácia Super Popular", "https://via.placeholder.com/100"),
-                  ],
-                ),
+                // New Stores
+                NewStoresSection(),
               ],
             ),
           ),
@@ -96,26 +91,4 @@ class HomeOfferScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildPartnerCard(String name, String imageUrl) {
-    return Column(
-      children: [
-        Container(
-          width: 100,
-          height: 100,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            image: DecorationImage(
-              image: NetworkImage(imageUrl),
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          name,
-          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-        ),
-      ],
-    );
-  }
 }
