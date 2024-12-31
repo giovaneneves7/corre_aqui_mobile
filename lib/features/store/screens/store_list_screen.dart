@@ -10,13 +10,7 @@ class StoreListScreen extends StatefulWidget {
 }
 
 class _StoreListScreenState extends State<StoreListScreen> {
-  final List<Store> stores = [
-    Store('12345', 'AGES', 'assets/images/ages.jpg'),
-    Store('12345', 'EnoveSolar', 'assets/images/enove_solar.jpeg'),
-    Store('12345','Geocomercial', 'assets/images/geocomercial.png'),
-    Store('12345','Quy Sorwetto', 'assets/images/quy_sorvetto.png'),
-    Store('12345','Tropical Motos', 'assets/images/tropical_motos.png'),
-  ];
+  final List<Store> stores = [];
 
   late TextEditingController _searchController;
 
