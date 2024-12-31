@@ -6,21 +6,21 @@
 class Category{
 
 	String name;
-	String image;
+	String imageUrl;
 
-	Category({required this.name, required this.image});
+	Category({required this.name, required this.imageUrl});
 
 	factory Category.fromJson(Map<String, dynamic> json) {
 	    return Category(
 	      name: json['name'],
-	      image: json['image'],
+	      imageUrl: json['image_url'],
 	    );
 	}
 
 	Map<String, dynamic> toJson() {
 	    return {
 	      'name': name,
-	      'image': image,
+	      'image_url': imageUrl,
 	    };
 	}
 

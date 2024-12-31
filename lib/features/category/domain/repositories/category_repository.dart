@@ -13,7 +13,7 @@ class CategoryRepository implements CategoryRepositoryInterface{
 	CategoryRepository({required this.apiClient});
 
 	@override
-  	Future<List<Category>> getList() {
+  	Future<List<Category>> getList() async{
     	
   		try {
 	      
