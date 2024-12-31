@@ -20,9 +20,9 @@ class StoreRepository implements StoreRepositoryInterface{
 			return data.map((store) {
 		        
 		    	return Store(
-		          store['cnpj'] as String,
-		          store['name'] as String,
-		          store['image_url'] as String,
+		          cnpj: store['cnpj'] as String,
+		          name: store['name'] as String,
+		          imageUrl: store['image_url'] as String,
 		        );
 
 		     }).toList();
