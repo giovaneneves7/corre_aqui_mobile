@@ -1,6 +1,7 @@
 import 'package:corre_aqui/features/home/widgets/banner_carousel.dart';
 import 'package:corre_aqui/features/home/widgets/category_list.dart';
 import 'package:corre_aqui/features/home/widgets/components/offer_map_button.dart';
+import 'package:corre_aqui/features/home/widgets/header.dart';
 import 'package:corre_aqui/features/home/widgets/searchbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,39 +25,7 @@ class HomeOfferScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Header
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          "Buscar no",
-                          style: TextStyle(fontSize: 14, color: Colors.grey),
-                        ),
-                        Text(
-                          "Corre Aqui!",
-                          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Icon(Icons.location_on, color: Colors.red),
-                        const SizedBox(width: 4),
-                        const Text(
-                          "Irecê, BA",
-                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-                        ),
-                        const SizedBox(width: 16),
-                        IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.favorite_border),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                Header(),
                 const SizedBox(height: 16),
 
                 // Search bar
