@@ -11,6 +11,14 @@ class StoreController extends GetxController implements GetxService{
 	List<Store> _stores = [];
 	List<Store> get stores => _stores;
 
+	@override
+	void onInit() {
+
+	  super.onInit();
+	  getStoreList();
+
+	}
+	
 	Future<void> getStoreList() async{
 
 		_stores = await storeService.getStoreList();
