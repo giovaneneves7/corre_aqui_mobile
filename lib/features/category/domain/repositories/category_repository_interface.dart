@@ -6,6 +6,8 @@ import 'package:corre_aqui/interfaces/repository_interface.dart';
 */
 abstract class CategoryRepositoryInterface implements RepositoryInterface{
 
+	@override
+  	Future getList();
 
 
 }

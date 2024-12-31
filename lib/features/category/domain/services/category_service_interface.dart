@@ -1,3 +1,4 @@
+import 'package:corre_aqui/features/category/domain/models/category.dart';
 
 /**
 * @author Giovane Neves
@@ -5,6 +6,6 @@
 */
 abstract class CategoryServiceInterface{
 
-
+	Future<List<Category>> getCategoryList();
 
 }
