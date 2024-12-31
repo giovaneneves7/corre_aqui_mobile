@@ -10,6 +10,6 @@ class Store{
 	final String name;
 	final String imageUrl;
 
-	Store(this.cnpj, this.name, this.imageUrl);
+	Store({required this.cnpj, required this.name, required this.imageUrl});
 
 }
