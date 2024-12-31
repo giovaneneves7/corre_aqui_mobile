@@ -12,7 +12,7 @@ class NewStoresSection extends StatelessWidget{
 	@override
 	Widget build(BuildContext context){
 
-		return GetBuilder<StoreController>{
+		return GetBuilder<StoreController>(
 			builder: (controller){
 
 				if (controller.stores.isEmpty) {
@@ -34,7 +34,7 @@ class NewStoresSection extends StatelessWidget{
 		                		children: controller.stores.map((store) {
 			                  		return Padding(
 			                    		padding: const EdgeInsets.only(right: 16.0), 
-			                    		child: const StoreCardTemplate(store: store),
+			                    		child: StoreCardTemplate(store: store),
 			                  		);
 		                		}).toList(),
 	              			),
