@@ -42,7 +42,7 @@ class RouteHelper{
 
     return '$offersByCategory?category_id=$categoryId';
 
-  } ;
+  }
   static String getOfferMapScreen() => offerMap;
   static String getRegisterScreen() => register;
   static String getSignInScreen() => signIn;
@@ -56,7 +56,10 @@ class RouteHelper{
     GetPage(name: home, page: () => HomeScreen()),
     GetPage(name: homeOffer, page: () => HomeOfferScreen()),
   	GetPage(name: notification, page: () => NotificationScreen()),
-    GetPage(name: offersByCategory, page: () => OffersByCategoryScreen(categoryId: Get.parameters['category_id'])),
+    GetPage(
+      name: offersByCategory, 
+      page: () => OffersByCategoryScreen(categoryId: int.parse(Get.parameters['category_id']!))
+    ),
     GetPage(name: offerMap, page: () => OfferMapScreen()),
     GetPage(name: register, page: () => SigninScreen()),
     GetPage(name: signIn, page: () => SigninScreen()),

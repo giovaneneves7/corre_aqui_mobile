@@ -17,7 +17,7 @@ class _OffersByCategoryScreen extends State<OffersByCategoryScreen> {
   Widget build(BuildContext context){
 
     return Row(
-      child: [
+      children: [
         Text('Nada para ver aqui na categoria ${widget.categoryId}'),
       ],
     );
