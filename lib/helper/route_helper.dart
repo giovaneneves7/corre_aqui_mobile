@@ -6,6 +6,7 @@ import 'package:corre_aqui/features/auth/screens/signin_screen.dart';
 import 'package:corre_aqui/features/home/screens/home_screen.dart';
 import 'package:corre_aqui/features/home/screens/home_offer_screen.dart';
 import 'package:corre_aqui/features/notification/screens/notification_screen.dart';
+import 'package:corre_aqui/features/offer/screens/offers_by_category_screen.dart';
 import 'package:corre_aqui/features/offer-map/screens/offer_map_screen.dart';
 import 'package:corre_aqui/features/store/screens/store_list_screen.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,7 @@ class RouteHelper{
   static const String home = '/home';
   static const String homeOffer = '/home-offer';
   static const String notification = '/notification';
+  static const String offersByCategory = '/offers-by-category';
   static const String offerMap = '/offer-map';
   static const String register = '/register';
   static const String signIn = '/sign-in';
@@ -36,6 +38,11 @@ class RouteHelper{
   static String getHomeScreen() => home;
   static String getHomeOfferScreen() => homeOffer;
   static String getNotificationScreen() => notification;
+  static String getOffersByCategoryScreen({required int categoryId}){
+
+    return '$offersByCategory?category_id=$categoryId';
+
+  } ;
   static String getOfferMapScreen() => offerMap;
   static String getRegisterScreen() => register;
   static String getSignInScreen() => signIn;
@@ -49,6 +56,7 @@ class RouteHelper{
     GetPage(name: home, page: () => HomeScreen()),
     GetPage(name: homeOffer, page: () => HomeOfferScreen()),
   	GetPage(name: notification, page: () => NotificationScreen()),
+    GetPage(name: offersByCategory, page: () => OffersByCategoryScreen(categoryId: Get.parameters['category_id'])),
     GetPage(name: offerMap, page: () => OfferMapScreen()),
     GetPage(name: register, page: () => SigninScreen()),
     GetPage(name: signIn, page: () => SigninScreen()),
