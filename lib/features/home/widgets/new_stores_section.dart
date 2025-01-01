@@ -29,7 +29,12 @@ class NewStoresSection extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text("Ver Todos"),
+                      child: const Text(
+                        "Ver Todos",
+                        style: TextStyle(
+                          color: Colors.red,
+                        ),
+                      ),
                     ),
                   ],
               ),
