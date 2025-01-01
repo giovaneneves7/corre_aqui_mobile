@@ -1,3 +1,4 @@
+import 'package:corre_aqui/features/category/controllers/category_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,34 +12,47 @@ class CategoryList extends StatelessWidget{
 	@override
 	Widget build(BuildContext context){
 
-		return Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-	            _buildCategoryButton("Todos", isSelected: true),
-	            _buildCategoryButton("Academia"),
-	            _buildCategoryButton("Roupas"),
-	            _buildCategoryButton("Supermercado"),
-            ],
-        );
+		return GetBuilder<CategoryController>(
+      		builder: (controller) {
+        		if (controller.categoryList.isEmpty) {
+          		return const Center(
+            		child: CircularProgressIndicator(), 
+          		);
+	        	} else {
+	          		return SingleChildScrollView(
+		            	scrollDirection: Axis.horizontal, 
+		            	child: Row(
+		              		children: controller.categoryList.map((category) {
+		               			return Padding(
+		                  			padding: const EdgeInsets.only(right: 16.0), // Espaçamento entre os cards
+		                  			child: Column(
+		                    			children: [
+		                      				Container(
+		                        				width: 60,
+		                        				height: 60,
+		                        				decoration: BoxDecoration(
+		                          					shape: BoxShape.circle,
+		                          					image: DecorationImage(
+		                            					image: NetworkImage(category.imageUrl),
+		                            					fit: BoxFit.cover,
+		                          					),
+		                        				),
+		                      				),
+		                      				const SizedBox(height: 8),
+			                      			Text(
+			                        			category.name,
+			                        			style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+			                      			),
+		                    			],
+		                  			),
+		                		);
+		              		}).toList(),
+		            	),
+	          		);
+	        	}
+      		},
+    	);
 
 	}
 
-	Widget _buildCategoryButton(String title, {bool isSelected = false}) {
-	    
-	    return Container(
-	      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-	      decoration: BoxDecoration(
-	        color: isSelected ? Colors.red : Colors.grey.shade200,
-	        borderRadius: BorderRadius.circular(16),
-	      ),
-	      child: Text(
-	        title,
-	        style: TextStyle(
-	          color: isSelected ? Colors.white : Colors.black,
-	          fontWeight: FontWeight.w500,
-	        ),
-	      ),
-	    );
-	    
-	}
 }
