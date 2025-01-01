@@ -41,22 +41,6 @@ class HomeOfferScreen extends StatelessWidget {
                 CategoryList(),
                 const SizedBox(height: 16),
 
-                // Parceiros
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      "Parceiros",
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text("Ver Todos"),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-
                 // New Stores
                 NewStoresSection(),
               ],

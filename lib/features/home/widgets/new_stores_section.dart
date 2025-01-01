@@ -20,17 +20,26 @@ class NewStoresSection extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                "Novas Lojas",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Estabelecimentos Parceiros",
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text("Ver Todos"),
+                    ),
+                  ],
               ),
               const SizedBox(height: 16),
               SingleChildScrollView(
-                scrollDirection: Axis.horizontal, // Rola horizontalmente
+                scrollDirection: Axis.horizontal,
                 child: Row(
                   children: controller.stores.map((store) {
                     return Padding(
-                      padding: const EdgeInsets.only(right: 16.0), // Espaçamento entre os cards
+                      padding: const EdgeInsets.only(right: 16.0), 
                       child: StoreCardTemplate(store: store),
                     );
                   }).toList(),
