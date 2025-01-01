@@ -22,6 +22,7 @@ class CategoryRepository implements CategoryRepositoryInterface{
 	      	return data.map((category){
 
 	      			return Category(
+	      				id: category['id'] as int,
 	      				name: category['name'] as String,
 	      				imageUrl: category['image_url'] as String,
 	      			);
