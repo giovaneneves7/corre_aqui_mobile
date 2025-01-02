@@ -10,12 +10,12 @@ class EventService implements EventServiceInterface{
 
 	final EventRepositoryInterface eventRepositoryInterface;
 
-	EventService({required this.eventServiceInterface});
+	EventService({required this.eventRepositoryInterface});
 
 	@override
 	Future<List<Event>> getEventList() async{
 
-		return await eventReositoryInterface.getList();
+		return await eventRepositoryInterface.getList();
 
 	}
 
