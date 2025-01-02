@@ -13,7 +13,7 @@ class EventRepository implements EventRepositoryInterface{
 	EventRepository({required this.apiClient});
 
 	@override
-  	Future<List<Banner>> getList() async {
+  	Future<List<Event>> getList() async {
 
 	    try {
 	      

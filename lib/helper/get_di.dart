@@ -61,7 +61,7 @@ Future<void> init() async {
 	Get.lazyPut(() => categoryServiceInterface);
 
 	EventServiceInterface eventServiceInterface = EventService(eventRepositoryInterface: Get.find());
-	Get.lazyPut(() => eventServiceInterface)
+	Get.lazyPut(() => eventServiceInterface);
 
 	StoreServiceInterface storeService = StoreService(storeRepository: Get.find());
 	Get.lazyPut(() => storeService);

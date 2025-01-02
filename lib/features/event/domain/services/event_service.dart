@@ -1,5 +1,6 @@
 import 'package:corre_aqui/features/event/domain/models/event.dart';
 import 'package:corre_aqui/features/event/domain/repositories/event_repository_interface.dart';
+import 'package:corre_aqui/features/event/domain/services/event_service_interface.dart';
 
 /**
 * @author Giovane Neves
@@ -7,14 +8,14 @@ import 'package:corre_aqui/features/event/domain/repositories/event_repository_i
 */
 class EventService implements EventServiceInterface{
 
-	final EventServiceInterface eventServiceInterface;
+	final EventRepositoryInterface eventRepositoryInterface;
 
 	EventService({required this.eventServiceInterface});
 
 	@override
 	Future<List<Event>> getEventList() async{
 
-		return await eventServiceInterface.getList();
+		return await eventReositoryInterface.getList();
 
 	}
 
