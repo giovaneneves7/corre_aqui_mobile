@@ -8,6 +8,7 @@ import 'package:corre_aqui/features/home/screens/home_offer_screen.dart';
 import 'package:corre_aqui/features/notification/screens/notification_screen.dart';
 import 'package:corre_aqui/features/offer/screens/offers_by_category_screen.dart';
 import 'package:corre_aqui/features/offer-map/screens/offer_map_screen.dart';
+import 'package:corre_aqui/features/store/screens/store_details_screen.dart';
 import 'package:corre_aqui/features/store/screens/store_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,6 +31,7 @@ class RouteHelper{
   static const String offerMap = '/offer-map';
   static const String register = '/register';
   static const String signIn = '/sign-in';
+  static const String storeDetails = '/store-details';
   static const String storeList = '/store-list';
 
   static String getAuthGateScreen() => authGate;
@@ -46,6 +48,11 @@ class RouteHelper{
   static String getOfferMapScreen() => offerMap;
   static String getRegisterScreen() => register;
   static String getSignInScreen() => signIn;
+  static String getStoreDetailsScreen({required int storeId}){
+
+    return '$storeDetails?store_id=$storeId';
+
+  }
   static String getStoreList() => storeList;
 
   // Registro de rotas [ Adicionar todas as rotas do app aqui ] 
@@ -63,6 +70,9 @@ class RouteHelper{
     GetPage(name: offerMap, page: () => OfferMapScreen()),
     GetPage(name: register, page: () => SigninScreen()),
     GetPage(name: signIn, page: () => SigninScreen()),
+    GetPage(
+      name: storeDetails, page: () => StoreDetailsScreen(storeId: int.parse(Get.parameters['store_id']!)),
+    ),
     GetPage(name: storeList, page: () => StoreListScreen()),
   ];
 

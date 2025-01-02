@@ -6,10 +6,11 @@
 */
 class Store{
 
+	final int id;
 	final String cnpj;
 	final String name;
 	final String imageUrl;
 
-	Store({required this.cnpj, required this.name, required this.imageUrl});
+	Store({required this.id, required this.cnpj, required this.name, required this.imageUrl});
 
 }
