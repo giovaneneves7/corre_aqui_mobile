@@ -18,7 +18,7 @@ class _StoreDetailsScreenState extends State<StoreDetailsScreen> {
 
 
   @override
-  Widget build(){
+  Widget build(BuildContext context){
 
     return Row(
       children: [
