@@ -1,3 +1,4 @@
+import 'package:corre_aqui/common/widgets/custom_bottom_navigation_bar.dart';
 import 'package:corre_aqui/features/event/screens/event_screen.dart';
 import 'package:corre_aqui/features/home/screens/home_offer_screen.dart';
 import 'package:corre_aqui/features/home/widgets/components/offer_map_button.dart';
