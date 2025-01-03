@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:corre_aqui/common/screens/search_screen.dart';
 import 'package:corre_aqui/features/auth/screens/auth_gate.dart';
 import 'package:corre_aqui/features/auth/screens/forgot_password_screen.dart';
 import 'package:corre_aqui/features/auth/screens/login_screen.dart';
@@ -30,6 +31,7 @@ class RouteHelper{
   static const String offersByCategory = '/offers-by-category';
   static const String offerMap = '/offer-map';
   static const String register = '/register';
+  static const String searchScreen = '/search-screen';
   static const String signIn = '/sign-in';
   static const String storeDetails = '/store-details';
   static const String storeList = '/store-list';
@@ -47,6 +49,7 @@ class RouteHelper{
   }
   static String getOfferMapScreen() => offerMap;
   static String getRegisterScreen() => register;
+  static String getSearchScreen() => searchScreen;
   static String getSignInScreen() => signIn;
   static String getStoreDetailsScreen({required int storeId}){
 
@@ -69,6 +72,7 @@ class RouteHelper{
     ),
     GetPage(name: offerMap, page: () => OfferMapScreen()),
     GetPage(name: register, page: () => SigninScreen()),
+    GetPage(name: searchScreen, page: () => SearchScreen()),
     GetPage(name: signIn, page: () => SigninScreen()),
     GetPage(
       name: storeDetails, page: () => StoreDetailsScreen(storeId: int.parse(Get.parameters['store_id']!)),

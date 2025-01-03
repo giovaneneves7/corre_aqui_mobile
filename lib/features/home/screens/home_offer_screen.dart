@@ -4,6 +4,7 @@ import 'package:corre_aqui/features/home/widgets/components/offer_map_button.dar
 import 'package:corre_aqui/features/home/widgets/header.dart';
 import 'package:corre_aqui/features/home/widgets/new_stores_section.dart';
 import 'package:corre_aqui/features/home/widgets/searchbar.dart';
+import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -30,7 +31,12 @@ class HomeOfferScreen extends StatelessWidget {
                 const SizedBox(height: 16),
 
                 // Search bar
-                Searchbar(),
+                Searchbar(
+                  hintText: "O que você está buscando?",
+                  onTap: () {
+                    Get.toNamed(RouteHelper.getSearchScreen());
+                  },
+                ),
                 const SizedBox(height: 16),
 
                 // Promotional Banner
