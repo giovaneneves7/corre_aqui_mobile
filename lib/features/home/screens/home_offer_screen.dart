@@ -1,6 +1,5 @@
 import 'package:corre_aqui/features/home/widgets/banner_carousel.dart';
 import 'package:corre_aqui/features/home/widgets/category_list.dart';
-import 'package:corre_aqui/features/home/widgets/components/offer_map_button.dart';
 import 'package:corre_aqui/features/home/widgets/header.dart';
 import 'package:corre_aqui/features/home/widgets/new_stores_section.dart';
 import 'package:corre_aqui/features/home/widgets/searchbar.dart';
@@ -54,30 +53,6 @@ class HomeOfferScreen extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: OfferMapButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 8.0,
-        child: SizedBox(
-          height: 60, // Altura mínima
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              IconButton(
-                icon: const Icon(Icons.home),
-                onPressed: () {},
-              ),
-              const SizedBox(width: 32), 
-              IconButton(
-                icon: const Icon(Icons.favorite),
-                onPressed: () {},
-              ),
-            ],
-          ),
-        ),
-      ),
-
     );
   }
 

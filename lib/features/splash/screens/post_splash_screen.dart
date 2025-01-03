@@ -77,7 +77,7 @@ class PostSplashScreen extends StatelessWidget {
                     width: double.infinity, // Faz o botão ocupar toda a largura disponível
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.toNamed(RouteHelper.getHomeOfferScreen());
+                        Get.toNamed(RouteHelper.getHomeScreen());
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.red,
