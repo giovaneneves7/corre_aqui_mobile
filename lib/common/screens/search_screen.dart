@@ -1,4 +1,3 @@
-import 'package:corre_aqui/common/widgets/components/searchbar.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
