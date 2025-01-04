@@ -29,7 +29,7 @@ class NextEventsWidget extends StatelessWidget{
         						return GestureDetector(
                     				onTap: () {},
                     				child: EventCardTemplate(event: event),
-                  				),       	
+                  				);       	
                   			}).toList(),
         				],
         			);

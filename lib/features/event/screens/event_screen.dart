@@ -1,7 +1,11 @@
-import 'package:corre_aqui/features/event/event_controller.dart';
+import 'package:corre_aqui/features/event/controllers/event_controller.dart';
 import 'package:corre_aqui/features/event/widgets/next_events_widget.dart';
 import 'package:flutter/material.dart';
 
+/**
+* @author Giovane Neves
+* @since v0.0.1
+*/
 class EventScreen extends StatefulWidget {
   @override
   _EventScreenState createState() => _EventScreenState();
