@@ -9,31 +9,31 @@ class FreshOffersWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+
     final List<Map<String, dynamic>> offers = [
       {
         "title": "Kit Barbeador",
         "price": "R\$9,89",
         "image":
-            "https://via.placeholder.com/150/FFCC00/000000?text=Kit+Barbeador",
+            "https://via.placeholder.com/150/FFCC00/000000",
       },
       {
         "title": "Camiseta Unissex",
         "price": "R\$39,99",
         "image":
-            "https://via.placeholder.com/150/00CCFF/000000?text=Camiseta+Unissex",
+            "https://via.placeholder.com/150/00CCFF/000000",
       },
       {
         "title": "Perfume Masculino",
         "price": "R\$24,90",
         "image":
-            "https://via.placeholder.com/150/FF6666/000000?text=Perfume+Masculino",
+            "https://via.placeholder.com/150/FF6666/000000",
       },
       {
         "title": "Fone EarCuffs",
         "price": "R\$22,88",
         "image":
-            "https://via.placeholder.com/150/99CC33/000000?text=Fone+EarCuffs",
+            "https://via.placeholder.com/150/99CC33/000000",
       },
     ];
 
@@ -41,7 +41,7 @@ class FreshOffersWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
