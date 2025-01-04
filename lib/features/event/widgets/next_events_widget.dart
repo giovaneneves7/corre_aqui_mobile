@@ -13,7 +13,7 @@ class NextEventsWidget extends StatelessWidget{
 	Widget build(BuildContext context){
 
 		return GetBuilder<EventController>(
-			(controller){
+			builder: (controller){
 
 				if (controller.categoryList.isEmpty) {
           			return const Center(
