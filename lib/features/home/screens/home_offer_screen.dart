@@ -48,9 +48,9 @@ class HomeOfferScreen extends StatelessWidget {
                 const SizedBox(height: 16),
 
                 // Fresh Offers
-                FreshOffersWidget();
+                FreshOffersWidget(),
                 const SizedBox(height: 16),
-                
+
                 // New Stores
                 NewStoresSection(),
               ],
