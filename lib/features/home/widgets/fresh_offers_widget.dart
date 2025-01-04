@@ -6,34 +6,28 @@ import 'package:flutter/material.dart';
  * @since v0.0.1
  */
 class FreshOffersWidget extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
     final List<Map<String, dynamic>> offers = [
       {
         "title": "Kit Barbeador",
         "price": "R\$9,89",
-        "image":
-            "https://via.placeholder.com/150/FFCC00/000000",
+        "image": "https://via.placeholder.com/150/FFCC00/000000",
       },
       {
         "title": "Camiseta Unissex",
         "price": "R\$39,99",
-        "image":
-            "https://via.placeholder.com/150/00CCFF/000000",
+        "image": "https://via.placeholder.com/150/00CCFF/000000",
       },
       {
         "title": "Perfume Masculino",
         "price": "R\$24,90",
-        "image":
-            "https://via.placeholder.com/150/FF6666/000000",
+        "image": "https://via.placeholder.com/150/FF6666/000000",
       },
       {
         "title": "Fone EarCuffs",
         "price": "R\$22,88",
-        "image":
-            "https://via.placeholder.com/150/99CC33/000000",
+        "image": "https://via.placeholder.com/150/99CC33/000000",
       },
     ];
 
@@ -51,7 +45,6 @@ class FreshOffersWidget extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  // Lógica ao clicar em 'Ver mais'
                 },
                 child: Text("Ver mais"),
               ),
@@ -59,7 +52,7 @@ class FreshOffersWidget extends StatelessWidget {
           ),
         ),
         GridView.builder(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemCount: offers.length,
@@ -73,24 +66,27 @@ class FreshOffersWidget extends StatelessWidget {
             final offer = offers[index];
             return GestureDetector(
               onTap: () {
-                // Lógica ao clicar na oferta
               },
-              child: Card(
-                elevation: 2,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.grey.shade300, width: 1),
+                  borderRadius: BorderRadius.circular(8),
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                      child: Container(
-                        color: Colors.grey[300],
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.vertical(
+                          top: Radius.circular(8),
+                        ),
                         child: Image.network(
                           offer['image'],
                           fit: BoxFit.cover,
                           width: double.infinity,
-                          errorBuilder: (context, error, stackTrace) => Icon(
-                            Icons.broken_image,
-                            color: Colors.grey,
-                          ),
+                          errorBuilder: (context, error, stackTrace) =>
+                              Icon(Icons.broken_image, color: Colors.grey),
                         ),
                       ),
                     ),
@@ -107,10 +103,10 @@ class FreshOffersWidget extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Text(
                         offer['price'],
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                              color: Colors.red,
-                              fontWeight: FontWeight.bold,
-                            ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyLarge
+                            ?.copyWith(color: Colors.red, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
