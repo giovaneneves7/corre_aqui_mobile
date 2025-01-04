@@ -22,12 +22,18 @@ class NextEventsWidget extends StatelessWidget {
             children: [
               Text("Próximos Eventos", style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 10),
-              ...controller.eventList.map((event) {
-                return GestureDetector(
-                  onTap: () {},
-                  child: EventCardTemplate(event: event),
-                );
-              }).toList(),
+              Column(
+                children: controller.eventList.map((event) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: GestureDetector(
+                      onTap: () {
+                      },
+                      child: EventCardTemplate(event: event),
+                    ),
+                  );
+                }).toList(),
+              ),
             ],
           );
         }
