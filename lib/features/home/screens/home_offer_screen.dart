@@ -1,5 +1,6 @@
 import 'package:corre_aqui/features/home/widgets/banner_carousel.dart';
 import 'package:corre_aqui/features/home/widgets/category_list.dart';
+import 'package:corre_aqui/features/home/widgets/fresh_offers_widget.dart';
 import 'package:corre_aqui/features/home/widgets/header.dart';
 import 'package:corre_aqui/features/home/widgets/new_stores_section.dart';
 import 'package:corre_aqui/features/home/widgets/searchbar.dart';
@@ -46,6 +47,10 @@ class HomeOfferScreen extends StatelessWidget {
                 CategoryList(),
                 const SizedBox(height: 16),
 
+                // Fresh Offers
+                FreshOffersWidget();
+                const SizedBox(height: 16),
+                
                 // New Stores
                 NewStoresSection(),
               ],
