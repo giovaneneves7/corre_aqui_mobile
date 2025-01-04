@@ -25,6 +25,7 @@ class EventRepository implements EventRepositoryInterface{
 	      				id: event['id'] as String,
 	      				imageUrl: event['image_url'] as String,
 	      				name: event['name'] as String,
+	      				location: event['location'] as String,
 	      			);
 
 	      	}).toList();

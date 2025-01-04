@@ -8,7 +8,8 @@ class Event{
 	final String id;
 	final String name;
 	final String imageUrl;
+	final String location;
 
-	Event({required this.id, required this.name, required this.imageUrl});
+	Event({required this.id, required this.name, required this.imageUrl, required this.location});
 
 }
