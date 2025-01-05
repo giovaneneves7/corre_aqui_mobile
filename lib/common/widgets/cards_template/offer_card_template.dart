@@ -14,15 +14,9 @@ class OfferCardTemplate extends StatelessWidget {
   final Offer offer;
   late Store store;
 
-  OfferCardTemplate({required this.offer});
+   OfferCardTemplate({required this.offer})
+    : store = Get.find<StoreController>().getStoreById(offer.storeId);
 
-  @override
-  void onInit(){
-    
-    super.onInit();
-    store = Get.find<StoreController>().getStoreById(offer.storeId);
-
-  }
 
   @override
   Widget build(BuildContext context) {
