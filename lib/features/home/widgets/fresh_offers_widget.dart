@@ -90,7 +90,7 @@ class FreshOffersWidget extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 8.0),
                             child: Text(
-                              offer.offerPrice, 
+                              '${offer.offerPrice}', 
                               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                                     color: Colors.red,
                                     fontWeight: FontWeight.bold,
