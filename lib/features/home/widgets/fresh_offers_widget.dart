@@ -28,7 +28,7 @@ class FreshOffersWidget extends StatelessWidget {
                   children: [
                     Text(
                       "Últimas Ofertas",
-                      style: Theme.of(context).textTheme.titleLarge,
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     TextButton(
                       onPressed: () {},

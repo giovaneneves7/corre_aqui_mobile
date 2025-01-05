@@ -16,15 +16,15 @@ class StoreCardTemplate extends StatelessWidget{
 		return Column(
 	      children: [
 	        Container(
-	          width: 100,
-	          height: 100,
-	          decoration: BoxDecoration(
-	            borderRadius: BorderRadius.circular(8),
-	            image: DecorationImage(
-	              image: NetworkImage(store.imageUrl),
-	              fit: BoxFit.cover,
-	            ),
-	          ),
+	          	width: 100,
+	          	height: 100,
+	          	decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                    	image: NetworkImage(store.imageUrl),
+                        fit: BoxFit.cover,
+                    ),
+            	),
 	        ),
 	        const SizedBox(height: 8),
 	        Text(

@@ -33,11 +33,6 @@ class Header extends StatelessWidget{
 	                        "Irecê, BA",
 	                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
 	                    ),
-	                    const SizedBox(width: 16),
-	                    IconButton(
-	                    	onPressed: () {},
-	                        icon: const Icon(Icons.favorite_border),
-	                    ),
 	                ],
 	            ),
         	],
