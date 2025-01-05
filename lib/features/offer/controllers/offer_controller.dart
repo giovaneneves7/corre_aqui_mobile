@@ -10,7 +10,7 @@ class OfferController extends GetxController implements GetxService {
 
 	final OfferServiceInterface offerServiceInterface;
 
-	EventController({required this.offerServiceInterface});
+	OfferController({required this.offerServiceInterface});
 
 	List<Offer> _offerList = [];
 	List<Offer> get offerList => _offerList;

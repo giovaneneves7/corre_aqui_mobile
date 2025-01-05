@@ -10,7 +10,7 @@ class OfferRepository implements OfferRepositoryInterface{
 
 	final SupabaseApiClient apiClient;
 
-	EventRepository({required this.apiClient});
+	OfferRepository({required this.apiClient});
 
 	@override
   	Future<List<Offer>> getList() async {
@@ -26,7 +26,7 @@ class OfferRepository implements OfferRepositoryInterface{
 	      				imageUrl: offer['image_url'] as String,
 	      				originalPrice: offer['original_price'] as double,
 	      				offerPrice: offer['offer_price'] as double,
-	      				createdAt: DateTime.parse(offer['created_at'] as String,
+	      				createdAt: DateTime.parse(offer['created_at']) as String,
 	      				endDate: DateTime.parse(offer['end_date']) as String,	
 	      			);
 
