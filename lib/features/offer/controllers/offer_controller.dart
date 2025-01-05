@@ -27,7 +27,7 @@ class OfferController extends GetxController implements GetxService {
 	Future<void> getOfferList() async{
 
 		try {
-      		_eventList = await offerServiceInterface.getOfferList();
+      		_offerList = await offerServiceInterface.getOfferList();
       		update();
     	} catch (e) {
       		print('Erro ao buscar eventos: $e');
