@@ -10,24 +10,24 @@ class FreshOffersWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> offers = [
       {
-        "title": "Kit Barbeador",
+        "title": "Lacta Chocolate ao Leite",
         "price": "R\$9,89",
-        "image": "https://via.placeholder.com/150/FFCC00/000000",
+        "image": "https://casaevideonewio.vtexassets.com/arquivos/ids/395494/Bar--Choc-Lacta-Ao-Leite-165g-1670522.jpg?v=637690399418430000",
       },
       {
-        "title": "Camiseta Unissex",
+        "title": "Whey Protein Growth",
         "price": "R\$39,99",
-        "image": "https://via.placeholder.com/150/00CCFF/000000",
+        "image": "https://www.gsuplementos.com.br/upload/produto/imagem/top-whey-protein-concentrado-1kg-growth-supplements-19.webp",
       },
       {
-        "title": "Perfume Masculino",
+        "title": "O Boticário Malbec",
         "price": "R\$24,90",
-        "image": "https://via.placeholder.com/150/FF6666/000000",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9CVIySdQrReB2rJL4wdoy9dUGQLZ6Ua9Kpw&s",
       },
       {
-        "title": "Fone EarCuffs",
+        "title": "Ração para Cachorro Pedigree",
         "price": "R\$22,88",
-        "image": "https://via.placeholder.com/150/99CC33/000000",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq7cfQZ_8AOtOdUxDQnRB3aq8PGjazRMqscQ&s",
       },
     ];
 
@@ -35,7 +35,7 @@ class FreshOffersWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 6.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -46,13 +46,16 @@ class FreshOffersWidget extends StatelessWidget {
               TextButton(
                 onPressed: () {
                 },
-                child: Text("Ver mais"),
+                child: Text(
+                  "Ver mais",
+                  style: TextStyle(color: Colors.red),
+                ),
               ),
             ],
           ),
         ),
         GridView.builder(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 6.0),
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemCount: offers.length,
