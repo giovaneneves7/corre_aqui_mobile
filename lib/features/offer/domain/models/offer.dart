@@ -13,6 +13,7 @@ class Offer{
 	final double offerPrice;
 	final DateTime createdAt;
 	final DateTime endDate;
+	final int storeId;
 
 	Offer({
 		required this.name, 
@@ -20,7 +21,8 @@ class Offer{
 		required this.originalPrice, 
 		required this.offerPrice,
 		required this.createdAt,
-		required this.endDate
+		required this.endDate,
+		required this.storeId,
 	});
 
 }

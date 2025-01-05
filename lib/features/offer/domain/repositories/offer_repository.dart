@@ -27,7 +27,8 @@ class OfferRepository implements OfferRepositoryInterface{
 	      				originalPrice: offer['original_price'] as double,
 	      				offerPrice: offer['offer_price'] as double,
 	      				createdAt: DateTime.parse(offer['created_at'] as String),
-	      				endDate: DateTime.parse(offer['end_date'] as String),	
+	      				endDate: DateTime.parse(offer['end_date'] as String),
+	      				storeId: offer['store_id'] as int,	
 	      			);
 
 	      	}).toList();
