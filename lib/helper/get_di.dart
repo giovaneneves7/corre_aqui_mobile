@@ -14,6 +14,11 @@ import 'package:corre_aqui/features/event/domain/repositories/event_repository.d
 import 'package:corre_aqui/features/event/domain/repositories/event_repository_interface.dart';
 import 'package:corre_aqui/features/event/domain/services/event_service.dart';
 import 'package:corre_aqui/features/event/domain/services/event_service_interface.dart';
+import 'package:corre_aqui/features/offer/controllers/offer_controller.dart';
+import 'package:corre_aqui/features/offer/domain/repositories/offer_repository.dart';
+import 'package:corre_aqui/features/offer/domain/repositories/offer_repository_interface.dart';
+import 'package:corre_aqui/features/offer/domain/services/offer_service.dart';
+import 'package:corre_aqui/features/offer/domain/services/offer_service_interface.dart';
 import 'package:corre_aqui/features/store/domain/repositories/store_repository.dart';
 import 'package:corre_aqui/features/store/controllers/store_controller.dart';
 import 'package:corre_aqui/features/store/domain/repositories/store_repository_interface.dart';
@@ -49,6 +54,9 @@ Future<void> init() async {
 	EventRepositoryInterface eventRepositoryInterface = EventRepository(apiClient: Get.find());
 	Get.lazyPut(() => eventRepositoryInterface);
 
+	OfferRepositoryInterface offerRepositoryInterface = OfferRepository(apiClient: Get.find());
+	Get.lazyPut(() => offerRepositoryInterface);
+
 	StoreRepositoryInterface storeRepository = StoreRepository(apiClient: Get.find());
 	Get.lazyPut(() => storeRepository);
 
@@ -63,6 +71,9 @@ Future<void> init() async {
 	EventServiceInterface eventServiceInterface = EventService(eventRepositoryInterface: Get.find());
 	Get.lazyPut(() => eventServiceInterface);
 
+	OfferServiceInterface offerServiceInterface = OfferService(offerRepositoryInterface: Get.find());
+	Get.lazyPut(() => offerServiceInterface);
+
 	StoreServiceInterface storeService = StoreService(storeRepository: Get.find());
 	Get.lazyPut(() => storeService);
 
@@ -70,6 +81,7 @@ Future<void> init() async {
 	Get.lazyPut(() => BannerController(bannerServiceInterface: Get.find()));
 	Get.lazyPut(() => CategoryController(categoryServiceInterface: Get.find()));
 	Get.lazyPut(() => EventController(eventServiceInterface: Get.find()));
+	Get.lazyPut(() => OfferController(offerServiceInterface: Get.find()));
 	Get.lazyPut(() => StoreController(storeService: Get.find()));
 	
 }
