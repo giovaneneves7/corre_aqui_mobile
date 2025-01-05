@@ -36,6 +36,20 @@ class OfferCardTemplate extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Expanded(
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.vertical(
+                        top: Radius.circular(8),
+                      ),
+                      child: Image.network(
+                        offer.imageUrl,
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        errorBuilder: (context, error, stackTrace) =>
+                            Icon(Icons.broken_image, color: Colors.grey),
+                      ),
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
@@ -50,20 +64,6 @@ class OfferCardTemplate extends StatelessWidget {
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ],
-                    ),
-                  ),
-                  Expanded(
-                    child: ClipRRect(
-                      borderRadius: const BorderRadius.vertical(
-                        top: Radius.circular(8),
-                      ),
-                      child: Image.network(
-                        offer.imageUrl,
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        errorBuilder: (context, error, stackTrace) =>
-                            Icon(Icons.broken_image, color: Colors.grey),
-                      ),
                     ),
                   ),
                   Padding(
