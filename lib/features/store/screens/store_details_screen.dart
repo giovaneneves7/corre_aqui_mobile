@@ -87,8 +87,8 @@ class _StoreDetailsScreenState extends State<StoreDetailsScreen> {
                       );
                     }
 
-                    return SizedBox(
-                      height: 100,
+                    return AspectRatio(
+                      aspectRatio: 2 / 3, 
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: offers.length,
@@ -101,6 +101,7 @@ class _StoreDetailsScreenState extends State<StoreDetailsScreen> {
                         },
                       ),
                     );
+
                   },
                 ),
                 const SizedBox(height: 16),
