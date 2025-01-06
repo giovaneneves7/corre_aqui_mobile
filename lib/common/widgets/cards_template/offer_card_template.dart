@@ -44,9 +44,8 @@ class OfferCardTemplate extends StatelessWidget {
                         top: Radius.circular(8),
                       ),
                       child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.red, width: 2),
-                        ),
+                        width: 100,
+                        height: 100,
                         child: Image.network(
                           offer.imageUrl,
                           fit: BoxFit.cover,
