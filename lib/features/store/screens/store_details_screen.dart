@@ -28,14 +28,14 @@ class _StoreDetailsScreenState extends State<StoreDetailsScreen> {
     return GetBuilder<StoreController>(
       builder: (controller){
         
-        store = controller.getStoreById(widet.storeId);
+        store = controller.getStoreById(widget.storeId);
 
         if (store == null) {
               return SizedBox.shrink();
         }
 
         return Scaffold(
-          appBar: ReturnAppBar(),
+          appBar: ReturnAppBar(title: 'Detalhes da Loja'),
           extendBodyBehindAppBar: true,
           body: SingleChildScrollView(
             child: Column(

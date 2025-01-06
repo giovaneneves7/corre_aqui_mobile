@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
 
 /**
-* @author Giovane Neves
+* Custom AppBar
+* @author Giovane
 * @since v0.0.1
 */
-class ReturnAppBar extends StatelessWidget{
+class ReturnAppBar extends StatelessWidget implements PreferredSizeWidget {
+  
+  final title;
+  @override
+  final Size preferredSize; 
 
-	@override
-	Widget build(BuildContext context){
+  ReturnAppBar({Key? key, required this.title})
+      : preferredSize = const Size.fromHeight(kToolbarHeight),
+        super(key: key);
 
-		return AppBar(
-       		leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            backgroundColor: Colors.white,
-            elevation: 0,
-        );
-
-	}
-
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      leading: IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: () => Navigator.of(context).pop(),
+      ),
+      title: const Text(title),
+    );
+  }
 }
