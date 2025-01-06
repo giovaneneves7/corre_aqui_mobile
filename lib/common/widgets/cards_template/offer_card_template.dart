@@ -43,12 +43,17 @@ class OfferCardTemplate extends StatelessWidget {
                       borderRadius: const BorderRadius.vertical(
                         top: Radius.circular(8),
                       ),
-                      child: Image.network(
-                        offer.imageUrl,
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        errorBuilder: (context, error, stackTrace) =>
-                            Icon(Icons.broken_image, color: Colors.grey),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.red, width: 2),
+                        ),
+                        child: Image.network(
+                          offer.imageUrl,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          errorBuilder: (context, error, stackTrace) =>
+                              Icon(Icons.broken_image, color: Colors.grey),
+                        ),
                       ),
                     ),
                   ),
