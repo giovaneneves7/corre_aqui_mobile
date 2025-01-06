@@ -1,3 +1,4 @@
+import 'package:corre_aqui/common/widgets/components/offer_store_miniature_widget.dart';
 import 'package:corre_aqui/features/offer/domain/models/offer.dart';
 import 'package:corre_aqui/features/store/controllers/store_controller.dart';
 import 'package:corre_aqui/features/store/domain/models/store.dart';
@@ -11,10 +12,11 @@ import 'package:get/get.dart';
  */
 class OfferCardTemplate extends StatelessWidget {
   
+  final bool isFromHome;
   final Offer offer;
   late Store store;
 
-   OfferCardTemplate({required this.offer});
+   OfferCardTemplate({required this.offer, required this.isFromHome});
 
 
     @override
@@ -50,22 +52,7 @@ class OfferCardTemplate extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundImage: NetworkImage(store.imageUrl ?? ''),
-                          radius: 12,
-                        ),
-                        SizedBox(width: 8),
-                        Text(
-                          store.name ?? '',
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                      ],
-                    ),
-                  ),
+                  isFromHome ? OfferStoreMiniatureWidget() : SizedBox();
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
@@ -78,7 +65,7 @@ class OfferCardTemplate extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Text(
-                      '${offer.offerPrice}',
+                      'R\$ ${offer.offerPrice}',
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                             color: Colors.red,
                             fontWeight: FontWeight.bold,

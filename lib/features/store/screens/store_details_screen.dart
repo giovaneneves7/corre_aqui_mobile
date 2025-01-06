@@ -1,6 +1,9 @@
+import 'package:corre_aqui/common/widgets/cards_template/offer_card_template.dart';
 import 'package:corre_aqui/common/widgets/return_app_bar.dart';
+import 'package:corre_aqui/features/offer/controllers/offer_controller.dart';
 import 'package:corre_aqui/features/store/controllers/store_controller.dart';
 import 'package:corre_aqui/features/store/domain/models/store.dart';
+import 'package:corre_aqui/features/store/widgets/route_button_widget.dart';
 import 'package:corre_aqui/features/store/widgets/store_banner_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -69,94 +72,45 @@ class _StoreDetailsScreenState extends State<StoreDetailsScreen> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                SizedBox(
-                  height: 100, 
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      PromotionCard(
-                        imageUrl: 'https://via.placeholder.com/80x80',
-                        title: 'Produto 1',
-                        price: 'R\$ 25,00',
+                GetBuilder<OfferController>(
+                  builder: (offerController) {
+                    
+                    final offers = offerController.getOffersByStoreId(store.id);
+
+                    if (offers.isEmpty) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: const Text(
+                          'Nada aqui por enquanto \'-\'',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      );
+                    }
+
+                    return SizedBox(
+                      height: 100,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: offers.length,
+                        itemBuilder: (context, index) {
+                          final offer = offers[index];
+                          return OfferCardTemplate(
+                            offer: offer,
+                            isFromHome: false,
+                          );
+                        },
                       ),
-                      PromotionCard(
-                        imageUrl: 'https://via.placeholder.com/80x80',
-                        title: 'Produto 2',
-                        price: 'R\$ 30,00',
-                      ),
-                    ],
-                  ),
+                    );
+                  },
                 ),
                 const SizedBox(height: 16),
                 // "Ver Rotas" Button
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                    ),
-                    onPressed: () {},
-                    child: const Center(
-                      child: Text(
-                        'Ver Rotas',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
-                      ),
-                    ),
-                  ),
-                ),
+                RouteButtonWidget(),
               ],
             ),
           ),
         );
       }
-    );
-  }
-}
-
-// Componente para as promoções
-class PromotionCard extends StatelessWidget {
-  final String imageUrl;
-  final String title;
-  final String price;
-
-  const PromotionCard({
-    required this.imageUrl,
-    required this.title,
-    required this.price,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(left: 16),
-      width: 100,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Image.network(
-            imageUrl,
-            width: 80,
-            height: 80,
-            fit: BoxFit.cover,
-          ),
-          const SizedBox(height: 4),
-          Text(
-            title,
-            style: const TextStyle(fontSize: 14),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-          const SizedBox(height: 4),
-          Text(
-            price,
-            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
     );
   }
 }

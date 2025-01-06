@@ -24,6 +24,13 @@ class OfferController extends GetxController implements GetxService {
 
 	}
 
+
+	List<Offer> getOffersByStoreId(storeId){
+
+		return _offerList.where((offer) => offer.storeId == storeId).toList();
+		
+	}
+
 	Future<void> getOfferList() async{
 
 		try {

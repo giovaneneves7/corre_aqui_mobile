@@ -97,21 +97,6 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Os mais buscados",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 16),
-            Expanded(
-              child: ListView(
-                children: [
-                  _buildSearchItem("Iphone", "Celular e Smartphone"),
-                  _buildSearchItem("Geladeira", "Geladeira"),
-                  _buildSearchItem("Iphone 15", "Celular e Smartphone"),
-                  _buildSearchItem("Ar condicionado", "Ar-Condicionado"),
-                ],
-              ),
-            ),
           ],
         ),
       ),

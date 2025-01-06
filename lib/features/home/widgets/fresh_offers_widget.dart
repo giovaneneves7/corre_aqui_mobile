@@ -56,7 +56,7 @@ class FreshOffersWidget extends StatelessWidget {
                   return GestureDetector(
                     onTap: () {
                     },
-                    child: OfferCardTemplate(offer: offer),
+                    child: OfferCardTemplate(offer: offer, isFromHome: true),
                   );
                 },
               ),
