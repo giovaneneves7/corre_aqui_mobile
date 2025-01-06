@@ -52,7 +52,7 @@ class OfferCardTemplate extends StatelessWidget {
                       ),
                     ),
                   ),
-                  isFromHome ? OfferStoreMiniatureWidget() : SizedBox();
+                  isFromHome ? OfferStoreMiniatureWidget(store: store) : SizedBox(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(

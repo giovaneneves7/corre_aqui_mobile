@@ -12,7 +12,7 @@ class OfferStoreMiniatureWidget extends StatelessWidget{
 	OfferStoreMiniatureWidget({required this.store});
 
 	@override
-	Widget build(BuildContext build){
+	Widget build(BuildContext context){
 
 		return Padding(
             padding: const EdgeInsets.all(8.0),
