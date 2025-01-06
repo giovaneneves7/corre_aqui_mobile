@@ -3,7 +3,7 @@ import 'package:corre_aqui/features/store/controllers/store_controller.dart';
 import 'package:corre_aqui/features/store/domain/models/store.dart';
 import 'package:corre_aqui/features/store/widgets/store_banner_widget.dart';
 import 'package:flutter/material.dart';
-import 'get/get.dart';
+import 'package:get/get.dart';
 
 /**
 * @author Giovane Neves

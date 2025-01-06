@@ -1,4 +1,4 @@
-import 'package:corre_aqui/features/domain/models/store.dart';
+import 'package:corre_aqui/features/store/domain/models/store.dart';
 import 'package:flutter/material.dart';
 
 /**
