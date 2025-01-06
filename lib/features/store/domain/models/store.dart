@@ -10,7 +10,8 @@ class Store{
 	final String cnpj;
 	final String name;
 	final String imageUrl;
+	final String? bannerUrl;
 
-	Store({required this.id, required this.cnpj, required this.name, required this.imageUrl});
+	Store({required this.id, required this.cnpj, required this.name, required this.imageUrl, required this.bannerUrl});
 
 }

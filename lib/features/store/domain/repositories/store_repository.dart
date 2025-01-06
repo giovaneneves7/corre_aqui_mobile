@@ -24,6 +24,7 @@ class StoreRepository implements StoreRepositoryInterface{
 		          cnpj: store['cnpj'] as String,
 		          name: store['name'] as String,
 		          imageUrl: store['image_url'] as String,
+		          bannerUrl: store['banner_url'] as String?,
 		        );
 
 		     }).toList();

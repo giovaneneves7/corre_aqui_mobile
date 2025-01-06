@@ -33,7 +33,7 @@ class FreshOffersWidget extends StatelessWidget {
                     TextButton(
                       onPressed: () {},
                       child: Text(
-                        "Ver mais",
+                        "Ver Mais",
                         style: TextStyle(color: Colors.red),
                       ),
                     ),
