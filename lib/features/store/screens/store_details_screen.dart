@@ -87,8 +87,8 @@ class _StoreDetailsScreenState extends State<StoreDetailsScreen> {
                       );
                     }
 
-                    return AspectRatio(
-                      aspectRatio: 2 / 3, 
+                    return SizedBox(
+                      height: MediaQuery.of(context).size.width * 0.4, // Altura proporcional
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: offers.length,
@@ -101,7 +101,6 @@ class _StoreDetailsScreenState extends State<StoreDetailsScreen> {
                         },
                       ),
                     );
-
                   },
                 ),
                 const SizedBox(height: 16),
