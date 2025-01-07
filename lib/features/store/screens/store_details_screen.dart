@@ -88,7 +88,7 @@ class _StoreDetailsScreenState extends State<StoreDetailsScreen> {
                     }
 
                     return SizedBox(
-                      height: 120, 
+                      height: 180, 
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: offers.length,
@@ -97,7 +97,7 @@ class _StoreDetailsScreenState extends State<StoreDetailsScreen> {
                           return Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 8.0),
                             child: SizedBox(
-                              width: 120, 
+                              width: 180, 
                               child: OfferCardTemplate(
                                 offer: offer,
                                 isFromHome: false,
