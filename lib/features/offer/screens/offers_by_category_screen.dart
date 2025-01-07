@@ -31,7 +31,7 @@ class _OffersByCategoryScreen extends State<OffersByCategoryScreen> {
 
         final offers = offerController.getOffersByCategoryId(widget.categoryId);
 
-        if(offers.isEmpty()){
+        if(offers.isEmpty){
 
           return NoDataFoundWidget();
 
