@@ -109,7 +109,7 @@ class _StoreDetailsScreenState extends State<StoreDetailsScreen> {
                 ),
                 const SizedBox(height: 16),
                 // "Ver Rotas" Button
-                RouteButtonWidget(),
+                //RouteButtonWidget(),
               ],
             ),
           ),
