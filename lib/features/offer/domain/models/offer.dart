@@ -15,6 +15,7 @@ class Offer{
 	final DateTime createdAt;
 	final DateTime endDate;
 	final int storeId;
+	final int categoryId;
 
 	Offer({
 		required this.id,
@@ -25,6 +26,7 @@ class Offer{
 		required this.createdAt,
 		required this.endDate,
 		required this.storeId,
+		required this.categoryId,
 	});
 
 }
