@@ -5,6 +5,7 @@ import 'package:corre_aqui/features/store/controllers/store_controller.dart';
 import 'package:corre_aqui/features/store/domain/models/store.dart';
 import 'package:corre_aqui/features/store/widgets/route_button_widget.dart';
 import 'package:corre_aqui/features/store/widgets/store_banner_widget.dart';
+import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -97,10 +98,12 @@ class _StoreDetailsScreenState extends State<StoreDetailsScreen> {
                           return Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 8.0),
                             child: SizedBox(
-                              width: 180, 
-                              child: OfferCardTemplate(
-                                offer: offer,
-                                isFromHome: false,
+                              width: 180,  
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.toNamed(RouteHelper.getOfferDetailsScreen(offerId: offer.id));
+                                },
+                                child: OfferCardTemplate(offer: offer, isFromHome: false),
                               ),
                             ),
                           );

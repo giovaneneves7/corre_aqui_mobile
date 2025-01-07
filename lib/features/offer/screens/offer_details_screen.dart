@@ -90,41 +90,6 @@ class _OfferDetailsScreenState extends State<OfferDetailsScreen> {
                       ],
                     ),
                     const Spacer(),
-                    // Botões "Comprar agora" e "Adicionar ao carrinho"
-                    Row(
-                      children: [
-                        Expanded(
-                          child: ElevatedButton(
-                            onPressed: () {
-                              // Lógica para comprar
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.pink,
-                              padding: const EdgeInsets.symmetric(vertical: 16),
-                            ),
-                            child: const Text(
-                              "Buy Now",
-                              style: TextStyle(fontSize: 16),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        ElevatedButton(
-                          onPressed: () {
-                            // Lógica para adicionar ao carrinho
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.grey[300],
-                            padding: const EdgeInsets.all(16),
-                            shape: const CircleBorder(),
-                          ),
-                          child: const Icon(
-                            Icons.shopping_cart,
-                            color: Colors.pink,
-                          ),
-                        ),
-                      ],
-                    )
                   ],
                 ),
               ),

@@ -31,17 +31,11 @@ class _OffersByCategoryScreen extends State<OffersByCategoryScreen> {
 
         final offers = offerController.getOffersByCategoryId(widget.categoryId);
 
-        if(offers.isEmpty){
-
-          return NoDataFoundWidget();
-
-        }
-
         return Scaffold(
           backgroundColor: Colors.white,
           body: SafeArea(
             child: SafeArea(
-              child: SingleChildScrollView(
+              child: offers.isEmpty ? NoDataFoundWidget() : SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
