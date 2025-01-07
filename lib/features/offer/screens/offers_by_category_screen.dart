@@ -29,7 +29,7 @@ class _OffersByCategoryScreen extends State<OffersByCategoryScreen> {
     return GetBuilder<OfferController>(
       builder: (offerController){
 
-        final offers = offerController.getOffersByCategoryId();
+        final offers = offerController.getOffersByCategoryId(widget.categoryId);
 
         if(offers.isEmpty()){
 
@@ -44,7 +44,7 @@ class _OffersByCategoryScreen extends State<OffersByCategoryScreen> {
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: child: Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       GridView.builder(
