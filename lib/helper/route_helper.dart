@@ -80,7 +80,7 @@ class RouteHelper{
     GetPage(
       name: offerDetails, 
       page: () => OfferDetailsScreen(offerId: int.parse(Get.parameters['offer_id']!)),
-    )
+    ),
     GetPage(name: offerMap, page: () => OfferMapScreen()),
     GetPage(name: register, page: () => SigninScreen()),
     GetPage(name: searchScreen, page: () => SearchScreen()),

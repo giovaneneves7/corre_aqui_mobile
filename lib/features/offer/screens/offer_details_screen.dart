@@ -1,4 +1,4 @@
-import 'package:corre_aqui/common/return_app_bar.dart';
+import 'package:corre_aqui/common/widgets/return_app_bar.dart';
 import 'package:corre_aqui/features/offer/controllers/offer_controller.dart';
 import 'package:corre_aqui/features/offer/domain/models/offer.dart';
 import 'package:corre_aqui/features/store/controllers/store_controller.dart';
