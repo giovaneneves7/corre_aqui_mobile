@@ -31,6 +31,12 @@ class OfferController extends GetxController implements GetxService {
 		
 	}
 
+	Offer getOfferById(offerId){
+
+		return _offerList.firstWhere((offer) => offer.id == offerId);
+
+	}
+
 	Future<void> getOfferList() async{
 
 		try {

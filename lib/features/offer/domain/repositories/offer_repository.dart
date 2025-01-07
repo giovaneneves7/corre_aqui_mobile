@@ -22,6 +22,7 @@ class OfferRepository implements OfferRepositoryInterface{
 	      	return data.map((offer){
 
 	      			return Offer(
+	      				id: offer['id'] as int,
 	      				name: offer['name'] as String,
 	      				imageUrl: offer['image_url'] as String,
 	      				originalPrice: offer['original_price'] as double,

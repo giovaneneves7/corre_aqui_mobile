@@ -8,6 +8,7 @@ import 'package:corre_aqui/features/home/screens/home_screen.dart';
 import 'package:corre_aqui/features/home/screens/home_offer_screen.dart';
 import 'package:corre_aqui/features/notification/screens/notification_screen.dart';
 import 'package:corre_aqui/features/offer/screens/offers_by_category_screen.dart';
+import 'package:corre_aqui/features/offer/screens/offer_details_screen.dart';
 import 'package:corre_aqui/features/offer-map/screens/offer_map_screen.dart';
 import 'package:corre_aqui/features/store/screens/store_details_screen.dart';
 import 'package:corre_aqui/features/store/screens/store_list_screen.dart';
@@ -29,6 +30,7 @@ class RouteHelper{
   static const String homeOffer = '/home-offer';
   static const String notification = '/notification';
   static const String offersByCategory = '/offers-by-category';
+  static const String offerDetails = '/offer-details';
   static const String offerMap = '/offer-map';
   static const String register = '/register';
   static const String searchScreen = '/search-screen';
@@ -45,6 +47,11 @@ class RouteHelper{
   static String getOffersByCategoryScreen({required int categoryId}){
 
     return '$offersByCategory?category_id=$categoryId';
+
+  }
+  static String getOfferDetailsScreen({required int offerId}){
+
+    return '$offerDetails?offer_id=$offerId';
 
   }
   static String getOfferMapScreen() => offerMap;
@@ -70,6 +77,10 @@ class RouteHelper{
       name: offersByCategory, 
       page: () => OffersByCategoryScreen(categoryId: int.parse(Get.parameters['category_id']!))
     ),
+    GetPage(
+      name: offerDetails, 
+      page: () => OfferDetailsScreen(offerId: int.parse(Get.parameters['offer_id']!)),
+    )
     GetPage(name: offerMap, page: () => OfferMapScreen()),
     GetPage(name: register, page: () => SigninScreen()),
     GetPage(name: searchScreen, page: () => SearchScreen()),

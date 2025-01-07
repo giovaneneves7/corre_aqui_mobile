@@ -7,6 +7,7 @@
 */
 class Offer{
 
+	final int id;
 	final String name;
 	final String imageUrl;
 	final double originalPrice;
@@ -16,6 +17,7 @@ class Offer{
 	final int storeId;
 
 	Offer({
+		required this.id,
 		required this.name, 
 		required this.imageUrl, 
 		required this.originalPrice, 

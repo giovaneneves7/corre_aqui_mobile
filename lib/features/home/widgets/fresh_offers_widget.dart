@@ -1,5 +1,6 @@
 import 'package:corre_aqui/common/widgets/cards_template/offer_card_template.dart';
 import 'package:corre_aqui/features/offer/controllers/offer_controller.dart';
+import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -55,6 +56,7 @@ class FreshOffersWidget extends StatelessWidget {
                   final offer = controller.offerList[index];
                   return GestureDetector(
                     onTap: () {
+                      Get.toNamed(RouteHelper.getOfferDetailsScreen(offerId: offer.id));
                     },
                     child: OfferCardTemplate(offer: offer, isFromHome: true),
                   );
