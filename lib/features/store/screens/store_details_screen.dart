@@ -88,23 +88,25 @@ class _StoreDetailsScreenState extends State<StoreDetailsScreen> {
                     }
 
                     return SizedBox(
-                      height: MediaQuery.of(context).size.width * 0.2, 
+                      height: 120, 
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: offers.length,
                         itemBuilder: (context, index) {
                           final offer = offers[index];
-                          return AspectRatio(
-                            aspectRatio: 3 / 2, 
-                            child: OfferCardTemplate(
-                              offer: offer,
-                              isFromHome: false,
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: SizedBox(
+                              width: 120, 
+                              child: OfferCardTemplate(
+                                offer: offer,
+                                isFromHome: false,
+                              ),
                             ),
                           );
                         },
                       ),
                     );
-
                   },
                 ),
                 const SizedBox(height: 16),
