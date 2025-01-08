@@ -41,7 +41,7 @@ class RouteHelper{
   static const String storeList = '/store-list';
 
   static String getAuthGateScreen() => authGate;
-  static String getEventDetailsScreen({required int eventId}){
+  static String getEventDetailsScreen({required String eventId}){
 
     return '$eventDetails?event_id=$eventId';    
   
@@ -90,7 +90,7 @@ class RouteHelper{
     ),
     GetPage(
       name: offerDetails, 
-      page: () => OfferDetailsScreen(offerId: int.parse(Get.parameters['offer_id']!)),
+      page: () => OfferDetailsScreen(offerId: Get.parameters['offer_id']!),
     ),
     GetPage(name: offerMap, page: () => OfferMapScreen()),
     GetPage(name: register, page: () => SigninScreen()),

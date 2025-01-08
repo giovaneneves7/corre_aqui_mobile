@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 */
 class EventDetailsScreen extends StatefulWidget {
 
-  final int eventId;
+  final String eventId;
 
   EventDetailsScreen({
     required this.eventId,

@@ -24,6 +24,12 @@ class EventController extends GetxController implements GetxService {
 
 	}
 
+	Event getEventById(eventId){
+
+		return _eventList.where((event) => event.id == eventId).toList();
+
+	}
+
 	Future<void> getEventList() async{
 
 		try {
