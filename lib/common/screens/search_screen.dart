@@ -1,4 +1,8 @@
+import 'package:corre_aqui/features/event/controllers/event_controller.dart';
+import 'package:corre_aqui/features/offer/controllers/offer_controller.dart';
+import 'package:corre_aqui/features/store/controllers/store_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -8,9 +12,9 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderStateMixin {
-  
   late AnimationController _animationController;
   bool _isListening = false;
+  String _searchQuery = "";
 
   @override
   void initState() {
@@ -21,14 +25,14 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
       lowerBound: 0.8,
       upperBound: 1.2,
     )..addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        _animationController.reverse();
-      } else if (status == AnimationStatus.dismissed) {
-        if (_isListening) {
-          _animationController.forward();
+        if (status == AnimationStatus.completed) {
+          _animationController.reverse();
+        } else if (status == AnimationStatus.dismissed) {
+          if (_isListening) {
+            _animationController.forward();
+          }
         }
-      }
-    });
+      });
   }
 
   void _startListening() {
@@ -69,6 +73,11 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
           },
         ),
         title: TextField(
+          onChanged: (value) {
+            setState(() {
+              _searchQuery = value.toLowerCase();
+            });
+          },
           decoration: InputDecoration(
             hintText: "Buscar produtos, lojas e mais...",
             prefixIcon: const Icon(Icons.search, color: Colors.grey),
@@ -94,10 +103,39 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-          ],
+        child: GetBuilder<StoreController>(
+          builder: (storeController) {
+            return GetBuilder<EventController>(
+              builder: (eventController) {
+                return GetBuilder<OfferController>(
+                  builder: (offerController) {
+                    final searchResults = [
+                      ...storeController.stores
+                          .where((store) => store.name.toLowerCase().contains(_searchQuery))
+                          .map((store) => _buildSearchItem(store.name, "Loja")),
+                      ...eventController.eventList
+                          .where((event) => event.name.toLowerCase().contains(_searchQuery))
+                          .map((event) => _buildSearchItem(event.name, "Evento")),
+                      ...offerController.offerList
+                          .where((offer) => offer.name.toLowerCase().contains(_searchQuery))
+                          .map((offer) => _buildSearchItem(offer.name, "Oferta")),
+                    ];
+
+                    return searchResults.isNotEmpty
+                        ? ListView(
+                            children: searchResults.toList(),
+                          )
+                        : const Center(
+                            child: Text(
+                              "Nenhum resultado encontrado.",
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          );
+                  },
+                );
+              },
+            );
+          },
         ),
       ),
     );
