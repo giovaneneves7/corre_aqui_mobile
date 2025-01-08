@@ -1,5 +1,6 @@
 import 'package:corre_aqui/common/widgets/cards_template/event_card_template.dart';
 import 'package:corre_aqui/features/event/controllers/event_controller.dart';
+import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,6 +29,9 @@ class NextEventsWidget extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 10.0),
                     child: GestureDetector(
                       onTap: () {
+
+                        Get.toNamed(RouteHelper.getEventDetailsScreen(eventId: event.id));
+
                       },
                       child: EventCardTemplate(event: event),
                     ),

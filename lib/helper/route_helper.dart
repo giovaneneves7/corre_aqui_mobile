@@ -4,6 +4,7 @@ import 'package:corre_aqui/features/auth/screens/auth_gate.dart';
 import 'package:corre_aqui/features/auth/screens/forgot_password_screen.dart';
 import 'package:corre_aqui/features/auth/screens/login_screen.dart';
 import 'package:corre_aqui/features/auth/screens/signin_screen.dart';
+import 'package:corre_aqui/features/event/screens/event_details_screen.dart';
 import 'package:corre_aqui/features/home/screens/home_screen.dart';
 import 'package:corre_aqui/features/home/screens/home_offer_screen.dart';
 import 'package:corre_aqui/features/notification/screens/notification_screen.dart';
@@ -19,11 +20,12 @@ import 'package:get/get.dart';
 * Helper com todas as rotas para telas da aplicação.
 *
 * @author Giovane Neves
-*
+* @since v0.0.1
 */
 class RouteHelper{
 
   static const String authGate = '/auth-gate';
+  static const String eventDetails = '/event-details';
   static const String forgotPassword = '/forgot-password';
   static const String login = '/login';
   static const String home = '/home';
@@ -39,6 +41,11 @@ class RouteHelper{
   static const String storeList = '/store-list';
 
   static String getAuthGateScreen() => authGate;
+  static String getEventDetailsScreen({required int eventId}){
+
+    return '$eventDetails?event_id=$eventId';    
+  
+  }
   static String getForgotPasswordScreen() => forgotPassword;
   static String getLoginScreen() => login;
   static String getHomeScreen() => home;
@@ -68,6 +75,10 @@ class RouteHelper{
   // Registro de rotas [ Adicionar todas as rotas do app aqui ] 
   static List<GetPage> routes = [
     GetPage(name: authGate, page: () => AuthGate()),
+    GetPage(name: 
+      eventDetails, 
+      page: () => EventDetailsScreen(eventId: int.parse(Get.parameters['event_id']!)),
+    ),
     GetPage(name: forgotPassword, page: () => ForgotPasswordScreen()),
     GetPage(name: login, page: () => LoginScreen()),
     GetPage(name: home, page: () => HomeScreen()),
