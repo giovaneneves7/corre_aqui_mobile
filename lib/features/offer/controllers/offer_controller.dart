@@ -12,6 +12,8 @@ class OfferController extends GetxController implements GetxService {
 
 	OfferController({required this.offerServiceInterface});
 
+	List<Offer> _hightDiscountOfferList = [];
+	List<Offer> get hightDiscountOfferList => _hightDiscountOfferList;
 	List<Offer> _offerList = [];
 	List<Offer> get offerList => _offerList;
 
@@ -21,6 +23,7 @@ class OfferController extends GetxController implements GetxService {
 
 	  super.onInit();
 	  getOfferList();
+	  getOffersByHighestDiscount();
 
 	}
 
@@ -41,6 +44,20 @@ class OfferController extends GetxController implements GetxService {
 
 		return _offerList.where((offer) => offer.categoryId == categoryId).toList();
 
+	}
+
+	void getOffersByHighestDiscount() {
+
+		if (_offerList.isEmpty) return;
+
+		_hightDiscountOfferList = [..._offerList]
+		      ..sort((a, b) {
+		        double discountA = (a.originalPrice - a.offerPrice) / a.originalPrice;
+		        double discountB = (b.originalPrice - b.offerPrice) / b.originalPrice;
+		        return discountB.compareTo(discountA); 
+		});
+	    
+	    update();
 	}
 
 	Future<void> getOfferList() async{
