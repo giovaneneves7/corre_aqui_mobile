@@ -133,7 +133,7 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
                         ? ListView(
                             children: searchResults.toList(),
                           )
-                        : const Center(
+                        : Center(
                             child: NoDataFoundWidget(),
                           );
                   },
