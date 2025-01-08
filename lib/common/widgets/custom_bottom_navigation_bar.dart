@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 * @since v0.0.1
 */
 class CustomBottomNavigationBar extends StatelessWidget {
-
   final int currentIndex;
   final Function(int) onTap;
 
@@ -16,28 +15,31 @@ class CustomBottomNavigationBar extends StatelessWidget {
     return BottomAppBar(
       shape: CircularNotchedRectangle(),
       notchMargin: 8.0,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          IconButton(
-            icon: Icon(
-              Icons.home,
-              color: currentIndex == 0
-                  ? Theme.of(context).primaryColor
-                  : Theme.of(context).iconTheme.color,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 6.0), // Reduz a altura
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              icon: Icon(
+                Icons.home,
+                color: currentIndex == 0
+                    ? Theme.of(context).primaryColor
+                    : Theme.of(context).iconTheme.color,
+              ),
+              onPressed: () => onTap(0),
             ),
-            onPressed: () => onTap(0),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.event_note,
-              color: currentIndex == 1
-                  ? Theme.of(context).primaryColor 
-                  : Theme.of(context).iconTheme.color,
+            IconButton(
+              icon: Icon(
+                Icons.event_note,
+                color: currentIndex == 1
+                    ? Theme.of(context).primaryColor
+                    : Theme.of(context).iconTheme.color,
+              ),
+              onPressed: () => onTap(1),
             ),
-            onPressed: () => onTap(1),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
