@@ -26,7 +26,7 @@ class EventController extends GetxController implements GetxService {
 
 	Event getEventById(eventId){
 
-		return _eventList.where((event) => event.id == eventId).toList();
+		return _eventList.firstWhere((event) => event.id == eventId);
 
 	}
 

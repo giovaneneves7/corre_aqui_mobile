@@ -77,7 +77,7 @@ class RouteHelper{
     GetPage(name: authGate, page: () => AuthGate()),
     GetPage(name: 
       eventDetails, 
-      page: () => EventDetailsScreen(eventId: int.parse(Get.parameters['event_id']!)),
+      page: () => EventDetailsScreen(eventId: Get.parameters['event_id']!),
     ),
     GetPage(name: forgotPassword, page: () => ForgotPasswordScreen()),
     GetPage(name: login, page: () => LoginScreen()),
@@ -90,7 +90,7 @@ class RouteHelper{
     ),
     GetPage(
       name: offerDetails, 
-      page: () => OfferDetailsScreen(offerId: Get.parameters['offer_id']!),
+      page: () => OfferDetailsScreen(offerId: int.parse(Get.parameters['offer_id']!)),
     ),
     GetPage(name: offerMap, page: () => OfferMapScreen()),
     GetPage(name: register, page: () => SigninScreen()),
