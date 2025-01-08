@@ -12,7 +12,7 @@ class NoDataFoundWidget extends StatelessWidget{
 		return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
            	child: const Text(
-                'Nada aqui por enquanto \'-\'',
+                'Nenhum dado foi encontrado \'-\'',
                 style: TextStyle(color: Colors.grey),
             ),
         );

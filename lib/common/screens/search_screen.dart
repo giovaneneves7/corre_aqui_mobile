@@ -1,3 +1,4 @@
+import 'package:corre_aqui/common/widgets/no_data_found_widget.dart';
 import 'package:corre_aqui/features/event/controllers/event_controller.dart';
 import 'package:corre_aqui/features/offer/controllers/offer_controller.dart';
 import 'package:corre_aqui/features/store/controllers/store_controller.dart';
@@ -12,6 +13,7 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderStateMixin {
+  
   late AnimationController _animationController;
   bool _isListening = false;
   String _searchQuery = "";
@@ -109,16 +111,22 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
               builder: (eventController) {
                 return GetBuilder<OfferController>(
                   builder: (offerController) {
+                    if (_searchQuery.isEmpty) {
+                      return const Center(
+                        child: Text("Digite algo para iniciar a busca."),
+                      );
+                    }
+
                     final searchResults = [
                       ...storeController.stores
                           .where((store) => store.name.toLowerCase().contains(_searchQuery))
-                          .map((store) => _buildSearchItem(store.name, "Loja")),
+                          .map((store) => _buildSearchItem(store.name, "Loja", store.imageUrl)),
                       ...eventController.eventList
                           .where((event) => event.name.toLowerCase().contains(_searchQuery))
-                          .map((event) => _buildSearchItem(event.name, "Evento")),
+                          .map((event) => _buildSearchItem(event.name, "Evento", event.imageUrl)),
                       ...offerController.offerList
                           .where((offer) => offer.name.toLowerCase().contains(_searchQuery))
-                          .map((offer) => _buildSearchItem(offer.name, "Oferta")),
+                          .map((offer) => _buildSearchItem(offer.name, "Oferta", offer.imageUrl)),
                     ];
 
                     return searchResults.isNotEmpty
@@ -126,10 +134,7 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
                             children: searchResults.toList(),
                           )
                         : const Center(
-                            child: Text(
-                              "Nenhum resultado encontrado.",
-                              style: TextStyle(color: Colors.grey),
-                            ),
+                            child: NoDataFoundWidget(),
                           );
                   },
                 );
@@ -141,8 +146,15 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
     );
   }
 
-  Widget _buildSearchItem(String title, String category) {
+  Widget _buildSearchItem(String title, String category, String imageUrl) {
     return ListTile(
+      leading: Image.network(
+        imageUrl,
+        width: 50,
+        height: 50,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) => const Icon(Icons.image, size: 50),
+      ),
       title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
       subtitle: Text(category, style: const TextStyle(color: Colors.grey)),
       trailing: const Icon(Icons.arrow_outward, size: 16),
@@ -151,4 +163,5 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
       },
     );
   }
+
 }
