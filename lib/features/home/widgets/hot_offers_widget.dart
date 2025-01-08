@@ -13,6 +13,9 @@ class HotOffersWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<OfferController>(
       builder: (offerController) {
+        if (offerController.hightDiscountOfferList.isEmpty) {
+          return Center(child: CircularProgressIndicator());
+        }
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

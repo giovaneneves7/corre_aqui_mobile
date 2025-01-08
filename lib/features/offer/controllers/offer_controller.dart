@@ -23,7 +23,6 @@ class OfferController extends GetxController implements GetxService {
 
 	  super.onInit();
 	  getOfferList();
-	  getOffersByHighestDiscount();
 
 	}
 
@@ -64,6 +63,7 @@ class OfferController extends GetxController implements GetxService {
 
 		try {
       		_offerList = await offerServiceInterface.getOfferList();
+      		getOffersByHighestDiscount();
       		update();
     	} catch (e) {
       		print('Erro ao buscar eventos: $e');
