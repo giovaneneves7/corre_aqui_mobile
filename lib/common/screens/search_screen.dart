@@ -148,7 +148,7 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
   }
 
   Widget _buildSearchItem(String title, String category, String imageUrl) {
-    return searchResultCardWidget(
+    return SearchResultCardWidget(
       imageUrl: imageUrl,
       title: title,
       category: category,
