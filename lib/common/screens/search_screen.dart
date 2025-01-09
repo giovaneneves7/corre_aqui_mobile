@@ -1,4 +1,5 @@
 import 'package:corre_aqui/common/widgets/no_data_found_widget.dart';
+import 'package:corre_aqui/common/widgets/components/search_result_card_widget.dart';
 import 'package:corre_aqui/features/event/controllers/event_controller.dart';
 import 'package:corre_aqui/features/offer/controllers/offer_controller.dart';
 import 'package:corre_aqui/features/store/controllers/store_controller.dart';
@@ -147,20 +148,10 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
   }
 
   Widget _buildSearchItem(String title, String category, String imageUrl) {
-    return ListTile(
-      leading: Image.network(
-        imageUrl,
-        width: 50,
-        height: 50,
-        fit: BoxFit.cover,
-        errorBuilder: (context, error, stackTrace) => const Icon(Icons.image, size: 50),
-      ),
-      title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-      subtitle: Text(category, style: const TextStyle(color: Colors.grey)),
-      trailing: const Icon(Icons.arrow_outward, size: 16),
-      onTap: () {
-        debugPrint('Item selecionado: $title');
-      },
+    return searchResultCardWidget(
+      imageUrl: imageUrl,
+      title: title,
+      category: category,
     );
   }
 

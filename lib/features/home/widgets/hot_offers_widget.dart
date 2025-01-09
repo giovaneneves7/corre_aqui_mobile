@@ -45,6 +45,9 @@ class HotOffersWidget extends StatelessWidget {
                 itemCount: offerController.hightDiscountOfferList.length,
                 itemBuilder: (context, index) {
                   final offer = offerController.hightDiscountOfferList[index];
+                  final discountPercentage = 
+                      ((offer.originalPrice - offer.offerPrice) / offer.originalPrice * 100).round();
+
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: SizedBox(
@@ -53,7 +56,29 @@ class HotOffersWidget extends StatelessWidget {
                         onTap: () {
                           Get.toNamed(RouteHelper.getOfferDetailsScreen(offerId: offer.id));
                         },
-                        child: OfferCardTemplate(offer: offer, isFromHome: true),
+                        child: Stack(
+                          children: [
+                            OfferCardTemplate(offer: offer, isFromHome: true),
+                            Positioned(
+                              top: 8,
+                              right: 8,
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                                decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Text(
+                                  "$discountPercentage% off",
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   );
