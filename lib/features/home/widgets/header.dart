@@ -16,10 +16,6 @@ class Header extends StatelessWidget{
 	                crossAxisAlignment: CrossAxisAlignment.start,
 	                children: const [
 	                    Text(
-	                        "Buscar no",
-	                        style: TextStyle(fontSize: 14, color: Colors.grey),
-	                    ),
-	                    Text(
 	                        "Corre Aqui!",
 	                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
 	                    ),
