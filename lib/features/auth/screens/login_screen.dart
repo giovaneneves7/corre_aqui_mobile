@@ -2,6 +2,7 @@ import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:corre_aqui/util/images.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gotrue/src/types/types.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -30,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> _signInWithGoogle() async {
     try {
-      await supabase.auth.signInWithOAuth('google');
+      await supabase.auth.signInWithOAuth(OAuthProvider.google);
     } catch (e) {
       Get.snackbar(
         'Erro',
