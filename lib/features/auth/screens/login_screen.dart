@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
       final event = data.event;
 
       if (event == AuthChangeEvent.signedIn) {
-        Get.toNamed(RouteHelper.HomeOfferScreen());
+        Get.toNamed(RouteHelper.getHomeOfferScreen());
       }
     });
   }
