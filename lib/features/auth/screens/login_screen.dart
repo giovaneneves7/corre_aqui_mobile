@@ -1,6 +1,8 @@
+import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:corre_aqui/util/images.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -8,7 +10,37 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  
+  final supabase = Supabase.instance.client;
+
+  @override
+  void initState() {
+    super.initState();
+    _setupAuthListener();
+  }
+
+  void _setupAuthListener() {
+    supabase.auth.onAuthStateChange.listen((data) {
+      final event = data.event;
+
+      if (event == AuthChangeEvent.signedIn) {
+        Get.toNamed(RouteHelper.HomeOfferScreen());
+      }
+    });
+  }
+
+  Future<void> _signInWithGoogle() async {
+    try {
+      await supabase.auth.signInWithProvider(Provider.google);
+    } catch (e) {
+      Get.snackbar(
+        'Erro',
+        'Não foi possível fazer login: $e',
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,9 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: SizedBox(
                       width: double.infinity,
                       child: ElevatedButton.icon(
-                        onPressed: () {
-                          // Implementação do login com o Google
-                        },
+                        onPressed: _signInWithGoogle,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
                           padding: const EdgeInsets.symmetric(vertical: 15),
@@ -86,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         icon: Image.asset(
-                          Images.googleIcon, 
+                          Images.googleIcon,
                           height: 24,
                           width: 24,
                         ),
@@ -109,5 +139,4 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-
 }
