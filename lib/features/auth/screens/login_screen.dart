@@ -30,7 +30,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> _signInWithGoogle() async {
     try {
-      await supabase.auth.signInWithProvider(Provider.google);
+      await supabase.auth.signInWithOAuth(
+        Provider.google, // Substitua por 'google' se necessário
+      );
     } catch (e) {
       Get.snackbar(
         'Erro',
