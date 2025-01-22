@@ -29,21 +29,6 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
-  Future<void> _signInWithGoogle() async {
-    try {
-      await supabase.auth.signInWithOAuth(OAuthProvider.google);
-    } catch (e) {
-      Get.snackbar(
-        'Erro',
-        'Não foi possível fazer login: $e',
-        backgroundColor: Colors.red,
-        colorText: Colors.white,
-      );
-    }
-  }
-
-
-
   Future<AuthResponse> _googleSignIn() async {
 
     /// Web Client ID that you registered with Google Cloud.
