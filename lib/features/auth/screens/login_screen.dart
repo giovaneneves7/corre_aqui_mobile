@@ -2,7 +2,7 @@ import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:corre_aqui/util/images.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gotrue/src/types/types.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
