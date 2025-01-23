@@ -48,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (accessToken == null) {
       Get.snackbar('Erro', 'Erro de access Token!');
-      throw 'accessToken not found!'
+      throw 'accessToken not found!';
     }
     if (idToken == null) {
       Get.snackbar('Erro', 'Erro de idToken!');
