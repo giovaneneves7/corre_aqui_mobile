@@ -129,7 +129,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: SizedBox(
                       width: double.infinity,
                       child: ElevatedButton.icon(
-                        onPressed: _googleSignIn,
+                        onPressed: () async {
+                          try {
+                            await _googleSignIn();
+                          } catch (e) {
+                            print('Erro ao fazer login: $e');
+                          }
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
                           padding: const EdgeInsets.symmetric(vertical: 15),
