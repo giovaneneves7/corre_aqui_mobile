@@ -23,10 +23,10 @@ class _LoginScreenState extends State<LoginScreen> {
     supabase.auth.onAuthStateChange.listen((data) {
       print('Evento de autenticação: ${data.event}');
       if (data.event == AuthChangeEvent.signedIn) {
-        Get.snackbar('Usuário autenticado, redirecionando...');
+        Get.snackbar('erro', 'Usuário autenticado, redirecionando...');
         Get.toNamed(RouteHelper.getHomeOfferScreen());
       } else {
-        Get.snackbar('Evento inesperado: ${data.event}');
+        Get.snackbar('erro', 'Evento inesperado: ${data.event}');
       }
     });
   }
