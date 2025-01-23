@@ -15,8 +15,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void initState() {
-    super.initState();
     _setupAuthListener();
+    super.initState();
   }
 
   void _setupAuthListener() {
@@ -31,10 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<AuthResponse> _googleSignIn() async {
 
-    /// Web Client ID that you registered with Google Cloud.
     const webClientId = '1050336190766-vajsqla3q2dt63k2326bglr8bstod8hg.apps.googleusercontent.com';
-
-    /// iOS Client ID that you registered with Google Cloud.
     const iosClientId = '1050336190766-k6024l6mluhvj1gein4fv04oe25jf4sd.apps.googleusercontent.com';
 
     // Google sign in on Android will work without providing the Android
@@ -50,9 +47,11 @@ class _LoginScreenState extends State<LoginScreen> {
     final idToken = googleAuth.idToken;
 
     if (accessToken == null) {
-      throw 'No Access Token found.';
+      Get.snackbar('Erro', 'Erro de access Token!');
+      throw 'accessToken not found!'
     }
     if (idToken == null) {
+      Get.snackbar('Erro', 'Erro de idToken!');
       throw 'No ID Token found.';
     }
 
