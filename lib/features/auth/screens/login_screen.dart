@@ -21,13 +21,16 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _setupAuthListener() {
     supabase.auth.onAuthStateChange.listen((data) {
-      final event = data.event;
-
-      if (event == AuthChangeEvent.signedIn) {
+      print('Evento de autenticação: ${data.event}');
+      if (data.event == AuthChangeEvent.signedIn) {
+        Get.snackbar('Usuário autenticado, redirecionando...');
         Get.toNamed(RouteHelper.getHomeOfferScreen());
+      } else {
+        Get.snackbar('Evento inesperado: ${data.event}');
       }
     });
   }
+
 
   Future<AuthResponse> _googleSignIn() async {
 
