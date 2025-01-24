@@ -1,142 +1,126 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:corre_aqui/features/auth/domain/services/auth_service.dart';
 import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:corre_aqui/util/images.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 /**
-* Tela de registro de usuários
-*
 * @author Giovane Neves
+* @since v0.0.1
 */
 class SigninScreen extends StatefulWidget {
-
   @override
   _SigninScreenState createState() => _SigninScreenState();
-  
 }
 
 class _SigninScreenState extends State<SigninScreen> {
-
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
-  bool _obscurePassword = true;
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Crie uma conta',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+      body: Stack(
+        children: [
+          // Imagem de fundo
+          Positioned.fill(
+            child: Image.asset(
+              Images.background,
+              fit: BoxFit.cover,
             ),
-            SizedBox(height: 8),
-            Text(
-              'Vamos criar sua conta.',
-              style: Theme.of(context).textTheme.bodyMedium,
+          ),
+
+          // Máscara para escurecer a imagem
+          Positioned.fill(
+            child: Container(
+              color: Colors.black.withOpacity(0.5),
             ),
-            SizedBox(height: 24),
-            TextField(
-              controller: _nameController,
-              decoration: InputDecoration(
-                labelText: 'Nome completo',
-                hintText: 'Digite seu nome completo',
-              ),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              controller: _emailController,
-              decoration: InputDecoration(
-                labelText: 'Email',
-                hintText: 'Digite seu endereço de e-mail',
-              ),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              controller: _phoneController,
-              decoration: InputDecoration(
-                labelText: 'Telefone',
-                hintText: 'Digite seu número de telefone',
-              ),
-            ),
-            SizedBox(height: 16),
-            TextField(
-              controller: _passwordController,
-              obscureText: _obscurePassword,
-              decoration: InputDecoration(
-                labelText: 'Senha',
-                hintText: 'Digite sua senha',
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    _obscurePassword
-                        ? Icons.visibility_off
-                        : Icons.visibility,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      _obscurePassword = !_obscurePassword;
-                    });
-                  },
-                ),
-              ),
-            ),
-            SizedBox(height: 8),
-            Text(
-              'Ao se inscrever, você concorda com nossos Termos e Política de Privacidade.',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () {
-                // TODO: Adicionar lógica para registrar o usuário
-              },
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(double.infinity, 50),
-              ),
-              child: Text('Crie uma Conta'),
-            ),
-            SizedBox(height: 24),
-            Center(
-              child: RichText(
-                text: TextSpan(
-                  text: 'Já tem uma conta? ',
-                  style: TextStyle(color: Theme.of(context).textTheme.bodyLarge?.color),
-                  children: [
-                    TextSpan(
-                      text: 'Log In',
-                      style: TextStyle(color: Theme.of(context).primaryColor),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          Get.toNamed(RouteHelper.getLoginScreen());
-                        },
+          ),
+
+          // Conteúdo principal
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  // Logo no canto superior direito
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Image.asset(
+                      Images.logo,
+                      width: 80,
+                      height: 80,
                     ),
-                  ],
-                ),
+                  ),
+                  const Spacer(),
+
+                  // Textos centralizados
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: const [
+                      Text(
+                        'Seja Rápido',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        'Economize Mais',
+                        style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 40),
+
+                  // Botão "Login com Google"
+                  Center(
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton.icon(
+                        onPressed: () async {
+                          
+                          final res = AuthService.googleSignIn();
+
+                          if(res.user != null){
+                            Get.showSnackBar('Info', 'Conta criada com sucesso');
+                          }
+
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(vertical: 15),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        icon: Image.asset(
+                          Images.googleIcon,
+                          height: 24,
+                          width: 24,
+                        ),
+                        label: const Text(
+                          'Continuar com o Google',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Spacer(),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _nameController.dispose();
-    _emailController.dispose();
-    _phoneController.dispose();
-    _passwordController.dispose();
-    super.dispose();
   }
 }
