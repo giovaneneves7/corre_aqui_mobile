@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
       locale: const Locale('pt', 'BR'), 
       fallbackLocale: const Locale('en', 'US'),
       translations: AppTranslations(),
-      home: SigninScreen(), 
+      home: PostSplashScreen(), 
     );
   }
 
