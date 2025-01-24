@@ -85,10 +85,10 @@ class _SigninScreenState extends State<SigninScreen> {
                       child: ElevatedButton.icon(
                         onPressed: () async {
                           
-                          final res = AuthService.googleSignIn();
+                          final res = await AuthService.googleSignIn();
 
                           if(res.user != null){
-                            Get.showSnackBar('Info', 'Conta criada com sucesso');
+                            Get.snackbar('Info', 'Conta criada com sucesso');
                           }
 
                         },
