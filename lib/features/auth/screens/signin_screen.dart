@@ -90,6 +90,8 @@ class _SigninScreenState extends State<SigninScreen> {
 
                           if(res.user != null){
                             Get.snackbar('Info', 'Conta criada com sucesso');
+                          } else {
+                            Get.snackbar('Info', 'Usuário é nulo');
                           }
 
                         },
