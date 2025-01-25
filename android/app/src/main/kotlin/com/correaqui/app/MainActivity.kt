@@ -1,4 +1,4 @@
-package com.example.corre_aqui_app
+package com.correaqui.app
 
 import io.flutter.embedding.android.FlutterActivity
 
