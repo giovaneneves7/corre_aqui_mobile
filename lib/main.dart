@@ -4,7 +4,7 @@ import 'src/app.dart';
 import 'src/settings/settings_controller.dart';
 import 'src/settings/settings_service.dart';
 import 'package:corre_aqui/features/auth/screens/signin_screen.dart';
-import 'package:corre_aqui/features/home/screens/home_offer_screen.dart';
+import 'package:corre_aqui/features/home/screens/home_screen.dart';
 import 'package:corre_aqui/features/splash/screens/post_splash_screen.dart';
 import 'package:corre_aqui/theme/custom_theme.dart';
 import 'package:corre_aqui/helper/route_helper.dart';
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
       locale: const Locale('pt', 'BR'), 
       fallbackLocale: const Locale('en', 'US'),
       translations: AppTranslations(),
-      home: HomeOfferScreen(), 
+      home: HomeScreen(), 
     );
   }
 
