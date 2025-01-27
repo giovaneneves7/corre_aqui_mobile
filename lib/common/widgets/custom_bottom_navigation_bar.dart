@@ -36,7 +36,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             IconButton(
               icon: Icon(
                 Icons.favorite,
-                color: currentIndex == 0 
+                color: currentIndex == 1
                   ? Theme.of(context).primaryColor 
                   : Theme.of(context).iconTheme.color,
               ),
@@ -46,7 +46,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             IconButton(
               icon: Icon(
                 Icons.event_note,
-                color: currentIndex == 1
+                color: currentIndex == 2
                     ? Theme.of(context).primaryColor
                     : Theme.of(context).iconTheme.color,
               ),
@@ -56,7 +56,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             IconButton(
               icon: Icon(
                 Icons.person,
-                color: currentIndex == 1
+                color: currentIndex == 3
                     ? Theme.of(context).primaryColor
                     : Theme.of(context).iconTheme.color,
               ),
