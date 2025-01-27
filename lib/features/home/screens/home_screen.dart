@@ -4,7 +4,6 @@ import 'package:corre_aqui/features/favorite/screens/favorite_screen.dart';
 import 'package:corre_aqui/features/home/screens/home_offer_screen.dart';
 import 'package:corre_aqui/features/home/widgets/components/offer_map_button.dart';
 import 'package:corre_aqui/features/profile/screens/profile_screen.dart';
-import 'package:corre_aqui/features/settings/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 
 /**

@@ -84,18 +84,18 @@ class _OfferDetailsScreenState extends State<OfferDetailsScreen> {
                           radius: 30,
                         ),
                         const SizedBox(width: 12),
-                        ElevatedButton(
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed(RouteHelper.getStoreDetailsScreen(storeId: store.id));
+                          },
                           child: Text(
                             store.name,
-                            style: const TextStyle(fontSize: 18),
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                          onPressed: () {
-
-                            Get.toNamed(RouteHelper.getStoreDetailsScreen(storeId: store.id));
-
-                          } 
                         ),
-                        
                       ],
                     ),
                     const Spacer(),

@@ -42,7 +42,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
               ),
               onPressed: () => onTap(1)
             ),
-            Spacer(),
             // Event
             IconButton(
               icon: Icon(
