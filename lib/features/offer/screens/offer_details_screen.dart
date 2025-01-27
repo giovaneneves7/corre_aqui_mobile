@@ -3,6 +3,7 @@ import 'package:corre_aqui/features/offer/controllers/offer_controller.dart';
 import 'package:corre_aqui/features/offer/domain/models/offer.dart';
 import 'package:corre_aqui/features/store/controllers/store_controller.dart';
 import 'package:corre_aqui/features/store/domain/models/store.dart';
+import 'package:corre_aqui/helper/route_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -83,10 +84,18 @@ class _OfferDetailsScreenState extends State<OfferDetailsScreen> {
                           radius: 30,
                         ),
                         const SizedBox(width: 12),
-                        Text(
-                          store.name,
-                          style: const TextStyle(fontSize: 18),
+                        ElevatedButton(
+                          child: Text(
+                            store.name,
+                            style: const TextStyle(fontSize: 18),
+                          ),
+                          onPressed: () {
+
+                            Get.toNamed(RouteHelper.getStoreDetailsScreen(storeId: store.id));
+
+                          } 
                         ),
+                        
                       ],
                     ),
                     const Spacer(),
