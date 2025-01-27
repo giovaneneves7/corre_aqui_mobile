@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 * @since v0.0.1
 */
 class CustomBottomNavigationBar extends StatelessWidget {
-  final int currentIndex = 0;
+  final int currentIndex;
   final Function(int) onTap;
 
   CustomBottomNavigationBar({required this.currentIndex, required this.onTap});
@@ -20,7 +20,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-          
+
             // Home Icon
             IconButton(
               icon: Icon(
