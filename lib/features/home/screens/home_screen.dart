@@ -1,7 +1,10 @@
 import 'package:corre_aqui/common/widgets/custom_bottom_navigation_bar.dart';
 import 'package:corre_aqui/features/event/screens/event_screen.dart';
+import 'package:corre_aqui/features/favorite/screens/favorite_screen.dart';
 import 'package:corre_aqui/features/home/screens/home_offer_screen.dart';
 import 'package:corre_aqui/features/home/widgets/components/offer_map_button.dart';
+import 'package:corre_aqui/features/profile/screens/profile_screen.dart';
+import 'package:corre_aqui/features/settings/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 
 /**
@@ -17,7 +20,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _screens = [
     HomeOfferScreen(),
-    EventScreen()
+    FavoriteScreen(),
+    EventScreen(),
+    ProfileScreen(),
   ];
 
   int _selectedIndex = 0;

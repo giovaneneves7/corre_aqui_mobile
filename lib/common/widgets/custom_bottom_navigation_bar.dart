@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 * @since v0.0.1
 */
 class CustomBottomNavigationBar extends StatelessWidget {
-  final int currentIndex;
+  final int currentIndex = 0;
   final Function(int) onTap;
 
   CustomBottomNavigationBar({required this.currentIndex, required this.onTap});
@@ -20,6 +20,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+          
+            // Home Icon
             IconButton(
               icon: Icon(
                 Icons.home,
@@ -29,6 +31,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
               ),
               onPressed: () => onTap(0),
             ),
+
+            // Favorite Icon
             IconButton(
               icon: Icon(
                 Icons.favorite,
@@ -38,6 +42,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
               ),
               onPressed: () => onTap(1)
             ),
+            Spacer(),
+            // Event
             IconButton(
               icon: Icon(
                 Icons.event_note,
@@ -57,16 +63,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
               ),
               onPressed: () => onTap(3),
             ),
-            // Settings Button
-            IconButton(
-              icon: Icon(
-                Icons.settings,
-                color: currentIndex == 1
-                  ? Theme.of(context).primaryColor
-                  : Theme.of(context).iconTheme.color,
-              ),
-              onPressed: () => onTap(4),
-            ),
+            
           ],
         ),
       ),
