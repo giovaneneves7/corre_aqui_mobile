@@ -31,12 +31,41 @@ class CustomBottomNavigationBar extends StatelessWidget {
             ),
             IconButton(
               icon: Icon(
+                Icons.favorite,
+                color: currentIndex == 0 
+                  ? Theme.of(context).primaryColor 
+                  : Theme.of(context).iconTheme.color,
+              ),
+              onPressed: () => onTap(1)
+            ),
+            IconButton(
+              icon: Icon(
                 Icons.event_note,
                 color: currentIndex == 1
                     ? Theme.of(context).primaryColor
                     : Theme.of(context).iconTheme.color,
               ),
-              onPressed: () => onTap(1),
+              onPressed: () => onTap(2),
+            ),
+            // Profile Button
+            IconButton(
+              icon: Icon(
+                Icons.person,
+                color: currentIndex == 1
+                    ? Theme.of(context).primaryColor
+                    : Theme.of(context).iconTheme.color,
+              ),
+              onPressed: () => onTap(3),
+            ),
+            // Settings Button
+            IconButton(
+              icon: Icon(
+                Icons.settings,
+                color: currentIndex == 1
+                  ? Theme.of(context).primaryColor
+                  : Theme.of(context).iconTheme.color,
+              ),
+              onPressed: () => onTap(4),
             ),
           ],
         ),
